@@ -83,23 +83,23 @@
 |           |           |
 | ------------- | ------------- |
 **Name:**            | Lookup submitted help request 
-**Actor:**           | Some  
-**Description:**     | Some
-**Precondition(s):** | <ul><li>Some</li><li>Some</li></ul>
-**Scenario:**        | <ol><li>Step1</li><li>Step2</li><li>Step3</li><li>Step 4<br></ol>  
-**Result:**          | Result.  
-**Exception:**       | <ul><li>Exeption1</li><li>Exception 2</li></ul>
+**Actor:**           | User  
+**Description:**     | A user looks up their submitted help requests
+**Precondition(s):** | <ul><li>User is logged in</li><li>User has submitted help requests</li></ul>
+**Scenario:**        | <ol><li>User opens navigation</li><li>System shows filtered navigation depending on expertise</li><li>User taps on their help requests</li><li>System shows users submitted help requests in a list<br></ol>  
+**Result:**          | User can see their submitted help requests 
+**Exception:**       | <ul><li>No exceptions</li></ul>
 <br><br>
 
 |           |           |
 | ------------- | ------------- |
 **Name:**            | Lookup helped with request 
-**Actor:**           | Some  
-**Description:**     | Some
-**Precondition(s):** | <ul><li>Some</li><li>Some</li></ul>
-**Scenario:**        | <ol><li>Step1</li><li>Step2</li><li>Step3</li><li>Step 4<br></ol>  
-**Result:**          | Result.  
-**Exception:**       | <ul><li>Exeption1</li><li>Exception 2</li></ul>
+**Actor:**           | User  
+**Description:**     | A user looks up their requests their helped with
+**Precondition(s):** | <ul><li>User is logged in</li><li>User is an expert</li><li>User has helped with a request before</li></ul>
+**Scenario:**        | <ol><li>User opens navigation</li><li>System shows filtered navigation depending on expertise</li><li>User taps on their helped with requests</li><li>System shows users the requests they helped with in a list<br></ol>  
+**Result:**          | User can see their helped with requests 
+**Exception:**       | <ul><li>No exceptions</li></ul>
 <br><br>
 
 
