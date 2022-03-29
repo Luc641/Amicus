@@ -59,12 +59,12 @@
 |           |           |
 | ------------- | ------------- |
 **Name:**            | Choose and Accept request 
-**Actor:**           | Some  
-**Description:**     | Some
-**Precondition(s):** | <ul><li>Some</li><li>Some</li></ul>
-**Scenario:**        | <ol><li>Step1</li><li>Step2</li><li>Step3</li><li>Step 4<br></ol>  
-**Result:**          | Result.  
-**Exception:**       | <ul><li>Exeption1</li><li>Exception 2</li></ul>
+**Actor:**           | Expert  
+**Description:**     | An expert chooses an optimal request he can provide help for
+**Precondition(s):** | <ul><li>User has submitted a help request</li></ul>
+**Scenario:**        | <ol><li>Expert opens the request page</li><li>System displays the request subimtted to the expert.</li><li>Expert chooses a fitting help request</li><li>System displays the details of the request<li>Expert accepts the request</li><br></ol>  
+**Result:**          | Expert chose a fitting request that he will provide optimal help for.  
+**Exception:**       | <ul><li>Exception 1: No request has been submitted</li><li> Exception 2: The Expert denies the request</li></ul>
 <br><br>
 
 
