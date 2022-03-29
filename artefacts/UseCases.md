@@ -47,12 +47,12 @@
 |           |           |
 | ------------- | ------------- |
 **Name:**            | Submit a help request (—> provide map information)
-**Actor:**           | Some  
-**Description:**     | Some
-**Precondition(s):** | <ul><li>Some</li><li>Some</li></ul>
-**Scenario:**        | <ol><li>Step1</li><li>Step2</li><li>Step3</li><li>Step 4<br></ol>  
-**Result:**          | Result.  
-**Exception:**       | <ul><li>Exeption1</li><li>Exception 2</li></ul>
+**Actor:**           | User  
+**Description:**     | User wants to submit a help request
+**Precondition(s):** | <ul><li>User has loged into the system</li></ul>
+**Scenario:**        | <ol><li>User opens a new help request</li><li>System shows an empty submit request window</li><li>User enters the following information: </br>- Request title </br>- Picture </br>- Description </br>- Catogory </li><li>User chooses to submit the request<li>System proccesses the request and saves it to the database</li><br></ol>  
+**Result:**          | User has commited a help request.  
+**Exception:**       | <ul><li>5. Not all fields have been filled out correctly</li><li>5.1 Return to step 3</li></ul>
 <br><br>
 
 |           |           |
