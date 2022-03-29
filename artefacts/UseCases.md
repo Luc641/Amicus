@@ -62,9 +62,9 @@
 **Actor:**           | Expert  
 **Description:**     | An expert chooses an optimal request he can provide help for
 **Precondition(s):** | <ul><li>User has submitted a help request</li></ul>
-**Scenario:**        | <ol><li>Expert opens the request page</li><li>System displays the request subimtted to the expert.</li><li>Expert chooses a fitting help request</li><li>System displays the details of the request<li>Expert accepts the request</li><br></ol>  
+**Scenario:**        | <ol><li>Expert opens the request page</li><li>System displays the request submitted to the expert.</li><li>Expert chooses a fitting help request</li><li>System displays the details of the request<li>Expert accepts the request</li><br></ol>  
 **Result:**          | Expert chose a fitting request that he will provide optimal help for.  
-**Exception:**       | <ul><li>Exception 1: No request has been submitted</li><li> Exception 2: The Expert denies the request</li></ul>
+**Exception:**       | <ul><li>Exception 2.1: No request has been submitted</li><li> Exception 5.1: The Expert denies the request</li></ul>
 <br><br>
 
 
