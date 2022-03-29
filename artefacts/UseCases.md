@@ -46,13 +46,14 @@
 
 |           |           |
 | ------------- | ------------- |
-**Name:**            | Submit a help request (—> provide map information)
+**Name:**            | Submit a help request 
 **Actor:**           | User  
 **Description:**     | User wants to submit a help request
 **Precondition(s):** | <ul><li>User has loged into the system</li></ul>
 **Scenario:**        | <ol><li>User opens a new help request</li><li>System shows an empty submit request window</li><li>User enters the following information: </br>- Request title </br>- Picture </br>- Description </br>- Catogory </li><li>User chooses to submit the request<li>System proccesses the request and saves it to the database</li><br></ol>  
 **Result:**          | User has commited a help request.  
 **Exception:**       | <ul><li>5. Not all fields have been filled out correctly</li><li>5.1 Return to step 3</li></ul>
+**Extension:**       | <ul><li>3. User adds his address information</li></ul>
 <br><br>
 
 |           |           |
