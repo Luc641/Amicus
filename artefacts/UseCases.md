@@ -95,7 +95,7 @@
 | ------------- | ------------- |
 **Name:**            | Lookup helped with request 
 **Actor:**           | User  
-**Description:**     | A user looks up their requests their helped with
+**Description:**     | A user looks up their requests that they helped with
 **Precondition(s):** | <ul><li>User is logged in</li><li>User is an expert</li><li>User has helped with a request before</li></ul>
 **Scenario:**        | <ol><li>User opens navigation</li><li>System shows filtered navigation depending on expertise</li><li>User taps on their helped with requests</li><li>System shows users the requests they helped with in a list<br></ol>  
 **Result:**          | User can see their helped with requests 
