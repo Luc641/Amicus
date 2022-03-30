@@ -23,3 +23,11 @@ As an expert I want to be able to request for more details when providing help t
 As an user or expertise I want to be able to exchange information with other users, so that I can be helped in a better way.
 
 As an user I want to be able to review the helped received, so that other users have an insight of the expert.
+
+## Lookup submitted help request
+
+As a user I want to be able to see the help requests I have previously submitted so that I can view my conversation with an expert.
+
+## Lookup helped with request
+
+As an expert I want to be able to see the help requests I have previously helped with so that I can look up a solution if there is a similar help request.
