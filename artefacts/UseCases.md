@@ -25,23 +25,23 @@
 |           |           |
 | ------------- | ------------- |
 **Name:**            | Edit user information 
-**Actor:**           | Some  
-**Description:**     | Some
-**Precondition(s):** | <ul><li>Some</li><li>Some</li></ul>
-**Scenario:**        | <ol><li>Step1</li><li>Step2</li><li>Step3</li><li>Step 4<br></ol>  
-**Result:**          | Result.  
-**Exception:**       | <ul><li>Exeption1</li><li>Exception 2</li></ul>
+**Actor:**           | User  
+**Description:**     | A user edits his/her account
+**Precondition(s):** | <ul><li>The user is logged in</li></ul>
+**Scenario:**        | <ol><li>Go to profile page</li><li>System shows the profile page</li><li>User can edit different information (email, password, username, birthdate, profile picture)</li><li>System verifies the new input</li><li>User submits the changes</li><li>System updates the informations with the new ones</li><br></ol>  
+**Result:**          | User can edit the information  
+**Exception:**       | <ul><li>3. The fields are not filled out correctly</li><li>3.1 Return to step 3</li></ul>
 <br><br>
 
 |           |           |
 | ------------- | ------------- |
 **Name:**            | Edit expert categories  
-**Actor:**           | Some  
-**Description:**     | Some
-**Precondition(s):** | <ul><li>Some</li><li>Some</li></ul>
-**Scenario:**        | <ol><li>Step1</li><li>Step2</li><li>Step3</li><li>Step 4<br></ol>  
-**Result:**          | Result.  
-**Exception:**       | <ul><li>Exeption1</li><li>Exception 2</li></ul>
+**Actor:**           | User, Expert  
+**Description:**     | A user can edit the categories
+**Precondition(s):** | <ul><li>The user is logged in</li></ul>
+**Scenario:**        | <ol><li>User goes to profile page</li><li>System shows the profile page</li><li>User can add a new category and a picture with the diploma</li><li>System saves the data and waits for validation</li><br></ol>  
+**Result:**          | User can add a new cateogry  
+**Exception:**       | <ul><li>4. The data is not valid</li><li>4.1 Return to step 3</li></ul>
 <br><br>
 
 |           |           |
