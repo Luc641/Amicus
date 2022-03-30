@@ -31,3 +31,13 @@ As a user I want to be able to see the help requests I have previously submitted
 ## Lookup helped with request
 
 As an expert I want to be able to see the help requests I have previously helped with so that I can look up a solution if there is a similar help request.
+
+## Edit user information
+
+As a user, I want to be able to edit my information, so I can ensure the consistency of the account information.
+
+## Edit expert categories
+
+As a user, I want to be able to add a category that I have knowledge in, so I can be an expert and help people out.
+
+As an expert, I want to be able to leave a category, so I can stop providing help to the users.
