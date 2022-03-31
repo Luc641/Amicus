@@ -39,9 +39,10 @@
 **Actor:**           | User, Expert  
 **Description:**     | A user can edit the categories
 **Precondition(s):** | <ul><li>The user is logged in</li></ul>
-**Scenario:**        | <ol><li>User goes to profile page</li><li>System shows the profile page</li><li>User can add a new category and a picture with the diploma</li><li>System saves the data and waits for validation</li><br></ol>  
+**Scenario:**        | <ol><li>User goes to profile page</li><li>System shows the profile page</li><li>User can add a new category and a picture with the diploma</li><li>System validates the data and saves it</li><br></ol>  
 **Result:**          | User can add a new cateogry  
 **Exception:**       | <ul><li>4. The data is not valid</li><li>4.1 Return to step 3</li></ul>
+**Extension:**       | <ul><li>3. User selects the option to leave a category</li></ul>
 <br><br>
 
 |           |           |
