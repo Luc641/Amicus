@@ -50,7 +50,7 @@
 **Actor:**           | User  
 **Description:**     | User wants to submit a help request
 **Precondition(s):** | <ul><li>User has loged into the system</li></ul>
-**Scenario:**        | <ol><li>User opens a new help request</li><li>System shows an empty submit request window</li><li>User enters the following information: </br>- Request title </br>- Picture </br>- Description </br>- Catogory </li><li>User chooses to submit the request<li>System proccesses the request and saves it to the database</li><br></ol>  
+**Scenario:**        | <ol><li>User opens a new help request</li><li>System shows an empty submit request window</li><li>User enters the following information: </br>- Request title </br>- Picture </br>- Description </br>- Category </li><li>User chooses to submit the request<li>System proccesses the request and saves it to the database</li><br></ol>  
 **Result:**          | User has commited a help request.  
 **Exception:**       | <ul><li>5. Not all fields have been filled out correctly</li><li>5.1 Return to step 3</li></ul>
 **Extension:**       | <ul><li>3. User adds his address information</li></ul>
@@ -82,7 +82,7 @@
 
 |           |           |
 | ------------- | ------------- |
-**Name:**            | Lookup submitted help request 
+**Name:**            | Look up requester history
 **Actor:**           | User  
 **Description:**     | A user looks up their submitted help requests
 **Precondition(s):** | <ul><li>User is logged in</li><li>User has submitted help requests</li></ul>
@@ -93,9 +93,9 @@
 
 |           |           |
 | ------------- | ------------- |
-**Name:**            | Lookup helped with request 
+**Name:**            | Look up expert history
 **Actor:**           | User  
-**Description:**     | A user looks up their requests that they helped with
+**Description:**     | A user looks up requests that they helped with
 **Precondition(s):** | <ul><li>User is logged in</li><li>User is an expert</li><li>User has helped with a request before</li></ul>
 **Scenario:**        | <ol><li>User opens navigation</li><li>System shows filtered navigation depending on expertise</li><li>User taps on their helped with requests</li><li>System shows users the requests they helped with in a list<br></ol>  
 **Result:**          | User can see their helped with requests 
