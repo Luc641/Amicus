@@ -17,7 +17,7 @@
 **Actor:**           | User  
 **Description:**     | A user logs into an Amicus app account
 **Precondition(s):** | <ul><li>An existing Amicus app account</li></ul>
-**Scenario:**        | <ol><li>User enters username and password</li><li>System verifies credentials</li><li>Step3</li><ul><li>If the account credentnials match, continue</li><li>Otherwise throw Exception 1</li></ul></ol>  
+**Scenario:**        | <ol><li>User enters username and password</li><li>System verifies credentials</li><ul><li>If the account credentnials match, continue</li><li>Otherwise throw Exception 1</li></ul></ol>  
 **Result:**          | User is logged in or needs to re-enter their credentials after an exception was thrown
 **Exception:**       | <ul><li>Exeption 1: Invalid credentials</li></ul>
 <br><br>
