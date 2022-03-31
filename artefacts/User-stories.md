@@ -18,9 +18,7 @@ As a user I want to submit a help request, so that I can recieve help from exper
 ## Provide help
 As an expert I want to be able to provide help to other users, so that they can solve any problem that they could have related to my field of expertise.
 
-As an expert I want to be able to request for more details when providing help to other users, so that I can get a more clear picture of the actual problem.
-
-As an user or expertise I want to be able to exchange information with other users, so that I can be helped in a better way.
+As an user I want to be able to exchange information with other users, so that I can be helped or help in a better way.
 
 As an user I want to be able to review the helped received, so that other users have an insight of the expert.
 
