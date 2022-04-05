@@ -63,9 +63,9 @@
 **Actor:**           | Expert  
 **Description:**     | An expert chooses an optimal request he can provide help for
 **Precondition(s):** | <ul><li>User has submitted a help request</li></ul>
-**Scenario:**        | <ol><li>Expert opens the request page</li><li>System displays the request submitted to the expert.</li><li>Expert chooses a fitting help request</li><li>System displays the details of the request<li>Expert accepts the request</li><br></ol>  
+**Scenario:**        | <ol><li>Expert opens the request page</li><li>System displays the request submitted to the expert category</li><li>Expert chooses a fitting help request</li><li>System displays the details of the request<li>Expert accepts the request</li><br></ol>  
 **Result:**          | Expert chose a fitting request that he will provide optimal help for.  
-**Exception:**       | <ul><li>Exception 2.1: No request has been submitted</li><li> Exception 5.1: The Expert denies the request</li></ul>
+**Exception:**       | <ul><li>Exception 2.1: No request has been submitted</li><li> Exception 5.1: The Expert denies/ignores the request</li></ul>
 <br><br>
 
 
@@ -75,7 +75,7 @@
 **Actor:**           | User (Expert & Basic User)  
 **Description:**     | Expert helps the user with the help request
 **Precondition(s):** | <ul><li>Both users are logged in</li><li>Expert has accepted a help request</li></ul>
-**Scenario:**        | <ol><li>Expert chooses to open the accepted help request</li><li>System displays a chat room with options to share information with the user requesting help</li><li>Expertise provides help to user</li><li>System notifies user that help have been provided</li><li>System displays a chat room with options to share information with the user requesting help</li><li>User reads message and closes help request</li><li>System closes help request and give both users the option to give a review</li><li>Users give a review</li><li>System fully closes the help request</li><br></ol>  
+**Scenario:**        | <ol><li>Expert chooses to open the accepted help request</li><li>System displays a chat room with options to share information with the user requesting help</li><li>Expertise provides help to user</li><li>System notifies user that help have been provided</li><li>System displays a chat room with options to share information with the user requesting help</li><li>User reads message and closes help request</li><li>System closes help request and gives the user the option to give a review</li><li>Users give a review</li><li>System fully closes the help request</li><br></ol>  
 **Result:**          | User help request has been solved by the Expertise.
 **Extension:**       | <ul><li>3.a. Expertise requests more information from user</li><li>4. System notifies user about the message income</li><li>5. User provides Expertise with more information (pictures, location, ...)</li><li>6. System notifies expertise about the message income</li><li>7. Go to step 3.</li></ul>
 **Exception:**       | <ul><li>3.a. Expertise can help the user and rejects help request</li><li>4. System deletes chat room and leaves help request open</li></ul>
