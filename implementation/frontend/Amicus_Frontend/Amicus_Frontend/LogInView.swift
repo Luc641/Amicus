@@ -1,15 +1,13 @@
 //
-//  RegistrationView.swift
+//  LogInView.swift
 //  Amicus_Frontend
 //
-//  Created by Carl Rix on 19.04.22.
+//  Created by Matei Grosu on 26/04/2022.
 //
 
 import SwiftUI
 
-let coloredNavAppearance = UINavigationBarAppearance()
-
-struct RegistrationView: View {
+struct LogInView: View {
     
     //changes the backgroundcolor of the top navigation bar
     init() {
@@ -23,66 +21,40 @@ struct RegistrationView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @State private var homeScreen = false
     
-    @State private var firstname: String = ""
-    @State private var lastname: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
-    @State private var passwordConfirm: String = ""
     
     var body: some View {
         NavigationView {
             Color("Amicus1").ignoresSafeArea().overlay(
             VStack(alignment: .leading) {
                 Group {
-                    Text("First Name").foregroundColor(Color("Amicus1"))
-                    TextField("First Name", text: $firstname, prompt: Text("Required"))
-                        .textFieldStyle(OvalTextFieldStyle())
-                        .foregroundColor(.red)
-                    
-                    Text("Last Name").foregroundColor(Color("Amicus1"))
-                    TextField("Last Name", text: $lastname, prompt: Text("Required").foregroundColor(Color("Amicus1")))
-                        .textFieldStyle(OvalTextFieldStyle())
-                    
-                    Text("Email").foregroundColor(Color("Amicus1"))
-                    TextField("Email", text: $email, prompt: Text("Required").foregroundColor(Color("Amicus1")))
+                    Text("Email/Username").foregroundColor(Color("Amicus1"))
+                    TextField("Email", text: $email, prompt: Text("example@web.com").foregroundColor(Color("Amicus1")))
                         .textFieldStyle(OvalTextFieldStyle())
                     
                     Text("Password").foregroundColor(Color("Amicus1"))
                     TextField("Password", text: $password, prompt: Text("Required").foregroundColor(Color("Amicus1")))
                         .textFieldStyle(OvalTextFieldStyle())
-                    
-                    Text("Confirm Password").foregroundColor(Color("Amicus1"))
-                    TextField("Confirm Password", text: $passwordConfirm, prompt: Text("Required").foregroundColor(Color("Amicus1")))
-                        .textFieldStyle(OvalTextFieldStyle())
-                }
-                Group {
-                    Text("Do you want to add additional information such as a profile picture and more?")
-                        .foregroundColor(Color("Amicus1"))
-                    
-                    NavigationLink(destination: HomepageView()){
-                        Text("Click here")
-                    }.foregroundColor(Color("Amicus1"))
-                    
                     NavigationLink(destination: HomepageView()) {
-                        Button("Register"){
+                        Button("Log-In"){
                             
                         }.padding().buttonStyle(RegisterButton(background: Color("Amicus4")))
+                            
                     }
                 }
                 .frame(alignment: .center)
-                //.padding(.horizontal, 100.0)
-                //.padding(.top, 10.0)
             }
-            
             .padding()
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 //Title
                 ToolbarItem(placement: .principal) {
-                    Text("Register")
+                    Text("Log-In")
                         .font(.title.bold())
                         .foregroundColor(Color("Amicus1"))
                     .accessibilityAddTraits(.isHeader)}
+                
                 //Home button and link to homepage
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
@@ -106,8 +78,8 @@ struct RegistrationView: View {
     }
 }
 
-struct RegistrationView_Previews: PreviewProvider {
+struct LogInView_Previews: PreviewProvider {
     static var previews: some View {
-        RegistrationView()
+        LogInView()
     }
 }

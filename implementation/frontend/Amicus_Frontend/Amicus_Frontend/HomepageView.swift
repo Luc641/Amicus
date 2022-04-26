@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomepageView: View {
     @State private var registerScreen =  false
+    @State private var loginScreen = false
     
     var body: some View {
         VStack {
@@ -19,7 +20,7 @@ struct HomepageView: View {
             
             VStack{
                 Button("Register here") {
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/registerScreen.toggle()
+                    registerScreen.toggle()
                 }.buttonStyle(RegisterButton(background: Color("Amicus3")))
                     .padding(.top)
                 
@@ -32,7 +33,7 @@ struct HomepageView: View {
                     .multilineTextAlignment(.center)
                     .padding()
                 Button("Log in") {
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                    loginScreen.toggle()
                 }.buttonStyle(RegisterButton(background: Color("Amicus3")))
                     .padding(.bottom, 50.0)
             }.padding(.horizontal, 90.0)
@@ -48,6 +49,7 @@ struct HomepageView: View {
         }
         .padding(.all, -50.0)
         .navigate(to: RegistrationView(), when: $registerScreen)
+        .navigate(to: LogInView(), when: $loginScreen)
     }
     
     struct HomepageView_Previews: PreviewProvider {
