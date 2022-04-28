@@ -16,10 +16,10 @@ export class Media extends Entity {
   id?: number;
 
   @property({
-    type: 'string',
+    type: 'buffer',
     required: true,
   })
-  savePath: string;
+  data: Buffer;
 
   @property({
     type: 'string',

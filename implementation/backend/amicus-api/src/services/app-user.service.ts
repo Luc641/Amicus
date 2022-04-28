@@ -3,7 +3,7 @@ import {repository} from '@loopback/repository';
 import {HttpErrors} from '@loopback/rest';
 import {securityId, UserProfile} from '@loopback/security';
 import {compare} from 'bcryptjs';
-import {AppUser, AppUserWithRelations} from '../models';
+import {AppUser} from '../models';
 import {AppUserRepository} from '../repositories';
 
 export type Credentials = {

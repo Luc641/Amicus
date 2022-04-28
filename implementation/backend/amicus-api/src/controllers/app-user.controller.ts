@@ -23,10 +23,7 @@ import {genSalt, hash} from 'bcryptjs';
 
 import {inject, intercept} from '@loopback/core';
 import {ValidateUserInterceptor} from '../interceptors';
-import {
-    TokenServiceBindings,
-    UserServiceBindings, RefreshTokenServiceBindings, RefreshTokenService,
-} from '@loopback/authentication-jwt';
+import {TokenServiceBindings} from '@loopback/authentication-jwt';
 import {TokenService} from '@loopback/authentication';
 import {SecurityBindings, UserProfile} from '@loopback/security';
 import {AppUserService, Credentials} from "../services/app-user.service";
