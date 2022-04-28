@@ -15,7 +15,6 @@
 		07AC8641280EBF8900C8C48F /* Amicus_FrontendUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC8640280EBF8900C8C48F /* Amicus_FrontendUITests.swift */; };
 		07AC8643280EBF8900C8C48F /* Amicus_FrontendUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC8642280EBF8900C8C48F /* Amicus_FrontendUITestsLaunchTests.swift */; };
 		07B4F4322811915C003E2109 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B4F4312811915C003E2109 /* RegisterView.swift */; };
-		6AFB17512817F490008A28A9 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFB17502817F490008A28A9 /* LogInView.swift */; };
 		81AB73002816A16900E947F0 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AB72FF2816A16900E947F0 /* ViewExtension.swift */; };
 		81C8E8A32811773700E8C00E /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8E8A22811773700E8C00E /* HomepageView.swift */; };
 /* End PBXBuildFile section */
@@ -49,7 +48,6 @@
 		07AC8640280EBF8900C8C48F /* Amicus_FrontendUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amicus_FrontendUITests.swift; sourceTree = "<group>"; };
 		07AC8642280EBF8900C8C48F /* Amicus_FrontendUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amicus_FrontendUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		07B4F4312811915C003E2109 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
-		6AFB17502817F490008A28A9 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		81AB72FF2816A16900E947F0 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		81C8E8A22811773700E8C00E /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +88,7 @@
 		07AC8619280EBF8600C8C48F = {
 			isa = PBXGroup;
 			children = (
+				8187010428180237001F86C6 /* Navbar */,
 				070FFFB52816A9F5003357BB /* Styles */,
 				81AB72FE2816A15300E947F0 /* Extensions */,
 				07AC8624280EBF8600C8C48F /* Amicus_Frontend */,
@@ -112,6 +111,7 @@
 		07AC8624280EBF8600C8C48F /* Amicus_Frontend */ = {
 			isa = PBXGroup;
 			children = (
+				818701022817F949001F86C6 /* RegisteredHomepage.swift */,
 				81C8E8A22811773700E8C00E /* HomepageView.swift */,
 				07B4F4312811915C003E2109 /* RegisterView.swift */,
 				6AFB17502817F490008A28A9 /* LogInView.swift */,
@@ -145,6 +145,14 @@
 				07AC8642280EBF8900C8C48F /* Amicus_FrontendUITestsLaunchTests.swift */,
 			);
 			path = Amicus_FrontendUITests;
+			sourceTree = "<group>";
+		};
+		8187010428180237001F86C6 /* Navbar */ = {
+			isa = PBXGroup;
+			children = (
+				818701052818025F001F86C6 /* NavbarView.swift */,
+			);
+			path = Navbar;
 			sourceTree = "<group>";
 		};
 		81AB72FE2816A15300E947F0 /* Extensions */ = {
@@ -287,6 +295,8 @@
 			files = (
 				6AFB17512817F490008A28A9 /* LogInView.swift in Sources */,
 				07B4F4322811915C003E2109 /* RegisterView.swift in Sources */,
+				818701062818025F001F86C6 /* NavbarView.swift in Sources */,
+				818701032817F949001F86C6 /* RegisteredHomepage.swift in Sources */,
 				81C8E8A32811773700E8C00E /* HomepageView.swift in Sources */,
 				81AB73002816A16900E947F0 /* ViewExtension.swift in Sources */,
 				070FFFB72816AA0C003357BB /* ButtonStyles.swift in Sources */,
