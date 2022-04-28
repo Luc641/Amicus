@@ -13,37 +13,37 @@ struct NavbarView: View {
     var body: some View {
         NavigationView {
             TabView(selection: $selection) {
-                List(1...10, id: \.self) { index in
-                    NavigationLink(
-                        destination: Text("Request #\(index) Details"),
-                        label: {
-                            Text("Request #\(index)")
-                                .font(.system(size: 20, weight: .bold, design: .rounded))
-                        })
-         
-                }
-                .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("Home")
-                }
-                .tag(0)
-         
+                
+                RegisteredHomepage()
+                    .tabItem {
+                        Image(systemName: "house.fill")
+                        Text("Home")
+                    }
+                    .tag(0)
+                    .navigationTitle("Homepage")
+                
+                
                 Text("Expert Tab")
                     .font(.system(size: 30, weight: .bold, design: .rounded))
+                    .navigationTitle("Expert")
                     .tabItem {
                         Image(systemName: "brain.head.profile")
                         Text("Expert")
                     }
                     .tag(1)
-         
-                Text("Video Tab")
+                
+                
+                
+                Text("Create Request")
                     .font(.system(size: 30, weight: .bold, design: .rounded))
                     .tabItem {
                         Image(systemName: "plus.bubble")
                         Text("New Request")
                     }
                     .tag(2)
-         
+                
+                
+                
                 Text("Video Tab")
                     .font(.system(size: 30, weight: .bold, design: .rounded))
                     .tabItem {
@@ -51,23 +51,24 @@ struct NavbarView: View {
                         Text("History")
                     }
                     .tag(3)
-         
-                Text("Profile Tab")
-                    .font(.system(size: 30, weight: .bold, design: .rounded))
+                
+                
+                UserProfileView()
                     .tabItem {
                         Image(systemName: "person.crop.circle")
                         Text("Profile")
                     }
                     .tag(4)
+                    .navigationTitle("User")
             }
             .accentColor(Color("Amicus3"))
             .onAppear() {
                 UITabBar.appearance().barTintColor = UIColor(Color("Amicus4"))
             }
-         
-            .navigationTitle("Homepage")
+            
+            
         }
-}
+    }
 }
 
 struct NavbarView_Previews: PreviewProvider {

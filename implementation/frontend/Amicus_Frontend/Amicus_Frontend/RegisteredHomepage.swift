@@ -13,7 +13,17 @@ struct RegisteredHomepage: View {
     @State private var selection = 0
     
     var body: some View {
-        NavbarView()
+        List(1...10, id: \.self) { index in
+            NavigationLink(
+                destination: Text("Request #\(index) Details"),
+                label: {
+                    Text("Request #\(index)")
+                        .font(.system(size: 20, weight: .bold, design: .rounded))
+                        
+                })
+            
+        }
+        .foregroundColor(Color("Amicus4"))
     }
     
 }

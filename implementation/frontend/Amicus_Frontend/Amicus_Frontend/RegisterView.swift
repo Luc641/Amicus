@@ -105,7 +105,7 @@ struct RegistrationView: View {
                     .padding()
             )}
         .navigate(to: HomepageView(), when: $homeScreen)
-        .navigate(to: RegisteredHomepage(), when: $registeredScreen)
+        .navigate(to: NavbarView(), when: $registeredScreen)
     }
 }
 
