@@ -24,11 +24,11 @@ export class AppUser extends Entity {
     id: true,
     generated: true,
   })
-  id?: number;
+  id: number;
 
   @property({
     type: 'date',
-    jsonSchema: { 
+    jsonSchema: {
       format: 'date', //This can be changed to 'date-time', 'time' or 'date'
     },
   })

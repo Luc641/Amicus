@@ -15,34 +15,85 @@ import {
     put,
     del,
     requestBody,
-    response,
+    response, SchemaObject,
 } from '@loopback/rest';
 import {AppUser} from '../models';
 import {AppUserRepository} from '../repositories';
 import {genSalt, hash} from 'bcryptjs';
 
-import { inject, intercept } from '@loopback/core';
-import { ValidateUserInterceptor } from '../interceptors';
+import {inject, intercept} from '@loopback/core';
+import {ValidateUserInterceptor} from '../interceptors';
 import {
     TokenServiceBindings,
-    MyUserService,
-    UserServiceBindings,
+    UserServiceBindings, RefreshTokenServiceBindings, RefreshTokenService,
 } from '@loopback/authentication-jwt';
 import {TokenService} from '@loopback/authentication';
 import {SecurityBindings, UserProfile} from '@loopback/security';
+import {AppUserService, Credentials} from "../services/app-user.service";
+import {AppUserServiceBindings} from "../bindings/app-user-service.bindings";
 
+
+// Describe the schema of user credentials
+const CredentialsSchema: SchemaObject = {
+    type: 'object',
+    required: ['email', 'password'],
+    properties: {
+        email: {
+            type: 'string',
+            format: 'email',
+        },
+        password: {
+            type: 'string',
+            minLength: 8,
+        },
+    },
+};
+
+export const CredentialsRequestBody = {
+    description: 'The input of the login function',
+    required: true,
+    content: {
+        'application/json': {schema: CredentialsSchema},
+    },
+};
 
 export class AppUserController {
     constructor(
         @inject(TokenServiceBindings.TOKEN_SERVICE)
         public jwtService: TokenService,
-        @inject(UserServiceBindings.USER_SERVICE)
-        public userService: MyUserService,
+        @inject(AppUserServiceBindings.USER_SERVICE)
+        public userService: AppUserService,
         @inject(SecurityBindings.USER, {optional: true})
         public user: UserProfile,
         @repository(AppUserRepository)
         public appUserRepository: AppUserRepository,
     ) {
+    }
+
+    @post('/users/login')
+    @response(200, {
+        description: 'Token',
+        content: {
+            'application/json': {
+                schema: {
+                    type: 'object',
+                    properties: {
+                        token: {
+                            type: 'string',
+                        },
+                    },
+                },
+            },
+        },
+    })
+    async login(
+        @requestBody(CredentialsRequestBody) credentials: Credentials,
+    ): Promise<{ token: string }> {
+        const user = await this.userService.verifyCredentials(credentials);
+        const userProfile = this.userService.convertToUserProfile(user);
+        // create a JWT based on the user profile
+        const token = await this.jwtService.generateToken(userProfile);
+        return {token};
     }
 
     @post('/users')

@@ -1,8 +1,8 @@
 import {BootMixin} from '@loopback/boot';
 import {ApplicationConfig} from '@loopback/core';
 import {
-  RestExplorerBindings,
-  RestExplorerComponent,
+    RestExplorerBindings,
+    RestExplorerComponent,
 } from '@loopback/rest-explorer';
 import {RepositoryMixin} from '@loopback/repository';
 import {RestApplication} from '@loopback/rest';
@@ -12,46 +12,49 @@ import {MySequence} from './sequence';
 
 import {AuthenticationComponent} from '@loopback/authentication';
 import {
-  JWTAuthenticationComponent,
-  UserServiceBindings,
+    JWTAuthenticationComponent,
+    UserServiceBindings,
 } from '@loopback/authentication-jwt';
 import {AmicusDatabaseDataSource} from './datasources';
+import {AppUserService} from "./services/app-user.service";
+import {AppUserServiceBindings} from "./bindings/app-user-service.bindings";
 
 export {ApplicationConfig};
 
 export class AmicusApiApplication extends BootMixin(
-  ServiceMixin(RepositoryMixin(RestApplication)),
+    ServiceMixin(RepositoryMixin(RestApplication)),
 ) {
-  constructor(options: ApplicationConfig = {}) {
-    super(options);
-    // Mount authentication system
-    this.component(AuthenticationComponent);
-    // Mount jwt component
-    this.component(JWTAuthenticationComponent);
-    // Bind datasource
-    this.dataSource(AmicusDatabaseDataSource, UserServiceBindings.DATASOURCE_NAME);
+    constructor(options: ApplicationConfig = {}) {
+        super(options);
+        // Mount authentication system
+        this.component(AuthenticationComponent);
+        // Mount jwt component
+        this.component(JWTAuthenticationComponent);
+        // Bind datasource
+        this.dataSource(AmicusDatabaseDataSource, UserServiceBindings.DATASOURCE_NAME);
 
-    // Set up the custom sequence
-    this.sequence(MySequence);
+        this.bind(AppUserServiceBindings.USER_SERVICE).toClass(AppUserService);
+        // Set up the custom sequence
+        this.sequence(MySequence);
 
-    // Set up default home page
-    this.static('/', path.join(__dirname, '../public'));
+        // Set up default home page
+        this.static('/', path.join(__dirname, '../public'));
 
-    // Customize @loopback/rest-explorer configuration here
-    this.configure(RestExplorerBindings.COMPONENT).to({
-      path: '/explorer',
-    });
-    this.component(RestExplorerComponent);
+        // Customize @loopback/rest-explorer configuration here
+        this.configure(RestExplorerBindings.COMPONENT).to({
+            path: '/explorer',
+        });
+        this.component(RestExplorerComponent);
 
-    this.projectRoot = __dirname;
-    // Customize @loopback/boot Booter Conventions here
-    this.bootOptions = {
-      controllers: {
-        // Customize ControllerBooter Conventions here
-        dirs: ['controllers'],
-        extensions: ['.controller.js'],
-        nested: true,
-      },
-    };
-  }
+        this.projectRoot = __dirname;
+        // Customize @loopback/boot Booter Conventions here
+        this.bootOptions = {
+            controllers: {
+                // Customize ControllerBooter Conventions here
+                dirs: ['controllers'],
+                extensions: ['.controller.js'],
+                nested: true,
+            },
+        };
+    }
 }
