@@ -1,0 +1,6 @@
+framework module SwiftUIFormValidator {
+  umbrella header "SwiftUIFormValidator-umbrella.h"
+
+  export *
+  module * { export * }
+}

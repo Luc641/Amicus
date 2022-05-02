@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '15.0'
+
+target 'Amicus_Frontend' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Amicus_Frontend
+  pod 'SwiftUIFormValidator'
+
+  target 'Amicus_FrontendTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'Amicus_FrontendUITests' do
+    # Pods for testing
+  end
+
+end

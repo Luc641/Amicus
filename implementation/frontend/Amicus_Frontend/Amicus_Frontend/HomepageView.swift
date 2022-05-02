@@ -48,7 +48,7 @@ struct HomepageView: View {
                 .padding(.top, -750.0)
         }
         .padding(.all, -50.0)
-        .navigate(to: RegistrationView(), when: $registerScreen)
+        .navigate(to: FormRegistrationView(), when: $registerScreen)
         .navigate(to: LogInView(), when: $loginScreen)
     }
     

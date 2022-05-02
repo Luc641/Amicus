@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		028C8DC15B2A728942DB9E24 /* Pods_Amicus_Frontend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFA68C0E47D02A4ED40D178 /* Pods_Amicus_Frontend.framework */; };
 		070FFFB72816AA0C003357BB /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070FFFB62816AA0C003357BB /* ButtonStyles.swift */; };
 		07AC8626280EBF8600C8C48F /* Amicus_FrontendApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC8625280EBF8600C8C48F /* Amicus_FrontendApp.swift */; };
 		07AC862A280EBF8900C8C48F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07AC8629280EBF8900C8C48F /* Assets.xcassets */; };
@@ -15,12 +16,17 @@
 		07AC8641280EBF8900C8C48F /* Amicus_FrontendUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC8640280EBF8900C8C48F /* Amicus_FrontendUITests.swift */; };
 		07AC8643280EBF8900C8C48F /* Amicus_FrontendUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC8642280EBF8900C8C48F /* Amicus_FrontendUITestsLaunchTests.swift */; };
 		07B4F4322811915C003E2109 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B4F4312811915C003E2109 /* RegisterView.swift */; };
+		292FA387281AE46200073055 /* FormRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FA386281AE46200073055 /* FormRegistrationView.swift */; };
+		292FA389281AE55200073055 /* FormInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FA388281AE55200073055 /* FormInfo.swift */; };
+		292FA38B281AE5CD00073055 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FA38A281AE5CD00073055 /* RoundedTextField.swift */; };
+		5E80B747B92AC5B082ECD828 /* Pods_Amicus_Frontend_Amicus_FrontendUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB7938A77ECA3E17CE3B013 /* Pods_Amicus_Frontend_Amicus_FrontendUITests.framework */; };
 		6AFB17512817F490008A28A9 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFB17502817F490008A28A9 /* LogInView.swift */; };
 		8186BE90281AAB0F00419F3A /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8186BE8F281AAB0F00419F3A /* UserProfileView.swift */; };
 		818701032817F949001F86C6 /* RegisteredHomepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818701022817F949001F86C6 /* RegisteredHomepage.swift */; };
 		818701062818025F001F86C6 /* NavbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818701052818025F001F86C6 /* NavbarView.swift */; };
 		81AB73002816A16900E947F0 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AB72FF2816A16900E947F0 /* ViewExtension.swift */; };
 		81C8E8A32811773700E8C00E /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8E8A22811773700E8C00E /* HomepageView.swift */; };
+		D1F30482EBA7EDAF99912690 /* Pods_Amicus_FrontendTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 767E7CDFEEDBC7E30A1B44D7 /* Pods_Amicus_FrontendTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,12 +58,24 @@
 		07AC8640280EBF8900C8C48F /* Amicus_FrontendUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amicus_FrontendUITests.swift; sourceTree = "<group>"; };
 		07AC8642280EBF8900C8C48F /* Amicus_FrontendUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amicus_FrontendUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		07B4F4312811915C003E2109 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		0C5D006FA173E7AFF6593BEA /* Pods-Amicus_FrontendTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus_FrontendTests.release.xcconfig"; path = "Target Support Files/Pods-Amicus_FrontendTests/Pods-Amicus_FrontendTests.release.xcconfig"; sourceTree = "<group>"; };
+		292FA386281AE46200073055 /* FormRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRegistrationView.swift; sourceTree = "<group>"; };
+		292FA388281AE55200073055 /* FormInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInfo.swift; sourceTree = "<group>"; };
+		292FA38A281AE5CD00073055 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
+		5FAC3A1941575D9D61F8B6BC /* Pods-Amicus_Frontend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus_Frontend.debug.xcconfig"; path = "Target Support Files/Pods-Amicus_Frontend/Pods-Amicus_Frontend.debug.xcconfig"; sourceTree = "<group>"; };
 		6AFB17502817F490008A28A9 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		767E7CDFEEDBC7E30A1B44D7 /* Pods_Amicus_FrontendTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amicus_FrontendTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7923CF59C8B1B108EA8E0018 /* Pods-Amicus_Frontend-Amicus_FrontendUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus_Frontend-Amicus_FrontendUITests.debug.xcconfig"; path = "Target Support Files/Pods-Amicus_Frontend-Amicus_FrontendUITests/Pods-Amicus_Frontend-Amicus_FrontendUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8186BE8F281AAB0F00419F3A /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		818701022817F949001F86C6 /* RegisteredHomepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisteredHomepage.swift; sourceTree = "<group>"; };
 		818701052818025F001F86C6 /* NavbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarView.swift; sourceTree = "<group>"; };
 		81AB72FF2816A16900E947F0 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		81C8E8A22811773700E8C00E /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
+		8599BB1328D16129E34992AB /* Pods-Amicus_Frontend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus_Frontend.release.xcconfig"; path = "Target Support Files/Pods-Amicus_Frontend/Pods-Amicus_Frontend.release.xcconfig"; sourceTree = "<group>"; };
+		9BB7938A77ECA3E17CE3B013 /* Pods_Amicus_Frontend_Amicus_FrontendUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amicus_Frontend_Amicus_FrontendUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D56CB4019A5ADF0215E9A458 /* Pods-Amicus_Frontend-Amicus_FrontendUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus_Frontend-Amicus_FrontendUITests.release.xcconfig"; path = "Target Support Files/Pods-Amicus_Frontend-Amicus_FrontendUITests/Pods-Amicus_Frontend-Amicus_FrontendUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EA4C957092F36D26F28AAF3F /* Pods-Amicus_FrontendTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus_FrontendTests.debug.xcconfig"; path = "Target Support Files/Pods-Amicus_FrontendTests/Pods-Amicus_FrontendTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FDFA68C0E47D02A4ED40D178 /* Pods_Amicus_Frontend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amicus_Frontend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				028C8DC15B2A728942DB9E24 /* Pods_Amicus_Frontend.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1F30482EBA7EDAF99912690 /* Pods_Amicus_FrontendTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E80B747B92AC5B082ECD828 /* Pods_Amicus_Frontend_Amicus_FrontendUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +124,8 @@
 				07AC8635280EBF8900C8C48F /* Amicus_FrontendTests */,
 				07AC863F280EBF8900C8C48F /* Amicus_FrontendUITests */,
 				07AC8623280EBF8600C8C48F /* Products */,
+				A7D870D0B870FFFAF4669C15 /* Pods */,
+				842DC0920DB8F1CE2B4A7BEC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +142,9 @@
 		07AC8624280EBF8600C8C48F /* Amicus_Frontend */ = {
 			isa = PBXGroup;
 			children = (
+				292FA388281AE55200073055 /* FormInfo.swift */,
+				292FA38A281AE5CD00073055 /* RoundedTextField.swift */,
+				292FA386281AE46200073055 /* FormRegistrationView.swift */,
 				8186BE8F281AAB0F00419F3A /* UserProfileView.swift */,
 				6AFB17502817F490008A28A9 /* LogInView.swift */,
 				818701022817F949001F86C6 /* RegisteredHomepage.swift */,
@@ -172,6 +198,29 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		842DC0920DB8F1CE2B4A7BEC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FDFA68C0E47D02A4ED40D178 /* Pods_Amicus_Frontend.framework */,
+				9BB7938A77ECA3E17CE3B013 /* Pods_Amicus_Frontend_Amicus_FrontendUITests.framework */,
+				767E7CDFEEDBC7E30A1B44D7 /* Pods_Amicus_FrontendTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A7D870D0B870FFFAF4669C15 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5FAC3A1941575D9D61F8B6BC /* Pods-Amicus_Frontend.debug.xcconfig */,
+				8599BB1328D16129E34992AB /* Pods-Amicus_Frontend.release.xcconfig */,
+				7923CF59C8B1B108EA8E0018 /* Pods-Amicus_Frontend-Amicus_FrontendUITests.debug.xcconfig */,
+				D56CB4019A5ADF0215E9A458 /* Pods-Amicus_Frontend-Amicus_FrontendUITests.release.xcconfig */,
+				EA4C957092F36D26F28AAF3F /* Pods-Amicus_FrontendTests.debug.xcconfig */,
+				0C5D006FA173E7AFF6593BEA /* Pods-Amicus_FrontendTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -179,9 +228,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07AC8646280EBF8900C8C48F /* Build configuration list for PBXNativeTarget "Amicus_Frontend" */;
 			buildPhases = (
+				AC35D927911A1181F525B742 /* [CP] Check Pods Manifest.lock */,
 				07AC861E280EBF8600C8C48F /* Sources */,
 				07AC861F280EBF8600C8C48F /* Frameworks */,
 				07AC8620280EBF8600C8C48F /* Resources */,
+				A0AF66D805ED08CA45A84F9A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,6 +247,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07AC8649280EBF8900C8C48F /* Build configuration list for PBXNativeTarget "Amicus_FrontendTests" */;
 			buildPhases = (
+				03A76DE3306B296D4576BAE9 /* [CP] Check Pods Manifest.lock */,
 				07AC862E280EBF8900C8C48F /* Sources */,
 				07AC862F280EBF8900C8C48F /* Frameworks */,
 				07AC8630280EBF8900C8C48F /* Resources */,
@@ -214,9 +266,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07AC864C280EBF8900C8C48F /* Build configuration list for PBXNativeTarget "Amicus_FrontendUITests" */;
 			buildPhases = (
+				6641CE3D454391A8014456BB /* [CP] Check Pods Manifest.lock */,
 				07AC8638280EBF8900C8C48F /* Sources */,
 				07AC8639280EBF8900C8C48F /* Frameworks */,
 				07AC863A280EBF8900C8C48F /* Resources */,
+				608EE773E76EC809CE070C86 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -297,6 +351,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		03A76DE3306B296D4576BAE9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Amicus_FrontendTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		608EE773E76EC809CE070C86 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Amicus_Frontend-Amicus_FrontendUITests/Pods-Amicus_Frontend-Amicus_FrontendUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Amicus_Frontend-Amicus_FrontendUITests/Pods-Amicus_Frontend-Amicus_FrontendUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Amicus_Frontend-Amicus_FrontendUITests/Pods-Amicus_Frontend-Amicus_FrontendUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6641CE3D454391A8014456BB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Amicus_Frontend-Amicus_FrontendUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0AF66D805ED08CA45A84F9A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Amicus_Frontend/Pods-Amicus_Frontend-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Amicus_Frontend/Pods-Amicus_Frontend-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Amicus_Frontend/Pods-Amicus_Frontend-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC35D927911A1181F525B742 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Amicus_Frontend-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		07AC861E280EBF8600C8C48F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -309,6 +466,9 @@
 				818701032817F949001F86C6 /* RegisteredHomepage.swift in Sources */,
 				81C8E8A32811773700E8C00E /* HomepageView.swift in Sources */,
 				81AB73002816A16900E947F0 /* ViewExtension.swift in Sources */,
+				292FA38B281AE5CD00073055 /* RoundedTextField.swift in Sources */,
+				292FA387281AE46200073055 /* FormRegistrationView.swift in Sources */,
+				292FA389281AE55200073055 /* FormInfo.swift in Sources */,
 				070FFFB72816AA0C003357BB /* ButtonStyles.swift in Sources */,
 				07AC8626280EBF8600C8C48F /* Amicus_FrontendApp.swift in Sources */,
 			);
@@ -463,6 +623,7 @@
 		};
 		07AC8647280EBF8900C8C48F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FAC3A1941575D9D61F8B6BC /* Pods-Amicus_Frontend.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -492,6 +653,7 @@
 		};
 		07AC8648280EBF8900C8C48F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8599BB1328D16129E34992AB /* Pods-Amicus_Frontend.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -521,6 +683,7 @@
 		};
 		07AC864A280EBF8900C8C48F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA4C957092F36D26F28AAF3F /* Pods-Amicus_FrontendTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -541,6 +704,7 @@
 		};
 		07AC864B280EBF8900C8C48F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C5D006FA173E7AFF6593BEA /* Pods-Amicus_FrontendTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -561,6 +725,7 @@
 		};
 		07AC864D280EBF8900C8C48F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7923CF59C8B1B108EA8E0018 /* Pods-Amicus_Frontend-Amicus_FrontendUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -579,6 +744,7 @@
 		};
 		07AC864E280EBF8900C8C48F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D56CB4019A5ADF0215E9A458 /* Pods-Amicus_Frontend-Amicus_FrontendUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
