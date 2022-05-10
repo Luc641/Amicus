@@ -1,0 +1,929 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		070FFFB72816AA0C003357BB /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070FFFB62816AA0C003357BB /* ButtonStyles.swift */; };
+		07AC8626280EBF8600C8C48F /* AmicusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC8625280EBF8600C8C48F /* AmicusApp.swift */; };
+		07AC862A280EBF8900C8C48F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07AC8629280EBF8900C8C48F /* Assets.xcassets */; };
+		07AC862D280EBF8900C8C48F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07AC862C280EBF8900C8C48F /* Preview Assets.xcassets */; };
+		07AC8637280EBF8900C8C48F /* AmicusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC8636280EBF8900C8C48F /* AmicusTests.swift */; };
+		07AC8641280EBF8900C8C48F /* AmicusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC8640280EBF8900C8C48F /* AmicusUITests.swift */; };
+		07AC8643280EBF8900C8C48F /* AmicusUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC8642280EBF8900C8C48F /* AmicusUITestsLaunchTests.swift */; };
+		292FA387281AE46200073055 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FA386281AE46200073055 /* RegistrationView.swift */; };
+		292FA389281AE55200073055 /* FormInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FA388281AE55200073055 /* FormInfo.swift */; };
+		2945942728214764003D1736 /* WebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2945942628214764003D1736 /* WebClient.swift */; };
+		2945942928215422003D1736 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2945942828215422003D1736 /* LoginViewModel.swift */; };
+		295AAC1C2825305900F18E71 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295AAC1B2825305900F18E71 /* Endpoint.swift */; };
+		295AAC1E282530A200F18E71 /* UserEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295AAC1D282530A200F18E71 /* UserEndpoint.swift */; };
+		295AAC20282531BD00F18E71 /* RootEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295AAC1F282531BD00F18E71 /* RootEndpoint.swift */; };
+		298D2AD928219E46002C9466 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D2AD828219E46002C9466 /* Requests.swift */; };
+		298D2ADB28219E63002C9466 /* Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D2ADA28219E63002C9466 /* Responses.swift */; };
+		298D2AFA28226E3A002C9466 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D2AF928226E3A002C9466 /* KeychainHelper.swift */; };
+		298D2AFC28227270002C9466 /* ApiToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D2AFB28227270002C9466 /* ApiToken.swift */; };
+		298D2AFE2822AB8A002C9466 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D2AFD2822AB8A002C9466 /* LoginView.swift */; };
+		298D2B022822ADAA002C9466 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D2B012822ADAA002C9466 /* ColorExtension.swift */; };
+		298D2B0C28240A31002C9466 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D2B0B28240A31002C9466 /* RequestError.swift */; };
+		298D2B1428241C38002C9466 /* Get in Frameworks */ = {isa = PBXBuildFile; productRef = 298D2B1328241C38002C9466 /* Get */; };
+		5729D16D7AAFA8B8178D9C08 /* Pods_Amicus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD89ADD8B478874244E0C8D9 /* Pods_Amicus.framework */; };
+		8186BE90281AAB0F00419F3A /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8186BE8F281AAB0F00419F3A /* UserProfileView.swift */; };
+		818701032817F949001F86C6 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818701022817F949001F86C6 /* HomePageView.swift */; };
+		818701062818025F001F86C6 /* NavbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818701052818025F001F86C6 /* NavbarView.swift */; };
+		81AB73002816A16900E947F0 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AB72FF2816A16900E947F0 /* ViewExtension.swift */; };
+		81C8E8A32811773700E8C00E /* LandingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8E8A22811773700E8C00E /* LandingPageView.swift */; };
+		AC5B85D5E35A57906A1B31AC /* Pods_Amicus_AmicusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52ABDDAFD66B3930B7F50891 /* Pods_Amicus_AmicusUITests.framework */; };
+		E83535717FECF388D3CEF128 /* Pods_AmicusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F7D0186B263B8F897B202B /* Pods_AmicusTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		07AC8633280EBF8900C8C48F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07AC861A280EBF8600C8C48F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07AC8621280EBF8600C8C48F;
+			remoteInfo = Amicus_Frontend;
+		};
+		07AC863D280EBF8900C8C48F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07AC861A280EBF8600C8C48F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07AC8621280EBF8600C8C48F;
+			remoteInfo = Amicus_Frontend;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		070FFFB62816AA0C003357BB /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		07AC8622280EBF8600C8C48F /* Amicus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amicus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		07AC8625280EBF8600C8C48F /* AmicusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmicusApp.swift; sourceTree = "<group>"; };
+		07AC8629280EBF8900C8C48F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		07AC862C280EBF8900C8C48F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		07AC8632280EBF8900C8C48F /* AmicusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmicusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		07AC8636280EBF8900C8C48F /* AmicusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmicusTests.swift; sourceTree = "<group>"; };
+		07AC863C280EBF8900C8C48F /* AmicusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmicusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		07AC8640280EBF8900C8C48F /* AmicusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmicusUITests.swift; sourceTree = "<group>"; };
+		07AC8642280EBF8900C8C48F /* AmicusUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmicusUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0C5D006FA173E7AFF6593BEA /* Pods-Amicus_FrontendTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus_FrontendTests.release.xcconfig"; path = "Target Support Files/Pods-Amicus_FrontendTests/Pods-Amicus_FrontendTests.release.xcconfig"; sourceTree = "<group>"; };
+		292FA386281AE46200073055 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		292FA388281AE55200073055 /* FormInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInfo.swift; sourceTree = "<group>"; };
+		2945942628214764003D1736 /* WebClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebClient.swift; sourceTree = "<group>"; };
+		2945942828215422003D1736 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		295AAC1B2825305900F18E71 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		295AAC1D282530A200F18E71 /* UserEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndpoint.swift; sourceTree = "<group>"; };
+		295AAC1F282531BD00F18E71 /* RootEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootEndpoint.swift; sourceTree = "<group>"; };
+		298D2AD828219E46002C9466 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		298D2ADA28219E63002C9466 /* Responses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responses.swift; sourceTree = "<group>"; };
+		298D2AF928226E3A002C9466 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		298D2AFB28227270002C9466 /* ApiToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiToken.swift; sourceTree = "<group>"; };
+		298D2AFD2822AB8A002C9466 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		298D2B012822ADAA002C9466 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		298D2B0B28240A31002C9466 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		52ABDDAFD66B3930B7F50891 /* Pods_Amicus_AmicusUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amicus_AmicusUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F6A2344F3F0F094D2913708 /* Pods-Amicus-AmicusUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus-AmicusUITests.debug.xcconfig"; path = "Target Support Files/Pods-Amicus-AmicusUITests/Pods-Amicus-AmicusUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5FAC3A1941575D9D61F8B6BC /* Pods-Amicus_Frontend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus_Frontend.debug.xcconfig"; path = "Target Support Files/Pods-Amicus_Frontend/Pods-Amicus_Frontend.debug.xcconfig"; sourceTree = "<group>"; };
+		74CA3D31FCA99586E4DDA2F5 /* Pods-Amicus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus.debug.xcconfig"; path = "Target Support Files/Pods-Amicus/Pods-Amicus.debug.xcconfig"; sourceTree = "<group>"; };
+		7923CF59C8B1B108EA8E0018 /* Pods-Amicus_Frontend-Amicus_FrontendUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus_Frontend-Amicus_FrontendUITests.debug.xcconfig"; path = "Target Support Files/Pods-Amicus_Frontend-Amicus_FrontendUITests/Pods-Amicus_Frontend-Amicus_FrontendUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8186BE8F281AAB0F00419F3A /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		818701022817F949001F86C6 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		818701052818025F001F86C6 /* NavbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarView.swift; sourceTree = "<group>"; };
+		81AB72FF2816A16900E947F0 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		81C8E8A22811773700E8C00E /* LandingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageView.swift; sourceTree = "<group>"; };
+		8599BB1328D16129E34992AB /* Pods-Amicus_Frontend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus_Frontend.release.xcconfig"; path = "Target Support Files/Pods-Amicus_Frontend/Pods-Amicus_Frontend.release.xcconfig"; sourceTree = "<group>"; };
+		88DAD2DEC6677FCD14375CD1 /* Pods-Amicus-AmicusUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus-AmicusUITests.release.xcconfig"; path = "Target Support Files/Pods-Amicus-AmicusUITests/Pods-Amicus-AmicusUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A7F7D0186B263B8F897B202B /* Pods_AmicusTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmicusTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B390EB266E2A0AA80CA7051C /* Pods-Amicus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus.release.xcconfig"; path = "Target Support Files/Pods-Amicus/Pods-Amicus.release.xcconfig"; sourceTree = "<group>"; };
+		BAE2FB05B872FCDA29A4A53D /* Pods-AmicusTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmicusTests.release.xcconfig"; path = "Target Support Files/Pods-AmicusTests/Pods-AmicusTests.release.xcconfig"; sourceTree = "<group>"; };
+		D56CB4019A5ADF0215E9A458 /* Pods-Amicus_Frontend-Amicus_FrontendUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus_Frontend-Amicus_FrontendUITests.release.xcconfig"; path = "Target Support Files/Pods-Amicus_Frontend-Amicus_FrontendUITests/Pods-Amicus_Frontend-Amicus_FrontendUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E0806C9F379AFAB5E4FE4ADC /* Pods-AmicusTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmicusTests.debug.xcconfig"; path = "Target Support Files/Pods-AmicusTests/Pods-AmicusTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EA4C957092F36D26F28AAF3F /* Pods-Amicus_FrontendTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus_FrontendTests.debug.xcconfig"; path = "Target Support Files/Pods-Amicus_FrontendTests/Pods-Amicus_FrontendTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FD89ADD8B478874244E0C8D9 /* Pods_Amicus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amicus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		07AC861F280EBF8600C8C48F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				298D2B1428241C38002C9466 /* Get in Frameworks */,
+				5729D16D7AAFA8B8178D9C08 /* Pods_Amicus.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07AC862F280EBF8900C8C48F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E83535717FECF388D3CEF128 /* Pods_AmicusTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07AC8639280EBF8900C8C48F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC5B85D5E35A57906A1B31AC /* Pods_Amicus_AmicusUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		070FFFB52816A9F5003357BB /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				070FFFB62816AA0C003357BB /* ButtonStyles.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		07AC8619280EBF8600C8C48F = {
+			isa = PBXGroup;
+			children = (
+				07AC8629280EBF8900C8C48F /* Assets.xcassets */,
+				294594252821473A003D1736 /* Services */,
+				81AB72FE2816A15300E947F0 /* Extensions */,
+				07AC8624280EBF8600C8C48F /* Amicus */,
+				07AC8635280EBF8900C8C48F /* AmicusTests */,
+				07AC863F280EBF8900C8C48F /* AmicusUITests */,
+				07AC8623280EBF8600C8C48F /* Products */,
+				A7D870D0B870FFFAF4669C15 /* Pods */,
+				842DC0920DB8F1CE2B4A7BEC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		07AC8623280EBF8600C8C48F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				07AC8622280EBF8600C8C48F /* Amicus.app */,
+				07AC8632280EBF8900C8C48F /* AmicusTests.xctest */,
+				07AC863C280EBF8900C8C48F /* AmicusUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		07AC8624280EBF8600C8C48F /* Amicus */ = {
+			isa = PBXGroup;
+			children = (
+				070FFFB52816A9F5003357BB /* Styles */,
+				2928EC90282A883400BDBADB /* ViewModels */,
+				2928EC8F282A882900BDBADB /* Views */,
+				07AC862B280EBF8900C8C48F /* Preview Content */,
+			);
+			path = Amicus;
+			sourceTree = "<group>";
+		};
+		07AC862B280EBF8900C8C48F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				07AC862C280EBF8900C8C48F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		07AC8635280EBF8900C8C48F /* AmicusTests */ = {
+			isa = PBXGroup;
+			children = (
+				07AC8636280EBF8900C8C48F /* AmicusTests.swift */,
+			);
+			path = AmicusTests;
+			sourceTree = "<group>";
+		};
+		07AC863F280EBF8900C8C48F /* AmicusUITests */ = {
+			isa = PBXGroup;
+			children = (
+				07AC8640280EBF8900C8C48F /* AmicusUITests.swift */,
+				07AC8642280EBF8900C8C48F /* AmicusUITestsLaunchTests.swift */,
+			);
+			path = AmicusUITests;
+			sourceTree = "<group>";
+		};
+		2928EC8F282A882900BDBADB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8187010428180237001F86C6 /* Navbar */,
+				292FA386281AE46200073055 /* RegistrationView.swift */,
+				8186BE8F281AAB0F00419F3A /* UserProfileView.swift */,
+				818701022817F949001F86C6 /* HomePageView.swift */,
+				81C8E8A22811773700E8C00E /* LandingPageView.swift */,
+				07AC8625280EBF8600C8C48F /* AmicusApp.swift */,
+				298D2AFD2822AB8A002C9466 /* LoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2928EC90282A883400BDBADB /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				292FA388281AE55200073055 /* FormInfo.swift */,
+				2945942828215422003D1736 /* LoginViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		294594252821473A003D1736 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				298D2AF828226E26002C9466 /* Keychain */,
+				298D2AD728219E29002C9466 /* Api */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		295AAC1A2825304900F18E71 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				295AAC1B2825305900F18E71 /* Endpoint.swift */,
+				295AAC1D282530A200F18E71 /* UserEndpoint.swift */,
+				295AAC1F282531BD00F18E71 /* RootEndpoint.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		298D2AD728219E29002C9466 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				295AAC1A2825304900F18E71 /* Endpoints */,
+				298D2B0B28240A31002C9466 /* RequestError.swift */,
+				2945942628214764003D1736 /* WebClient.swift */,
+				298D2AD828219E46002C9466 /* Requests.swift */,
+				298D2ADA28219E63002C9466 /* Responses.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		298D2AF828226E26002C9466 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				298D2AF928226E3A002C9466 /* KeychainHelper.swift */,
+				298D2AFB28227270002C9466 /* ApiToken.swift */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
+		8187010428180237001F86C6 /* Navbar */ = {
+			isa = PBXGroup;
+			children = (
+				818701052818025F001F86C6 /* NavbarView.swift */,
+			);
+			path = Navbar;
+			sourceTree = "<group>";
+		};
+		81AB72FE2816A15300E947F0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				81AB72FF2816A16900E947F0 /* ViewExtension.swift */,
+				298D2B012822ADAA002C9466 /* ColorExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		842DC0920DB8F1CE2B4A7BEC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD89ADD8B478874244E0C8D9 /* Pods_Amicus.framework */,
+				52ABDDAFD66B3930B7F50891 /* Pods_Amicus_AmicusUITests.framework */,
+				A7F7D0186B263B8F897B202B /* Pods_AmicusTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A7D870D0B870FFFAF4669C15 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5FAC3A1941575D9D61F8B6BC /* Pods-Amicus_Frontend.debug.xcconfig */,
+				8599BB1328D16129E34992AB /* Pods-Amicus_Frontend.release.xcconfig */,
+				7923CF59C8B1B108EA8E0018 /* Pods-Amicus_Frontend-Amicus_FrontendUITests.debug.xcconfig */,
+				D56CB4019A5ADF0215E9A458 /* Pods-Amicus_Frontend-Amicus_FrontendUITests.release.xcconfig */,
+				EA4C957092F36D26F28AAF3F /* Pods-Amicus_FrontendTests.debug.xcconfig */,
+				0C5D006FA173E7AFF6593BEA /* Pods-Amicus_FrontendTests.release.xcconfig */,
+				74CA3D31FCA99586E4DDA2F5 /* Pods-Amicus.debug.xcconfig */,
+				B390EB266E2A0AA80CA7051C /* Pods-Amicus.release.xcconfig */,
+				5F6A2344F3F0F094D2913708 /* Pods-Amicus-AmicusUITests.debug.xcconfig */,
+				88DAD2DEC6677FCD14375CD1 /* Pods-Amicus-AmicusUITests.release.xcconfig */,
+				E0806C9F379AFAB5E4FE4ADC /* Pods-AmicusTests.debug.xcconfig */,
+				BAE2FB05B872FCDA29A4A53D /* Pods-AmicusTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		07AC8621280EBF8600C8C48F /* Amicus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07AC8646280EBF8900C8C48F /* Build configuration list for PBXNativeTarget "Amicus" */;
+			buildPhases = (
+				AC35D927911A1181F525B742 /* [CP] Check Pods Manifest.lock */,
+				07AC861E280EBF8600C8C48F /* Sources */,
+				07AC861F280EBF8600C8C48F /* Frameworks */,
+				07AC8620280EBF8600C8C48F /* Resources */,
+				A0AF66D805ED08CA45A84F9A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Amicus;
+			packageProductDependencies = (
+				298D2B1328241C38002C9466 /* Get */,
+			);
+			productName = Amicus_Frontend;
+			productReference = 07AC8622280EBF8600C8C48F /* Amicus.app */;
+			productType = "com.apple.product-type.application";
+		};
+		07AC8631280EBF8900C8C48F /* AmicusTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07AC8649280EBF8900C8C48F /* Build configuration list for PBXNativeTarget "AmicusTests" */;
+			buildPhases = (
+				03A76DE3306B296D4576BAE9 /* [CP] Check Pods Manifest.lock */,
+				07AC862E280EBF8900C8C48F /* Sources */,
+				07AC862F280EBF8900C8C48F /* Frameworks */,
+				07AC8630280EBF8900C8C48F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				07AC8634280EBF8900C8C48F /* PBXTargetDependency */,
+			);
+			name = AmicusTests;
+			productName = Amicus_FrontendTests;
+			productReference = 07AC8632280EBF8900C8C48F /* AmicusTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		07AC863B280EBF8900C8C48F /* AmicusUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07AC864C280EBF8900C8C48F /* Build configuration list for PBXNativeTarget "AmicusUITests" */;
+			buildPhases = (
+				6641CE3D454391A8014456BB /* [CP] Check Pods Manifest.lock */,
+				07AC8638280EBF8900C8C48F /* Sources */,
+				07AC8639280EBF8900C8C48F /* Frameworks */,
+				07AC863A280EBF8900C8C48F /* Resources */,
+				608EE773E76EC809CE070C86 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				07AC863E280EBF8900C8C48F /* PBXTargetDependency */,
+			);
+			name = AmicusUITests;
+			productName = Amicus_FrontendUITests;
+			productReference = 07AC863C280EBF8900C8C48F /* AmicusUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		07AC861A280EBF8600C8C48F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					07AC8621280EBF8600C8C48F = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+					07AC8631280EBF8900C8C48F = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = 07AC8621280EBF8600C8C48F;
+					};
+					07AC863B280EBF8900C8C48F = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = 07AC8621280EBF8600C8C48F;
+					};
+				};
+			};
+			buildConfigurationList = 07AC861D280EBF8600C8C48F /* Build configuration list for PBXProject "Amicus" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 07AC8619280EBF8600C8C48F;
+			packageReferences = (
+				298D2B1228241C38002C9466 /* XCRemoteSwiftPackageReference "Get" */,
+			);
+			productRefGroup = 07AC8623280EBF8600C8C48F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				07AC8621280EBF8600C8C48F /* Amicus */,
+				07AC8631280EBF8900C8C48F /* AmicusTests */,
+				07AC863B280EBF8900C8C48F /* AmicusUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		07AC8620280EBF8600C8C48F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07AC862D280EBF8900C8C48F /* Preview Assets.xcassets in Resources */,
+				07AC862A280EBF8900C8C48F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07AC8630280EBF8900C8C48F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07AC863A280EBF8900C8C48F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03A76DE3306B296D4576BAE9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AmicusTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		608EE773E76EC809CE070C86 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Amicus-AmicusUITests/Pods-Amicus-AmicusUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Amicus-AmicusUITests/Pods-Amicus-AmicusUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Amicus-AmicusUITests/Pods-Amicus-AmicusUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6641CE3D454391A8014456BB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Amicus-AmicusUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0AF66D805ED08CA45A84F9A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Amicus/Pods-Amicus-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Amicus/Pods-Amicus-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Amicus/Pods-Amicus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC35D927911A1181F525B742 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Amicus-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		07AC861E280EBF8600C8C48F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8186BE90281AAB0F00419F3A /* UserProfileView.swift in Sources */,
+				818701062818025F001F86C6 /* NavbarView.swift in Sources */,
+				298D2AFC28227270002C9466 /* ApiToken.swift in Sources */,
+				298D2AFA28226E3A002C9466 /* KeychainHelper.swift in Sources */,
+				818701032817F949001F86C6 /* HomePageView.swift in Sources */,
+				298D2AD928219E46002C9466 /* Requests.swift in Sources */,
+				298D2AFE2822AB8A002C9466 /* LoginView.swift in Sources */,
+				298D2B022822ADAA002C9466 /* ColorExtension.swift in Sources */,
+				81C8E8A32811773700E8C00E /* LandingPageView.swift in Sources */,
+				298D2B0C28240A31002C9466 /* RequestError.swift in Sources */,
+				2945942928215422003D1736 /* LoginViewModel.swift in Sources */,
+				81AB73002816A16900E947F0 /* ViewExtension.swift in Sources */,
+				2945942728214764003D1736 /* WebClient.swift in Sources */,
+				292FA387281AE46200073055 /* RegistrationView.swift in Sources */,
+				295AAC1C2825305900F18E71 /* Endpoint.swift in Sources */,
+				295AAC20282531BD00F18E71 /* RootEndpoint.swift in Sources */,
+				292FA389281AE55200073055 /* FormInfo.swift in Sources */,
+				070FFFB72816AA0C003357BB /* ButtonStyles.swift in Sources */,
+				298D2ADB28219E63002C9466 /* Responses.swift in Sources */,
+				295AAC1E282530A200F18E71 /* UserEndpoint.swift in Sources */,
+				07AC8626280EBF8600C8C48F /* AmicusApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07AC862E280EBF8900C8C48F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07AC8637280EBF8900C8C48F /* AmicusTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07AC8638280EBF8900C8C48F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07AC8643280EBF8900C8C48F /* AmicusUITestsLaunchTests.swift in Sources */,
+				07AC8641280EBF8900C8C48F /* AmicusUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		07AC8634280EBF8900C8C48F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07AC8621280EBF8600C8C48F /* Amicus */;
+			targetProxy = 07AC8633280EBF8900C8C48F /* PBXContainerItemProxy */;
+		};
+		07AC863E280EBF8900C8C48F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07AC8621280EBF8600C8C48F /* Amicus */;
+			targetProxy = 07AC863D280EBF8900C8C48F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		07AC8644280EBF8900C8C48F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		07AC8645280EBF8900C8C48F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		07AC8647280EBF8900C8C48F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74CA3D31FCA99586E4DDA2F5 /* Pods-Amicus.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Amicus/Preview Content\"";
+				DEVELOPMENT_TEAM = KH7BD93PMV;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "PRJ4-Group5.Amicus-Frontend";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		07AC8648280EBF8900C8C48F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B390EB266E2A0AA80CA7051C /* Pods-Amicus.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Amicus/Preview Content\"";
+				DEVELOPMENT_TEAM = KH7BD93PMV;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "PRJ4-Group5.Amicus-Frontend";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		07AC864A280EBF8900C8C48F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0806C9F379AFAB5E4FE4ADC /* Pods-AmicusTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KH7BD93PMV;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "PRJ4-Group5.Amicus-FrontendTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Amicus.app/Amicus";
+			};
+			name = Debug;
+		};
+		07AC864B280EBF8900C8C48F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAE2FB05B872FCDA29A4A53D /* Pods-AmicusTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KH7BD93PMV;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "PRJ4-Group5.Amicus-FrontendTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Amicus.app/Amicus";
+			};
+			name = Release;
+		};
+		07AC864D280EBF8900C8C48F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F6A2344F3F0F094D2913708 /* Pods-Amicus-AmicusUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KH7BD93PMV;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "PRJ4-Group5.Amicus-FrontendUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Amicus_Frontend;
+			};
+			name = Debug;
+		};
+		07AC864E280EBF8900C8C48F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88DAD2DEC6677FCD14375CD1 /* Pods-Amicus-AmicusUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KH7BD93PMV;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "PRJ4-Group5.Amicus-FrontendUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Amicus_Frontend;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		07AC861D280EBF8600C8C48F /* Build configuration list for PBXProject "Amicus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07AC8644280EBF8900C8C48F /* Debug */,
+				07AC8645280EBF8900C8C48F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07AC8646280EBF8900C8C48F /* Build configuration list for PBXNativeTarget "Amicus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07AC8647280EBF8900C8C48F /* Debug */,
+				07AC8648280EBF8900C8C48F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07AC8649280EBF8900C8C48F /* Build configuration list for PBXNativeTarget "AmicusTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07AC864A280EBF8900C8C48F /* Debug */,
+				07AC864B280EBF8900C8C48F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07AC864C280EBF8900C8C48F /* Build configuration list for PBXNativeTarget "AmicusUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07AC864D280EBF8900C8C48F /* Debug */,
+				07AC864E280EBF8900C8C48F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		298D2B1228241C38002C9466 /* XCRemoteSwiftPackageReference "Get" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Get.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		298D2B1328241C38002C9466 /* Get */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 298D2B1228241C38002C9466 /* XCRemoteSwiftPackageReference "Get" */;
+			productName = Get;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 07AC861A280EBF8600C8C48F /* Project object */;
+}

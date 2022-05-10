@@ -1,0 +1,16 @@
+PODS:
+  - SwiftUIFormValidator (0.14.0)
+
+DEPENDENCIES:
+  - SwiftUIFormValidator
+
+SPEC REPOS:
+  trunk:
+    - SwiftUIFormValidator
+
+SPEC CHECKSUMS:
+  SwiftUIFormValidator: 60a41a719b1a6b74489ca5ef29fead484b991438
+
+PODFILE CHECKSUM: 119dba99c00617572bcafad3e821d89d93318686
+
+COCOAPODS: 1.11.3

@@ -1,6 +1,0 @@
-framework module Pods_Amicus_Frontend_Amicus_FrontendUITests {
-  umbrella header "Pods-Amicus_Frontend-Amicus_FrontendUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}

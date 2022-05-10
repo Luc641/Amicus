@@ -1,0 +1,6 @@
+framework module Pods_Amicus {
+  umbrella header "Pods-Amicus-umbrella.h"
+
+  export *
+  module * { export * }
+}
