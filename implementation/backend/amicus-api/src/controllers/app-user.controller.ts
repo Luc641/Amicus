@@ -1,21 +1,15 @@
+import {Count, CountSchema, Filter, FilterExcludingWhere, repository, Where} from '@loopback/repository';
 import {
-    Count,
-    CountSchema,
-    Filter,
-    FilterExcludingWhere,
-    repository,
-    Where,
-} from '@loopback/repository';
-import {
-    post,
-    param,
+    del,
     get,
     getModelSchemaRef,
+    param,
     patch,
+    post,
     put,
-    del,
     requestBody,
-    response, SchemaObject,
+    response,
+    SchemaObject,
 } from '@loopback/rest';
 import {AppUser} from '../models';
 import {AppUserRepository} from '../repositories';
@@ -24,10 +18,10 @@ import {genSalt, hash} from 'bcryptjs';
 import {inject, intercept} from '@loopback/core';
 import {ValidateUserInterceptor} from '../interceptors';
 import {TokenServiceBindings} from '@loopback/authentication-jwt';
-import {TokenService} from '@loopback/authentication';
-import {SecurityBindings, UserProfile} from '@loopback/security';
-import {AppUserService, Credentials} from "../services/app-user.service";
-import {AppUserServiceBindings} from "../bindings/app-user-service.bindings";
+import {authenticate, TokenService} from '@loopback/authentication';
+import {SecurityBindings, securityId, UserProfile} from '@loopback/security';
+import {AppUserService, Credentials} from '../services/app-user.service';
+import {AppUserServiceBindings} from '../bindings/app-user-service.bindings';
 
 
 // Describe the schema of user credentials
@@ -85,12 +79,31 @@ export class AppUserController {
     })
     async login(
         @requestBody(CredentialsRequestBody) credentials: Credentials,
-    ): Promise<{ token: string }> {
+    ): Promise<{token: string}> {
         const user = await this.userService.verifyCredentials(credentials);
         const userProfile = this.userService.convertToUserProfile(user);
         // create a JWT based on the user profile
         const token = await this.jwtService.generateToken(userProfile);
         return {token};
+    }
+
+    @authenticate('jwt')
+    @get('/users/whoami')
+    @response(200, {
+        description: 'Return current user',
+        content: {
+            'application/json': {
+                schema: {
+                    type: 'string',
+                },
+            },
+        },
+    })
+    async whoAmI(
+        @inject(SecurityBindings.USER) currentUserProfile: UserProfile,
+    ): Promise<AppUser> {
+        const userId = currentUserProfile[securityId];
+        return this.appUserRepository.findById(parseInt(userId));
     }
 
     @post('/users')

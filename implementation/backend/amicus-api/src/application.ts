@@ -18,8 +18,10 @@ import {
 import {AmicusDatabaseDataSource} from './datasources';
 import {AppUserService} from "./services/app-user.service";
 import {AppUserServiceBindings} from "./bindings/app-user-service.bindings";
+import {format, LoggingBindings, LoggingComponent} from '@loopback/logging';
 
 export {ApplicationConfig};
+
 
 export class AmicusApiApplication extends BootMixin(
     ServiceMixin(RepositoryMixin(RestApplication)),
@@ -30,6 +32,22 @@ export class AmicusApiApplication extends BootMixin(
         this.component(AuthenticationComponent);
         // Mount jwt component
         this.component(JWTAuthenticationComponent);
+        // Enable logging
+        this.configure(LoggingBindings.COMPONENT).to({
+            enableFluent: false,
+            enableHttpAccessLog: true,
+        });
+
+        this.configure(LoggingBindings.WINSTON_LOGGER).to({
+            level: 'info',
+            format: format.json(),
+            defaultMeta: {framework: 'LoopBack'},
+        });
+
+        this.configure(LoggingBindings.WINSTON_HTTP_ACCESS_LOGGER).to({
+
+        })
+        this.component(LoggingComponent);
         // Bind datasource
         this.dataSource(AmicusDatabaseDataSource, UserServiceBindings.DATASOURCE_NAME);
 

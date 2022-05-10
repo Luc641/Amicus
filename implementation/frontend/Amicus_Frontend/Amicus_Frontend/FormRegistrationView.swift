@@ -37,15 +37,13 @@ struct FormRegistrationView: View {
                         label: { Text("Birthday") }
                     ).validation(formInfo.birthdayValidation)
                 }
-                //                .listRowBackground(Color("Amicus1"))
-                
-                
-                
+                //                .listRowBackground(Color("
                 
                 Section(header: Text("Password")) {
-                    TextField("Password", text: $formInfo.password)
+                    SecureField("Password", text: $formInfo.password)
+                        .validation(formInfo.singlePasswordValidation)
+                    SecureField("Confirm Password", text: $formInfo.confirmPassword)
                         .validation(formInfo.passwordValidation)
-                    TextField("Confirm Password", text: $formInfo.confirmPassword)
                 }
                 //                .listRowBackground(Color("Amicus1"))
                 

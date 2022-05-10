@@ -49,7 +49,7 @@ struct HomepageView: View {
         }
         .padding(.all, -50.0)
         .navigate(to: FormRegistrationView(), when: $registerScreen)
-        .navigate(to: LogInView(), when: $loginScreen)
+        .navigate(to: NewLoginView(), when: $loginScreen)
     }
     
     struct HomepageView_Previews: PreviewProvider {

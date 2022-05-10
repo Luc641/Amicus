@@ -19,6 +19,19 @@
 		292FA387281AE46200073055 /* FormRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FA386281AE46200073055 /* FormRegistrationView.swift */; };
 		292FA389281AE55200073055 /* FormInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FA388281AE55200073055 /* FormInfo.swift */; };
 		292FA38B281AE5CD00073055 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FA38A281AE5CD00073055 /* RoundedTextField.swift */; };
+		2945942728214764003D1736 /* WebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2945942628214764003D1736 /* WebClient.swift */; };
+		2945942928215422003D1736 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2945942828215422003D1736 /* LoginViewModel.swift */; };
+		295AAC1C2825305900F18E71 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295AAC1B2825305900F18E71 /* Endpoint.swift */; };
+		295AAC1E282530A200F18E71 /* UserEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295AAC1D282530A200F18E71 /* UserEndpoint.swift */; };
+		295AAC20282531BD00F18E71 /* RootEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295AAC1F282531BD00F18E71 /* RootEndpoint.swift */; };
+		298D2AD928219E46002C9466 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D2AD828219E46002C9466 /* Requests.swift */; };
+		298D2ADB28219E63002C9466 /* Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D2ADA28219E63002C9466 /* Responses.swift */; };
+		298D2AFA28226E3A002C9466 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D2AF928226E3A002C9466 /* KeychainHelper.swift */; };
+		298D2AFC28227270002C9466 /* ApiToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D2AFB28227270002C9466 /* ApiToken.swift */; };
+		298D2AFE2822AB8A002C9466 /* NewLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D2AFD2822AB8A002C9466 /* NewLoginView.swift */; };
+		298D2B022822ADAA002C9466 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D2B012822ADAA002C9466 /* ColorExtension.swift */; };
+		298D2B0C28240A31002C9466 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D2B0B28240A31002C9466 /* RequestError.swift */; };
+		298D2B1428241C38002C9466 /* Get in Frameworks */ = {isa = PBXBuildFile; productRef = 298D2B1328241C38002C9466 /* Get */; };
 		5E80B747B92AC5B082ECD828 /* Pods_Amicus_Frontend_Amicus_FrontendUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB7938A77ECA3E17CE3B013 /* Pods_Amicus_Frontend_Amicus_FrontendUITests.framework */; };
 		6AFB17512817F490008A28A9 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFB17502817F490008A28A9 /* LogInView.swift */; };
 		8186BE90281AAB0F00419F3A /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8186BE8F281AAB0F00419F3A /* UserProfileView.swift */; };
@@ -62,6 +75,18 @@
 		292FA386281AE46200073055 /* FormRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRegistrationView.swift; sourceTree = "<group>"; };
 		292FA388281AE55200073055 /* FormInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInfo.swift; sourceTree = "<group>"; };
 		292FA38A281AE5CD00073055 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
+		2945942628214764003D1736 /* WebClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebClient.swift; sourceTree = "<group>"; };
+		2945942828215422003D1736 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		295AAC1B2825305900F18E71 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		295AAC1D282530A200F18E71 /* UserEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndpoint.swift; sourceTree = "<group>"; };
+		295AAC1F282531BD00F18E71 /* RootEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootEndpoint.swift; sourceTree = "<group>"; };
+		298D2AD828219E46002C9466 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		298D2ADA28219E63002C9466 /* Responses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responses.swift; sourceTree = "<group>"; };
+		298D2AF928226E3A002C9466 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		298D2AFB28227270002C9466 /* ApiToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiToken.swift; sourceTree = "<group>"; };
+		298D2AFD2822AB8A002C9466 /* NewLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginView.swift; sourceTree = "<group>"; };
+		298D2B012822ADAA002C9466 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		298D2B0B28240A31002C9466 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		5FAC3A1941575D9D61F8B6BC /* Pods-Amicus_Frontend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus_Frontend.debug.xcconfig"; path = "Target Support Files/Pods-Amicus_Frontend/Pods-Amicus_Frontend.debug.xcconfig"; sourceTree = "<group>"; };
 		6AFB17502817F490008A28A9 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		767E7CDFEEDBC7E30A1B44D7 /* Pods_Amicus_FrontendTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amicus_FrontendTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +109,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				028C8DC15B2A728942DB9E24 /* Pods_Amicus_Frontend.framework in Frameworks */,
+				298D2B1428241C38002C9466 /* Get in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +143,7 @@
 		07AC8619280EBF8600C8C48F = {
 			isa = PBXGroup;
 			children = (
+				294594252821473A003D1736 /* Services */,
 				8187010428180237001F86C6 /* Navbar */,
 				070FFFB52816A9F5003357BB /* Styles */,
 				81AB72FE2816A15300E947F0 /* Extensions */,
@@ -143,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				292FA388281AE55200073055 /* FormInfo.swift */,
+				2945942828215422003D1736 /* LoginViewModel.swift */,
 				292FA38A281AE5CD00073055 /* RoundedTextField.swift */,
 				292FA386281AE46200073055 /* FormRegistrationView.swift */,
 				8186BE8F281AAB0F00419F3A /* UserProfileView.swift */,
@@ -151,6 +179,7 @@
 				81C8E8A22811773700E8C00E /* HomepageView.swift */,
 				07B4F4312811915C003E2109 /* RegisterView.swift */,
 				07AC8625280EBF8600C8C48F /* Amicus_FrontendApp.swift */,
+				298D2AFD2822AB8A002C9466 /* NewLoginView.swift */,
 				07AC8629280EBF8900C8C48F /* Assets.xcassets */,
 				07AC862B280EBF8900C8C48F /* Preview Content */,
 			);
@@ -182,6 +211,46 @@
 			path = Amicus_FrontendUITests;
 			sourceTree = "<group>";
 		};
+		294594252821473A003D1736 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				298D2AF828226E26002C9466 /* Keychain */,
+				298D2AD728219E29002C9466 /* Api */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		295AAC1A2825304900F18E71 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				295AAC1B2825305900F18E71 /* Endpoint.swift */,
+				295AAC1D282530A200F18E71 /* UserEndpoint.swift */,
+				295AAC1F282531BD00F18E71 /* RootEndpoint.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		298D2AD728219E29002C9466 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				295AAC1A2825304900F18E71 /* Endpoints */,
+				298D2B0B28240A31002C9466 /* RequestError.swift */,
+				2945942628214764003D1736 /* WebClient.swift */,
+				298D2AD828219E46002C9466 /* Requests.swift */,
+				298D2ADA28219E63002C9466 /* Responses.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		298D2AF828226E26002C9466 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				298D2AF928226E3A002C9466 /* KeychainHelper.swift */,
+				298D2AFB28227270002C9466 /* ApiToken.swift */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
 		8187010428180237001F86C6 /* Navbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				81AB72FF2816A16900E947F0 /* ViewExtension.swift */,
+				298D2B012822ADAA002C9466 /* ColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -239,6 +309,9 @@
 			dependencies = (
 			);
 			name = Amicus_Frontend;
+			packageProductDependencies = (
+				298D2B1328241C38002C9466 /* Get */,
+			);
 			productName = Amicus_Frontend;
 			productReference = 07AC8622280EBF8600C8C48F /* Amicus_Frontend.app */;
 			productType = "com.apple.product-type.application";
@@ -314,6 +387,9 @@
 				Base,
 			);
 			mainGroup = 07AC8619280EBF8600C8C48F;
+			packageReferences = (
+				298D2B1228241C38002C9466 /* XCRemoteSwiftPackageReference "Get" */,
+			);
 			productRefGroup = 07AC8623280EBF8600C8C48F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -463,13 +539,25 @@
 				8186BE90281AAB0F00419F3A /* UserProfileView.swift in Sources */,
 				07B4F4322811915C003E2109 /* RegisterView.swift in Sources */,
 				818701062818025F001F86C6 /* NavbarView.swift in Sources */,
+				298D2AFC28227270002C9466 /* ApiToken.swift in Sources */,
+				298D2AFA28226E3A002C9466 /* KeychainHelper.swift in Sources */,
 				818701032817F949001F86C6 /* RegisteredHomepage.swift in Sources */,
+				298D2AD928219E46002C9466 /* Requests.swift in Sources */,
+				298D2AFE2822AB8A002C9466 /* NewLoginView.swift in Sources */,
+				298D2B022822ADAA002C9466 /* ColorExtension.swift in Sources */,
 				81C8E8A32811773700E8C00E /* HomepageView.swift in Sources */,
+				298D2B0C28240A31002C9466 /* RequestError.swift in Sources */,
+				2945942928215422003D1736 /* LoginViewModel.swift in Sources */,
 				81AB73002816A16900E947F0 /* ViewExtension.swift in Sources */,
 				292FA38B281AE5CD00073055 /* RoundedTextField.swift in Sources */,
+				2945942728214764003D1736 /* WebClient.swift in Sources */,
 				292FA387281AE46200073055 /* FormRegistrationView.swift in Sources */,
+				295AAC1C2825305900F18E71 /* Endpoint.swift in Sources */,
+				295AAC20282531BD00F18E71 /* RootEndpoint.swift in Sources */,
 				292FA389281AE55200073055 /* FormInfo.swift in Sources */,
 				070FFFB72816AA0C003357BB /* ButtonStyles.swift in Sources */,
+				298D2ADB28219E63002C9466 /* Responses.swift in Sources */,
+				295AAC1E282530A200F18E71 /* UserEndpoint.swift in Sources */,
 				07AC8626280EBF8600C8C48F /* Amicus_FrontendApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -801,6 +889,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		298D2B1228241C38002C9466 /* XCRemoteSwiftPackageReference "Get" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Get.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		298D2B1328241C38002C9466 /* Get */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 298D2B1228241C38002C9466 /* XCRemoteSwiftPackageReference "Get" */;
+			productName = Get;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 07AC861A280EBF8600C8C48F /* Project object */;
 }
