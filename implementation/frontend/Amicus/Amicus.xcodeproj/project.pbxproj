@@ -18,7 +18,8 @@
 		292FA387281AE46200073055 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FA386281AE46200073055 /* RegistrationView.swift */; };
 		292FA389281AE55200073055 /* FormInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FA388281AE55200073055 /* FormInfo.swift */; };
 		2945942728214764003D1736 /* WebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2945942628214764003D1736 /* WebClient.swift */; };
-		2945942928215422003D1736 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2945942828215422003D1736 /* LoginViewModel.swift */; };
+		2945942928215422003D1736 /* UserStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2945942828215422003D1736 /* UserStateViewModel.swift */; };
+		294AB12B282D2B5F00C97FA4 /* MediaEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294AB12A282D2B5F00C97FA4 /* MediaEndpoint.swift */; };
 		295AAC1C2825305900F18E71 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295AAC1B2825305900F18E71 /* Endpoint.swift */; };
 		295AAC1E282530A200F18E71 /* UserEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295AAC1D282530A200F18E71 /* UserEndpoint.swift */; };
 		295AAC20282531BD00F18E71 /* RootEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295AAC1F282531BD00F18E71 /* RootEndpoint.swift */; };
@@ -73,7 +74,8 @@
 		292FA386281AE46200073055 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		292FA388281AE55200073055 /* FormInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInfo.swift; sourceTree = "<group>"; };
 		2945942628214764003D1736 /* WebClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebClient.swift; sourceTree = "<group>"; };
-		2945942828215422003D1736 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		2945942828215422003D1736 /* UserStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStateViewModel.swift; sourceTree = "<group>"; };
+		294AB12A282D2B5F00C97FA4 /* MediaEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaEndpoint.swift; sourceTree = "<group>"; };
 		295AAC1B2825305900F18E71 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		295AAC1D282530A200F18E71 /* UserEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndpoint.swift; sourceTree = "<group>"; };
 		295AAC1F282531BD00F18E71 /* RootEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootEndpoint.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				292FA388281AE55200073055 /* FormInfo.swift */,
+				2945942828215422003D1736 /* UserStateViewModel.swift */,
 				2945942828215422003D1736 /* LoginViewModel.swift */,
 				0748D6A3282AE2AC00CAFFBA /* ImagePicker.swift */,
 			);
@@ -242,6 +245,7 @@
 				295AAC1B2825305900F18E71 /* Endpoint.swift */,
 				295AAC1D282530A200F18E71 /* UserEndpoint.swift */,
 				295AAC1F282531BD00F18E71 /* RootEndpoint.swift */,
+				294AB12A282D2B5F00C97FA4 /* MediaEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -568,13 +572,14 @@
 				298D2B022822ADAA002C9466 /* ColorExtension.swift in Sources */,
 				81C8E8A32811773700E8C00E /* LandingPageView.swift in Sources */,
 				298D2B0C28240A31002C9466 /* RequestError.swift in Sources */,
-				2945942928215422003D1736 /* LoginViewModel.swift in Sources */,
+				2945942928215422003D1736 /* UserStateViewModel.swift in Sources */,
 				81AB73002816A16900E947F0 /* ViewExtension.swift in Sources */,
 				2945942728214764003D1736 /* WebClient.swift in Sources */,
 				292FA387281AE46200073055 /* RegistrationView.swift in Sources */,
 				295AAC1C2825305900F18E71 /* Endpoint.swift in Sources */,
 				295AAC20282531BD00F18E71 /* RootEndpoint.swift in Sources */,
 				292FA389281AE55200073055 /* FormInfo.swift in Sources */,
+				294AB12B282D2B5F00C97FA4 /* MediaEndpoint.swift in Sources */,
 				070FFFB72816AA0C003357BB /* ButtonStyles.swift in Sources */,
 				298D2ADB28219E63002C9466 /* Responses.swift in Sources */,
 				295AAC1E282530A200F18E71 /* UserEndpoint.swift in Sources */,

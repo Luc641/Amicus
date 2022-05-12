@@ -16,3 +16,10 @@ struct LoginRequestBody: ApiRequestBody {
     let email: String
     let password: String
 }
+
+
+struct UserCreateRequestBody: ApiRequestBody {
+    let firstName, lastName, email: String
+    let address, passwordHash, username: String
+    let birthDate: Date
+}

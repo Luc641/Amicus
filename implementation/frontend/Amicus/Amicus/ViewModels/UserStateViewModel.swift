@@ -8,7 +8,7 @@
 import Foundation
 
 
-class LoginViewModel: ObservableObject {
+class UserStateViewModel: ObservableObject {
     @Published var isAuthenticated: Bool = false
     @Published var isAuthenticating: Bool = false
     @Published var apiErrorMessage: String?
@@ -35,4 +35,20 @@ class LoginViewModel: ObservableObject {
         KeychainHelper.standard.delete(service: "token", account: "amicus")
         isAuthenticated = false
     }
+    
+    @MainActor func register(firstName: String, lastName: String, password: String, birthDate: Date, email: String, username: String) {
+        Task {
+            isAuthenticating = true
+            do {
+                let _ = try await WebClient.standard.register(firstName, lastName, password, birthDate, email, username)
+                let loggedIn = try await WebClient.standard.login(email: email, password: password).token!
+                KeychainHelper.standard.save(ApiToken(accessToken: loggedIn), service: "token", account: "amicus")
+                isAuthenticated = true
+            } catch let error as RequestError {
+                apiErrorMessage = error.customMessage
+            }
+            isAuthenticating = false
+        }
+    }
+    
 }

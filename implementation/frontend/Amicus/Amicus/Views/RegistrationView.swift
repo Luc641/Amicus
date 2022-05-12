@@ -16,6 +16,7 @@ struct RegistrationView: View {
     @ObservedObject var formInfo = FormInfo()
     @State var isSaveEnabled = false
     @State private var registerScreen = false
+    @StateObject private var userModel = UserStateViewModel()
     
     @State private var image = UIImage()
     @State private var showSheet = false
@@ -57,7 +58,16 @@ struct RegistrationView: View {
                         text: $formInfo.lastNames)
                     .validation(formInfo.lastNamesValidation)
                     
+                    TextField(
+                        "Username",
+                        text: $formInfo.username)
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
+                    .validation(formInfo.usernameValidation)
+                    
                     TextField("Email", text: $formInfo.email)
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
                         .validation(formInfo.emailValidation)
                     
                     DatePicker(
@@ -78,6 +88,7 @@ struct RegistrationView: View {
                 
                 Button(action: {
                     registerScreen = formInfo.form.triggerValidation()
+                    userModel.register(firstName: formInfo.firstName, lastName: formInfo.lastNames, password: formInfo.password, birthDate: formInfo.birthday, email: formInfo.email, username: formInfo.username)
                 }, label: {
                     HStack {
                         Text("Submit")
@@ -86,15 +97,12 @@ struct RegistrationView: View {
                     }
                 }
                 )
+                .disabled(isButtonDisabled)
             }
             
             //                   observe the form validation and enable submit button only if it's valid
             .onReceive(formInfo.form.$allValid) { isValid in
                 self.isSaveEnabled = isValid
-            }
-            // React to validation messages changes
-            .onReceive(formInfo.form.$validationMessages) { messages in
-                print(messages)
             }
             .navigationBarTitle("Registration")
             .toolbar {
@@ -110,8 +118,12 @@ struct RegistrationView: View {
                 }
             }
         }
-        .foregroundColor(Color("Amicus3"))
-        .navigate(to: NavbarView(), when: $registerScreen)
+        .foregroundColor(Color.amicusGreen)
+        .navigate(to: NavbarView(), when: $userModel.isAuthenticated)
+    }
+    
+    private var isButtonDisabled: Bool {
+        userModel.isAuthenticating || !formInfo.form.triggerValidation()
     }
 }
 

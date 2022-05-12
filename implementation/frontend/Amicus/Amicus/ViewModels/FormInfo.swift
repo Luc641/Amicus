@@ -9,6 +9,7 @@ class FormInfo: ObservableObject {
     @Published var email: String = ""
     @Published var birthday: Date = Date()
     @Published var password: String = ""
+    @Published var username: String = ""
     @Published var confirmPassword: String = ""
     @Published var form = FormValidation(validationType: .immediate, messages: ValidationMessages())
     
@@ -35,6 +36,12 @@ class FormInfo: ObservableObject {
             firstPassword: self.password,
             secondPassword: self.confirmPassword,
             secondPasswordPublisher: self.$confirmPassword)
+    }()
+    
+    lazy var usernameValidation: ValidationContainer = {
+        $username.inlineValidator(form: form) { value in
+            !value.isEmpty && value.count >= 5;
+        }
     }()
     
     

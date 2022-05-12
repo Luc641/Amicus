@@ -9,10 +9,8 @@ import SwiftUI
 import SwiftUIFormValidator
 
 struct LoginView: View {
-    
+    @StateObject private var loginModal: UserStateViewModel = UserStateViewModel()  
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
-    @StateObject private var loginModal: LoginViewModel = LoginViewModel()
     @ObservedObject private var formInfo = FormInfo()
     @State private var validationSuccessful = false
     

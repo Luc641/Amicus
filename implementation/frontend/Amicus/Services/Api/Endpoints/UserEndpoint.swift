@@ -11,6 +11,7 @@ enum UserEndpoint {
     case login
     case whoami
     case byId(id: Int)
+    case register
 }
 
 extension UserEndpoint: Endpoint {
@@ -22,6 +23,8 @@ extension UserEndpoint: Endpoint {
             return "users/\(id)"
         case .whoami:
             return "users/whoami"
+        case .register:
+            return "users"
         }
     }
 }

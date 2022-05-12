@@ -34,7 +34,9 @@ final class WebClient {
         var request = URLRequest(url: createApiUrl(path: endpoint.path))
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = try? JSONEncoder().encode(body)
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .formatted(DateFormatter.amicus)
+        request.httpBody = try? encoder.encode(body)
         return request
     }
     
@@ -68,9 +70,10 @@ final class WebClient {
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
             let code = (response as? HTTPURLResponse)!.statusCode
+            print("Got bad response code: \(code)")
             switch code {
             case 401: throw RequestError.unauthorized
-            case 400: throw RequestError.unexpectedStatusCode
+            case 400...499: throw RequestError.unexpectedStatusCode
             case 500...510: throw RequestError.internalErr
             default: throw RequestError.unknown
             }
@@ -116,6 +119,14 @@ final class WebClient {
         let request = createGetRequest(for: UserEndpoint.byId(id: id))
         return try await makeRequest(with: request)
     }
+    
+    func register(_ firstName: String, _ lastName: String, _ password: String, _ birthDate: Date, _ email: String, _ username: String)
+    async throws -> UserResponse {
+        let body = UserCreateRequestBody(firstName: firstName, lastName: lastName, email: email, address: "", passwordHash: password,
+                                         username: username, birthDate: birthDate)
+        let request = createPostRequest(for: UserEndpoint.register, with: body)
+        return try await makeRequest(with: request)
+    }
 }
 
 fileprivate extension Data {
@@ -130,5 +141,13 @@ fileprivate extension URLRequest {
         print("BODY \n \(String(describing: httpBody?.toString()))")
         print("HEADERS \n \(String(describing: allHTTPHeaderFields))")
     }
+}
+
+fileprivate extension DateFormatter {
+  static let amicus: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd"
+    return formatter
+  }()
 }
 
