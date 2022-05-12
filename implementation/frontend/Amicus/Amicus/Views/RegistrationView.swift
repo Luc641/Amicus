@@ -31,7 +31,7 @@ struct RegistrationView: View {
                         //.padding(.all, 4)
                             .frame(width: 120, height: 120)
                             .background(Color.black.opacity(0.2))
-                            .aspectRatio(contentMode: .fill)
+                            //.aspectRatio(contentMode: .fill)
                             .clipShape(Circle())
                         //.padding(8)
                         Button(action: {

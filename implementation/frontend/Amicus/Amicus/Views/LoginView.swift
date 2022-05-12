@@ -9,51 +9,70 @@ import SwiftUI
 import SwiftUIFormValidator
 
 struct LoginView: View {
+    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     @StateObject private var loginModal: LoginViewModel = LoginViewModel()
     @ObservedObject private var formInfo = FormInfo()
     @State private var validationSuccessful = false
-        
+    
     var body: some View {
-        ZStack {
-            Color.amicusLight
-                .ignoresSafeArea(.all)
-            VStack {
-                Text("Please log in")
-                    .font(.title2)
-                    .foregroundColor(Color.amicusDarkGreen)
-                
-                TextField("Email", text: $formInfo.email)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .autocapitalization(.none)
-                    .disableAutocorrection(true)
-                    .validation(formInfo.emailValidation)
-                
-                SecureField("Password", text: $formInfo.password)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .validation(formInfo.singlePasswordValidation)
-                
-                Button(loginModal.isAuthenticating ? "Please wait" : "Log in"
-                ) {
-                    loginModal.login(email: formInfo.email, password: formInfo.password)
+        NavigationView {
+            ZStack {
+                VStack {
+                    Text("Please log in")
+                        .font(.title2)
+                        .foregroundColor(Color.amicusGreen)
+                    
+                    TextField("Email", text: $formInfo.email)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
+                        .validation(formInfo.emailValidation)
+                    
+                    SecureField("Password", text: $formInfo.password)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .validation(formInfo.singlePasswordValidation)
+                    
+                    Button(loginModal.isAuthenticating ? "Please wait" : "Log in"
+                    ) {
+                        loginModal.login(email: formInfo.email, password: formInfo.password)
+                    }
+                    .disabled(isLoginDisabled)
+                    .foregroundColor(Color.amicusGreen)
+                    .padding()
+                    
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .opacity(loginModal.isAuthenticating ? 1.0 : 0.0)
+                    
+                    // Render the error
+                    Text(loginModal.apiErrorMessage ?? "")
+                        .opacity(loginModal.apiErrorMessage != nil ? 1.0 : 0.0)
+                        .foregroundColor(.red)
+                        .font(.caption)
                 }
-                .disabled(isLoginDisabled)
-                .foregroundColor(Color.amicusGreen)
-                .padding()
-                
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle())
-                    .opacity(loginModal.isAuthenticating ? 1.0 : 0.0)
-                
-                // Render the error
-                Text(loginModal.apiErrorMessage ?? "")
-                    .opacity(loginModal.apiErrorMessage != nil ? 1.0 : 0.0)
-                    .foregroundColor(.red)
-                    .font(.caption)
+                .frame(maxWidth: 320)
+                .padding(.horizontal)
+                .onReceive(formInfo.form.$allValid) { isValid in self.validationSuccessful = !isValid }
+                .navigationBarTitle("Login")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }) {
+                            HStack{
+                                Image(systemName: "chevron.left")
+                                Text("Back")
+                            }
+                        }
+                    }
+                }
             }
-            .frame(maxWidth: 320)
-            .padding(.horizontal)
-            .onReceive(formInfo.form.$allValid) { isValid in self.validationSuccessful = !isValid }
-        }.navigate(to: HomePageView(), when: $loginModal.isAuthenticated)
+            .navigate(to: HomePageView(), when: $loginModal.isAuthenticated)
+            .foregroundColor(Color("Amicus3"))
+            
+        }
     }
     
     private var isLoginDisabled: Bool {
