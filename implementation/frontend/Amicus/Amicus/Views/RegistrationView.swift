@@ -11,14 +11,43 @@ import SwiftUIFormValidator
 
 struct RegistrationView: View {
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @ObservedObject var formInfo = FormInfo()
     @State var isSaveEnabled = false
     @State private var registerScreen = false
     
+    @State private var image = UIImage()
+    @State private var showSheet = false
+    
     var body: some View {
         NavigationView {
             Form {
+                Section(header: Text("Profile Picture")) {
+                    HStack {
+                        Image(uiImage: self.image)
+                            .resizable()
+                            .cornerRadius(50)
+                        //.padding(.all, 4)
+                            .frame(width: 120, height: 120)
+                            .background(Color.black.opacity(0.2))
+                            .aspectRatio(contentMode: .fill)
+                            .clipShape(Circle())
+                        //.padding(8)
+                        Button(action: {
+                            showSheet = true
+                        }) {
+                            Text("Add profile picture")
+                        }
+                        .sheet(isPresented: $showSheet) {
+                            ImagePicker(sourceType: .camera, selectedImage: self.$image)
+                            
+                            //  If you want to take a picture from the library instead:
+                            // ImagePicker(sourceType: .library, selectedImage: self.$image)
+                        }
+                    }
+                }
+                
                 Section(header: Text("Personal Information")) {
                     TextField("First Name", text: $formInfo.firstName)
                         .validation(formInfo.firstNameValidation)
@@ -58,7 +87,7 @@ struct RegistrationView: View {
                 }
                 )
             }
-            .navigationBarTitle("Registration")
+            
             //                   observe the form validation and enable submit button only if it's valid
             .onReceive(formInfo.form.$allValid) { isValid in
                 self.isSaveEnabled = isValid
@@ -66,6 +95,19 @@ struct RegistrationView: View {
             // React to validation messages changes
             .onReceive(formInfo.form.$validationMessages) { messages in
                 print(messages)
+            }
+            .navigationBarTitle("Registration")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }) {
+                        HStack{
+                            Image(systemName: "chevron.left")
+                            Text("Back")
+                        }
+                    }
+                }
             }
         }
         .foregroundColor(Color("Amicus3"))

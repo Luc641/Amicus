@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		070FFFB72816AA0C003357BB /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070FFFB62816AA0C003357BB /* ButtonStyles.swift */; };
+		0748D6A4282AE2AC00CAFFBA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0748D6A3282AE2AC00CAFFBA /* ImagePicker.swift */; };
 		07AC8626280EBF8600C8C48F /* AmicusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC8625280EBF8600C8C48F /* AmicusApp.swift */; };
 		07AC862A280EBF8900C8C48F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07AC8629280EBF8900C8C48F /* Assets.xcassets */; };
 		07AC862D280EBF8900C8C48F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07AC862C280EBF8900C8C48F /* Preview Assets.xcassets */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		070FFFB62816AA0C003357BB /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		0748D6A3282AE2AC00CAFFBA /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		07AC8622280EBF8600C8C48F /* Amicus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amicus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07AC8625280EBF8600C8C48F /* AmicusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmicusApp.swift; sourceTree = "<group>"; };
 		07AC8629280EBF8900C8C48F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			children = (
 				292FA388281AE55200073055 /* FormInfo.swift */,
 				2945942828215422003D1736 /* LoginViewModel.swift */,
+				0748D6A3282AE2AC00CAFFBA /* ImagePicker.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				818701032817F949001F86C6 /* HomePageView.swift in Sources */,
 				298D2AD928219E46002C9466 /* Requests.swift in Sources */,
 				298D2AFE2822AB8A002C9466 /* LoginView.swift in Sources */,
+				0748D6A4282AE2AC00CAFFBA /* ImagePicker.swift in Sources */,
 				298D2B022822ADAA002C9466 /* ColorExtension.swift in Sources */,
 				81C8E8A32811773700E8C00E /* LandingPageView.swift in Sources */,
 				298D2B0C28240A31002C9466 /* RequestError.swift in Sources */,
@@ -731,6 +735,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Amicus/Preview Content\"";
@@ -761,6 +766,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Amicus/Preview Content\"";
