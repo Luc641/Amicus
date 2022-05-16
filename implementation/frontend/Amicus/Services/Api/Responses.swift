@@ -27,3 +27,15 @@ struct UserResponse: Codable {
     let id: Int
     let birthDate, address, username: String
 }
+
+struct MediaResponse: Codable {
+    let name: String
+    let id: Int
+    let data, dataType: String
+    
+    
+    func decodeData() -> Data {
+        return Data(base64Encoded: data)!
+    }
+}
+

@@ -20,6 +20,7 @@
 		2945942728214764003D1736 /* WebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2945942628214764003D1736 /* WebClient.swift */; };
 		2945942928215422003D1736 /* UserStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2945942828215422003D1736 /* UserStateViewModel.swift */; };
 		294AB12B282D2B5F00C97FA4 /* MediaEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294AB12A282D2B5F00C97FA4 /* MediaEndpoint.swift */; };
+		295139E62832B67C0009938C /* MediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295139E52832B67C0009938C /* MediaView.swift */; };
 		295AAC1C2825305900F18E71 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295AAC1B2825305900F18E71 /* Endpoint.swift */; };
 		295AAC1E282530A200F18E71 /* UserEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295AAC1D282530A200F18E71 /* UserEndpoint.swift */; };
 		295AAC20282531BD00F18E71 /* RootEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295AAC1F282531BD00F18E71 /* RootEndpoint.swift */; };
@@ -76,6 +77,7 @@
 		2945942628214764003D1736 /* WebClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebClient.swift; sourceTree = "<group>"; };
 		2945942828215422003D1736 /* UserStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStateViewModel.swift; sourceTree = "<group>"; };
 		294AB12A282D2B5F00C97FA4 /* MediaEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaEndpoint.swift; sourceTree = "<group>"; };
+		295139E52832B67C0009938C /* MediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaView.swift; sourceTree = "<group>"; };
 		295AAC1B2825305900F18E71 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		295AAC1D282530A200F18E71 /* UserEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndpoint.swift; sourceTree = "<group>"; };
 		295AAC1F282531BD00F18E71 /* RootEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootEndpoint.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				81C8E8A22811773700E8C00E /* LandingPageView.swift */,
 				07AC8625280EBF8600C8C48F /* AmicusApp.swift */,
 				298D2AFD2822AB8A002C9466 /* LoginView.swift */,
+				295139E52832B67C0009938C /* MediaView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -224,7 +227,6 @@
 			children = (
 				292FA388281AE55200073055 /* FormInfo.swift */,
 				2945942828215422003D1736 /* UserStateViewModel.swift */,
-				2945942828215422003D1736 /* LoginViewModel.swift */,
 				0748D6A3282AE2AC00CAFFBA /* ImagePicker.swift */,
 			);
 			path = ViewModels;
@@ -566,6 +568,7 @@
 				298D2AFC28227270002C9466 /* ApiToken.swift in Sources */,
 				298D2AFA28226E3A002C9466 /* KeychainHelper.swift in Sources */,
 				818701032817F949001F86C6 /* HomePageView.swift in Sources */,
+				295139E62832B67C0009938C /* MediaView.swift in Sources */,
 				298D2AD928219E46002C9466 /* Requests.swift in Sources */,
 				298D2AFE2822AB8A002C9466 /* LoginView.swift in Sources */,
 				0748D6A4282AE2AC00CAFFBA /* ImagePicker.swift in Sources */,

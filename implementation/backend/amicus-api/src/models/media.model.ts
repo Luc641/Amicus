@@ -16,10 +16,10 @@ export class Media extends Entity {
   id?: number;
 
   @property({
-    type: 'buffer',
+    type: 'string',
     required: true,
   })
-  data: Buffer;
+  data: string;
 
   @property({
     type: 'string',

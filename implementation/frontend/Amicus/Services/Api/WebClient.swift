@@ -30,10 +30,14 @@ final class WebClient {
     ///   - endpoint: the API endpoint  to use
     ///   - body: the body of the request
     /// - Returns: The new POST request
-    private func createPostRequest<T: ApiRequestBody>(for endpoint: Endpoint, with body: T) -> URLRequest {
+    private func createPostRequest<T: ApiRequestBody>(for endpoint: Endpoint, with body: T, authToken: String? = nil) -> URLRequest {
         var request = URLRequest(url: createApiUrl(path: endpoint.path))
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        if let authToken = authToken {
+            request.setValue("Bearer: \(authToken)", forHTTPHeaderField: "Authorization")
+        }
+        
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .formatted(DateFormatter.amicus)
         request.httpBody = try? encoder.encode(body)
@@ -127,6 +131,17 @@ final class WebClient {
         let request = createPostRequest(for: UserEndpoint.register, with: body)
         return try await makeRequest(with: request)
     }
+    
+    func retrieveMedia(id: Int) async throws -> MediaResponse {
+        let request = createGetRequest(for: MediaEndpoint.retrieveById(id: id))
+        return try await makeRequest(with: request)
+    }
+    
+    func uploadMedia(name: String, data: Data, fileType: String) async throws -> MediaResponse {
+        let body = MediaCreateRequestBody(data: data.base64EncodedString(), name: name, dataType: fileType)
+        let request = createPostRequest(for: MediaEndpoint.upload, with: body)
+        return try await makeRequest(with: request)
+    }
 }
 
 fileprivate extension Data {
@@ -144,10 +159,10 @@ fileprivate extension URLRequest {
 }
 
 fileprivate extension DateFormatter {
-  static let amicus: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd"
-    return formatter
-  }()
+    static let amicus: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }()
 }
 

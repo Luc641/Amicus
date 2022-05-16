@@ -9,15 +9,17 @@ import Foundation
 
 enum MediaEndpoint {
     case upload
-    case retrieve
+    case retrieveById(id: Int)
 }
 
 
-//extension MediaEndpoint : Endpoint {
-//    var path: String {
-//        switch self {
-//        case .retrieve:
-//            "
-//        }
-//    }
-//}
+extension MediaEndpoint : Endpoint {
+    var path: String {
+        switch self {
+        case .retrieveById(let id):
+            return "media/\(id)"
+        case .upload:
+            return "media"
+        }
+    }
+}
