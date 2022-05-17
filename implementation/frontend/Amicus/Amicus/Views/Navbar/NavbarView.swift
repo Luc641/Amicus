@@ -14,22 +14,20 @@ struct NavbarView: View {
         NavigationView {
             TabView(selection: $selection) {
                 
-                LandingPageView()
+                HomePageView()
                     .tabItem {
                         Image(systemName: "house.fill")
                         Text("Home")
                     }
                     .tag(0)
-                    .navigationTitle("Homepage")
                 
                 
-                Text("Expert Tab")
-                    .font(.system(size: 30, weight: .bold, design: .rounded))
-                    .navigationTitle("Expert")
+                ExpertView()
                     .tabItem {
                         Image(systemName: "brain.head.profile")
                         Text("Expert")
                     }
+                    .navigationBarHidden(true)
                     .tag(1)
                 
                 

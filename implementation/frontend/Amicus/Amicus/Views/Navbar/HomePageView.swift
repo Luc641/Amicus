@@ -25,7 +25,6 @@ struct HomePageView: View {
         }
         .foregroundColor(Color("Amicus4"))
     }
-    
 }
 
 struct RegisteredHomepage_Previews: PreviewProvider {
