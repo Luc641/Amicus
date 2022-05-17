@@ -18,6 +18,9 @@ struct RegistrationView: View {
     @State private var registerScreen = false
     @StateObject private var userModel = UserStateViewModel()
     
+    @State var selection = ""
+    var categories = ["Doctor", "Mechanic", "Plumber"]
+    
     @State private var image = UIImage()
     @State private var showSheet = false
     
@@ -85,7 +88,13 @@ struct RegistrationView: View {
                         .validation(formInfo.passwordValidation)
                 }
                 //                .listRowBackground(Color("Amicus1"))
-                
+                Section( header: Text("")){
+                    Picker(selection: $selection, label: Text("Expert Category")){
+                        ForEach(categories, id: \.self){
+                            Text($0)
+                        }
+                    }
+                }
                 Button(action: {
                     registerScreen = formInfo.form.triggerValidation()
                     userModel.register(firstName: formInfo.firstName, lastName: formInfo.lastNames, password: formInfo.password, birthDate: formInfo.birthday, email: formInfo.email, username: formInfo.username)
@@ -99,7 +108,6 @@ struct RegistrationView: View {
                 )
                 .disabled(isButtonDisabled)
             }
-            
             //                   observe the form validation and enable submit button only if it's valid
             .onReceive(formInfo.form.$allValid) { isValid in
                 self.isSaveEnabled = isValid
