@@ -23,3 +23,7 @@ struct UserCreateRequestBody: ApiRequestBody {
     let address, passwordHash, username: String
     let birthDate: Date
 }
+
+struct MediaCreateRequestBody: ApiRequestBody {
+    let data, name, dataType: String
+}
