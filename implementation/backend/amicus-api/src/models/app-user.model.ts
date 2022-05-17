@@ -1,4 +1,6 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {ExpertCategory} from './expert-category.model';
+import {AppUserExpertCategory} from './app-user-expert-category.model';
 
 @model()
 export class AppUser extends Entity {
@@ -51,6 +53,8 @@ export class AppUser extends Entity {
   })
   username: string;
 
+  @hasMany(() => ExpertCategory, {through: {model: () => AppUserExpertCategory}})
+  expertCategories: ExpertCategory[];
 
   constructor(data?: Partial<AppUser>) {
     super(data);
