@@ -127,7 +127,8 @@ struct RegistrationView: View {
             }
         }
         .foregroundColor(Color.amicusGreen)
-        .navigate(to: NavbarView(), when: $userModel.isAuthenticated)
+        .navigate(to: NavbarView().environmentObject(userModel), when: $userModel.isAuthenticated)
+        .environmentObject(userModel)
     }
     
     private var isButtonDisabled: Bool {
@@ -137,6 +138,6 @@ struct RegistrationView: View {
 
 struct FormRegistrationView_Previews: PreviewProvider {
     static var previews: some View {
-        RegistrationView()
+        RegistrationView().environmentObject(UserStateViewModel())
     }
 }

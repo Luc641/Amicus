@@ -12,6 +12,7 @@ class UserStateViewModel: ObservableObject {
     @Published var isAuthenticated: Bool = false
     @Published var isAuthenticating: Bool = false
     @Published var apiErrorMessage: String?
+    @Published var info: UserResponse?
     
     @MainActor func login(email: String, password: String) {
         let storage = KeychainHelper.standard
@@ -20,6 +21,7 @@ class UserStateViewModel: ObservableObject {
             isAuthenticating = true
             do {
                 let token = try await WebClient.standard.login(email: email, password: password).token!
+                info = try await WebClient.standard.whoAmI(authToken: token)
                 storage.save(ApiToken(accessToken: token), service: "token", account: "amicus")
                 isAuthenticated = true
             } catch RequestError.unauthorized {
@@ -40,7 +42,7 @@ class UserStateViewModel: ObservableObject {
         Task {
             isAuthenticating = true
             do {
-                let _ = try await WebClient.standard.register(firstName, lastName, password, birthDate, email, username)
+                info = try await WebClient.standard.register(firstName, lastName, password, birthDate, email, username)
                 let loggedIn = try await WebClient.standard.login(email: email, password: password).token!
                 KeychainHelper.standard.save(ApiToken(accessToken: loggedIn), service: "token", account: "amicus")
                 isAuthenticated = true

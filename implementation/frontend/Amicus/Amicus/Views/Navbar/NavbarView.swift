@@ -71,6 +71,6 @@ struct NavbarView: View {
 
 struct NavbarView_Previews: PreviewProvider {
     static var previews: some View {
-        NavbarView()
+        NavbarView().environmentObject(UserStateViewModel())
     }
 }

@@ -67,9 +67,8 @@ struct LoginView: View {
                     }
                 }
             }
-            .navigate(to: HomePageView(), when: $loginModal.isAuthenticated)
-            .foregroundColor(Color("Amicus3"))
-            
+            .navigate(to: NavbarView().environmentObject(loginModal), when: $loginModal.isAuthenticated)
+            .foregroundColor(Color.amicusGreen)
         }
     }
     
@@ -80,6 +79,6 @@ struct LoginView: View {
 
 struct NewLoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView().environmentObject(UserStateViewModel())
     }
 }
