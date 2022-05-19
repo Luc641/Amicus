@@ -12,7 +12,7 @@ import {
     SchemaObject,
 } from '@loopback/rest';
 import {AppUser} from '../models';
-import {AppUserRepository} from '../repositories';
+import {AppUserRepository, MediaRepository} from '../repositories';
 import {genSalt, hash} from 'bcryptjs';
 
 import {inject, intercept} from '@loopback/core';
@@ -22,6 +22,8 @@ import {authenticate, TokenService} from '@loopback/authentication';
 import {SecurityBindings, securityId, UserProfile} from '@loopback/security';
 import {AppUserService, Credentials} from '../services/app-user.service';
 import {AppUserServiceBindings} from '../bindings/app-user-service.bindings';
+
+import { CustomResponse } from '../responses/custom-response';
 
 
 // Describe the schema of user credentials
@@ -47,7 +49,6 @@ export const CredentialsRequestBody = {
         'application/json': {schema: CredentialsSchema},
     },
 };
-
 export class AppUserController {
     constructor(
         @inject(TokenServiceBindings.TOKEN_SERVICE)
@@ -58,6 +59,8 @@ export class AppUserController {
         public user: UserProfile,
         @repository(AppUserRepository)
         public appUserRepository: AppUserRepository,
+        @repository(MediaRepository)
+        public mediaRepository: MediaRepository,
     ) {
     }
 
@@ -108,8 +111,12 @@ export class AppUserController {
 
     @post('/users')
     @response(200, {
-        description: 'AppUser model instance',
-        content: {'application/json': {schema: getModelSchemaRef(AppUser)}},
+        description: 'AppUser model instance!',
+        content: {
+                'application/json': {
+                    schema: getModelSchemaRef(AppUser),
+                },
+            },
     })
     @intercept(ValidateUserInterceptor.BINDING_KEY)
     async create(
@@ -119,16 +126,50 @@ export class AppUserController {
                     schema: getModelSchemaRef(AppUser, {
                         title: 'NewAppUser',
                         exclude: ['id'],
-                    }),
+                        includeRelations: true, //Allow users containing categories and media
+                    }), 
                 },
             },
         })
             appUser: Omit<AppUser, 'id'>,
     ): Promise<AppUser> {
-
         const salt = await genSalt(12);
         appUser.passwordHash = await hash(appUser.passwordHash, salt);
-        return this.appUserRepository.create(appUser);
+
+        //Create user without navigational properties
+        const newUser = Object.assign({
+            firstName: appUser.firstName,
+            lastName: appUser.lastName,
+            email: appUser.email,
+            birthDate: appUser.birthDate,
+            address: appUser.address,
+            passwordHash: appUser.passwordHash,
+            username: appUser.username,
+        });
+
+        const user = await this.appUserRepository.create(newUser);
+
+        //User not created, throw error
+        if(!user){
+            throw new CustomResponse ("User couldn't been stored", 404);
+        }
+
+        //User created, create media and relate it to the user
+        const newMedia = Object.assign({
+            name: appUser.profilePicture.name, 
+            data: appUser.profilePicture.data, 
+            dataType: appUser.profilePicture.dataType,
+            appUserId: user.getId(),
+        });
+
+        const media = await this.mediaRepository.create(newMedia);
+
+        //User not created, throw error
+        if(!media){
+            throw new CustomResponse ("Media couldn't been stored", 404);
+        }
+
+        return new Promise<AppUser>(() => user);
     }
 
     @get('/users/count')

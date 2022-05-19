@@ -27,6 +27,10 @@ export class Media extends Entity {
   })
   dataType: string;
 
+  @property({
+    type: 'number',
+  })
+  appUserId?: number;
 
   constructor(data?: Partial<Media>) {
     super(data);

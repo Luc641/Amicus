@@ -5,23 +5,18 @@ import {
   CountSchema,
   Filter,
   repository,
-  Where,
 } from '@loopback/repository';
   import {
   del,
   get,
   getModelSchemaRef,
-  getWhereSchemaFor,
   param,
-  patch,
   post,
   requestBody,
-  response,
 } from '@loopback/rest';
 import { ServerResponse } from 'http';
 import {
 AppUser,
-AppUserExpertCategory,
 ExpertCategory,
 } from '../models';
 import {AppUserRepository, AppUserExpertCategoryRepository, ExpertCategoryRepository} from '../repositories';

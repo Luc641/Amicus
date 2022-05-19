@@ -6,12 +6,14 @@ import {Getter} from '@loopback/context';
 
 const appUserExpertCategoryRepository = new AppUserExpertCategoryRepository(testdb);
 const expertCategoryRepository = new ExpertCategoryRepository(testdb);
+const mediaRepository = new MediaRepository(testdb);
 const appUserRepository = new AppUserRepository(
     testdb, 
     Getter.fromValue(appUserExpertCategoryRepository), 
-    Getter.fromValue(expertCategoryRepository)
+    Getter.fromValue(expertCategoryRepository),
+    Getter.fromValue(mediaRepository)
 );
-const mediaRepository = new MediaRepository(testdb);
+
 
 export async function givenEmptyDatabase() {
     await appUserRepository.deleteAll();

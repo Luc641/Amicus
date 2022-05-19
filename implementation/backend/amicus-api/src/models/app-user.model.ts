@@ -1,6 +1,7 @@
-import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Entity, model, property, hasMany, hasOne} from '@loopback/repository';
 import {ExpertCategory} from './expert-category.model';
 import {AppUserExpertCategory} from './app-user-expert-category.model';
+import {Media} from './media.model';
 
 @model()
 export class AppUser extends Entity {
@@ -18,6 +19,7 @@ export class AppUser extends Entity {
   @property({
     type: 'string',
     required: true,
+    "index": {"unique": true} 
   })
   email: string;
 
@@ -50,11 +52,15 @@ export class AppUser extends Entity {
   @property({
     type: 'string',
     required: true,
+    "index": {"unique": true} 
   })
   username: string;
 
   @hasMany(() => ExpertCategory, {through: {model: () => AppUserExpertCategory}})
   expertCategories: ExpertCategory[];
+
+  @hasOne(() => Media)
+  profilePicture: Media;
 
   constructor(data?: Partial<AppUser>) {
     super(data);

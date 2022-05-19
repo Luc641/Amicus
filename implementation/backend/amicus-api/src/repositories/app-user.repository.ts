@@ -1,10 +1,11 @@
 import {inject, Getter} from '@loopback/core';
-import {DefaultCrudRepository, repository, HasManyThroughRepositoryFactory} from '@loopback/repository';
+import {DefaultCrudRepository, repository, HasManyThroughRepositoryFactory, HasOneRepositoryFactory} from '@loopback/repository';
 import {AmicusDatabaseDataSource} from '../datasources';
-import {AppUser, AppUserRelations, ExpertCategory, AppUserExpertCategory} from '../models';
+import {AppUser, AppUserRelations, ExpertCategory, AppUserExpertCategory, Media} from '../models';
 import {Credentials} from "../services/app-user.service";
 import {AppUserExpertCategoryRepository} from './app-user-expert-category.repository';
 import {ExpertCategoryRepository} from './expert-category.repository';
+import {MediaRepository} from './media.repository';
 
 export class AppUserRepository extends DefaultCrudRepository<AppUser,
     typeof AppUser.prototype.id,
@@ -15,10 +16,13 @@ export class AppUserRepository extends DefaultCrudRepository<AppUser,
           typeof AppUser.prototype.id
         >;
 
+  public readonly profilePicture: HasOneRepositoryFactory<Media, typeof AppUser.prototype.id>;
+
     constructor(
-        @inject('datasources.AmicusDatabase') dataSource: AmicusDatabaseDataSource, @repository.getter('AppUserExpertCategoryRepository') protected appUserExpertCategoryRepositoryGetter: Getter<AppUserExpertCategoryRepository>, @repository.getter('ExpertCategoryRepository') protected expertCategoryRepositoryGetter: Getter<ExpertCategoryRepository>,
+        @inject('datasources.AmicusDatabase') dataSource: AmicusDatabaseDataSource, @repository.getter('AppUserExpertCategoryRepository') protected appUserExpertCategoryRepositoryGetter: Getter<AppUserExpertCategoryRepository>, @repository.getter('ExpertCategoryRepository') protected expertCategoryRepositoryGetter: Getter<ExpertCategoryRepository>, @repository.getter('MediaRepository') protected mediaRepositoryGetter: Getter<MediaRepository>,
     ) {
         super(AppUser, dataSource);
+      this.profilePicture = this.createHasOneRepositoryFactoryFor('profilePicture', mediaRepositoryGetter);
       this.expertCategories = this.createHasManyThroughRepositoryFactoryFor('expertCategories', expertCategoryRepositoryGetter, appUserExpertCategoryRepositoryGetter,);
       this.registerInclusionResolver('expertCategories', this.expertCategories.inclusionResolver);
     }
