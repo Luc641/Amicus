@@ -43,8 +43,7 @@ struct NavbarView: View {
                 
                 
                 
-                Text("Video Tab")
-                    .font(.system(size: 30, weight: .bold, design: .rounded))
+                HistoryView()
                     .tabItem {
                         Image(systemName: "clock.arrow.circlepath")
                         Text("History")
@@ -60,10 +59,11 @@ struct NavbarView: View {
                     .tag(4)
                     .navigationTitle("User")
             }
-            .accentColor(Color("Amicus3"))
-            //.onAppear() {
-            //    UITabBar.appearance().barTintColor = UIColor(Color("Amicus4"))
-            //}
+//            .accentColor(Color("Amicus3"))
+//            .onAppear() {
+//                UITabBar.appearance().barTintColor = UIColor(Color("Amicus4"))
+//            }
+
             
             
         }
