@@ -14,14 +14,15 @@ struct ExpertView: View {
         NavigationView {
             List(1...10, id: \.self) { index in
                 NavigationLink(
-                    destination: Text("Request #\(index) Details"),
+                    destination: ExpertRequestView(),
                     label: {
                         Text("Request #\(index)")
                             .font(.system(size: 20, weight: .bold, design: .rounded))
                         
                     })
+                
             }
-            .navigationBarBackButtonHidden(true)
+            //.navigationBarBackButtonHidden(true)
             .navigationTitle("Expert")
             .foregroundColor(Color("Amicus3"))
         }

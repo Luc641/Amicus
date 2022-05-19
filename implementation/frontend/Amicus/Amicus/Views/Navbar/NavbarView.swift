@@ -14,11 +14,12 @@ struct NavbarView: View {
         NavigationView {
             TabView(selection: $selection) {
                 
-                HomePageView()
+                HomePageView(tabSelection: $selection)
                     .tabItem {
                         Image(systemName: "house.fill")
                         Text("Home")
                     }
+                    .navigationBarHidden(true)
                     .tag(0)
                 
                 
@@ -60,9 +61,9 @@ struct NavbarView: View {
                     .navigationTitle("User")
             }
             .accentColor(Color("Amicus3"))
-            .onAppear() {
-                UITabBar.appearance().barTintColor = UIColor(Color("Amicus4"))
-            }
+            //.onAppear() {
+            //    UITabBar.appearance().barTintColor = UIColor(Color("Amicus4"))
+            //}
             
             
         }
