@@ -23,6 +23,7 @@ struct RegistrationView: View {
     
     @State private var image = UIImage()
     @State private var showSheet = false
+    @State private var showCamera = false
     
     var body: some View {
         NavigationView {
@@ -32,22 +33,32 @@ struct RegistrationView: View {
                         Image(uiImage: self.image)
                             .resizable()
                             .cornerRadius(50)
-                        //.padding(.all, 4)
                             .frame(width: 120, height: 120)
                             .background(Color.black.opacity(0.2))
-                            //.aspectRatio(contentMode: .fill)
+                            .aspectRatio(contentMode: .fit)
                             .clipShape(Circle())
-                        //.padding(8)
-                        Button(action: {
-                            showSheet = true
-                        }) {
-                            Text("Add profile picture")
+                        
+                        
+                        
+                        Menu("Add Picture") {
+                            Button(action: {showCamera = true}) {
+                                HStack{
+                                    Image(systemName: "camera")
+                                    Text("Take picture")
+                                }
+                            }
+                            Button(action: {showSheet = true}) {
+                                HStack{
+                                    Image(systemName: "photo")
+                                    Text("Add from library")
+                                }
+                            }
+                        }
+                        .sheet(isPresented: $showCamera) {
+                            ImagePicker(sourceType: .camera, selectedImage: self.$image)
                         }
                         .sheet(isPresented: $showSheet) {
-                            ImagePicker(sourceType: .camera, selectedImage: self.$image)
-                            
-                            //  If you want to take a picture from the library instead:
-                            // ImagePicker(sourceType: .library, selectedImage: self.$image)
+                            ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
                         }
                     }
                 }
