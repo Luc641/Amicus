@@ -25,6 +25,8 @@ import {AppUserServiceBindings} from '../bindings/app-user-service.bindings';
 
 import { CustomResponse } from '../responses/custom-response';
 
+import { isAuth } from '../middleware/isAuth'
+
 
 // Describe the schema of user credentials
 const CredentialsSchema: SchemaObject = {
@@ -179,6 +181,7 @@ export class AppUserController {
     }
 
     // Endpoint to retrieve all the users matching the filter
+    @isAuth(['Admin', 'User'], 'Expert')
     @authenticate('jwt')
     @get('/users')
     @response(200, {
