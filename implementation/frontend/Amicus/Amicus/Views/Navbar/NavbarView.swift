@@ -32,6 +32,8 @@ struct NavbarView: View {
                     .tag(1)
                 
                 
+                Text("Create Request")
+                    .font(.system(size: 30, weight: .bold, design: .rounded))
                 
                 RequestView()
                     .tabItem {
@@ -42,36 +44,31 @@ struct NavbarView: View {
                     .tag(2)
                 
                 
-                
                 HistoryView()
                     .tabItem {
                         Image(systemName: "clock.arrow.circlepath")
                         Text("History")
                     }
+                    .navigationBarHidden(true)
                     .tag(3)
-                
                 
                 UserProfileView()
                     .tabItem {
                         Image(systemName: "person.crop.circle")
                         Text("Profile")
                     }
+                    .navigationBarHidden(true)
                     .tag(4)
-                    .navigationTitle("User")
             }
-//            .accentColor(Color("Amicus3"))
-//            .onAppear() {
-//                UITabBar.appearance().barTintColor = UIColor(Color("Amicus4"))
-//            }
-
-            
-            
+            .accentColor(.amicusGreen)
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
         }
     }
 }
 
 struct NavbarView_Previews: PreviewProvider {
     static var previews: some View {
-        NavbarView().environmentObject(UserStateViewModel())
+            NavbarView().environmentObject(UserStateViewModel())
     }
 }

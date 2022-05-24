@@ -60,6 +60,7 @@ struct RegistrationView: View {
                         .sheet(isPresented: $showSheet) {
                             ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
                         }
+                        .onTapGesture(perform: simpleSuccess)
                     }
                 }
                 
@@ -117,6 +118,7 @@ struct RegistrationView: View {
                     }
                 }
                 )
+                .onTapGesture(perform: simpleSuccess)
                 .disabled(isButtonDisabled)
             }
             //                   observe the form validation and enable submit button only if it's valid

@@ -16,13 +16,19 @@ struct ExpertView: View {
                 NavigationLink(
                     destination: ExpertRequestView(),
                     label: {
-                        Text("Request #\(index)")
-                            .font(.system(size: 20, weight: .bold, design: .rounded))
-                        
+                        HStack {
+                            Image(systemName: "tray.full.fill")
+                                .padding()
+                            VStack {
+                                Text("Advice \(index)")
+                                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                                Text("Category \(index)")
+                                    .font(.system(size: 15, design: .rounded))
+                                    .foregroundColor(Color.gray)
+                            }
+                        }
                     })
-                
             }
-            //.navigationBarBackButtonHidden(true)
             .navigationTitle("Expert")
             .foregroundColor(Color("Amicus3"))
         }

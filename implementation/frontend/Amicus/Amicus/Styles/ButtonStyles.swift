@@ -11,6 +11,7 @@ import SwiftUI
 
 struct RegisterButton : ButtonStyle {
     let background: Color
+    
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding()

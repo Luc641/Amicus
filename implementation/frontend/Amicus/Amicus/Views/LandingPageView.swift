@@ -21,26 +21,25 @@ struct LandingPageView: View {
             VStack{
                 Button("Register here") {
                     registerScreen.toggle()
-                }.buttonStyle(RegisterButton(background: Color("Amicus3")))
-                    .padding(.top)
+                }
+                .buttonStyle(RegisterButton(background: Color("Amicus3")))
+                .padding(.top)
                 
-                //                Button("Sign in with Google") {
-                //                }.buttonStyle(RegisterButton())
-                //                Button("Sign in with Apple") {
-                //                }.buttonStyle(RegisterButton())
                 Text("Already have an account?")
                     .foregroundColor(Color("Amicus3"))
                     .multilineTextAlignment(.center)
                     .padding()
+                
                 Button("Log in") {
                     loginScreen.toggle()
-                }.buttonStyle(RegisterButton(background: Color("Amicus3")))
-                    .padding(.bottom, 50.0)
-            }.padding(.horizontal, 90.0)
+                }
+                .buttonStyle(RegisterButton(background: Color("Amicus3")))
+                .padding(.bottom, 50.0)
+            
+            }
+                .padding(.horizontal, 90.0)
                 .background(Color("Amicus1"))
                 .padding(.top, -20)
-            
-            
             
             Text("Welcome to Amicus")
                 .font(.largeTitle)

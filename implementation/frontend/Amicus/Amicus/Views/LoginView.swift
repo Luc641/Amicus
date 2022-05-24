@@ -36,6 +36,7 @@ struct LoginView: View {
                     ) {
                         loginModal.login(email: formInfo.email, password: formInfo.password)
                     }
+                    .buttonStyle(RegisterButton(background: Color("Amicus3")))
                     .disabled(isLoginDisabled)
                     .foregroundColor(Color.amicusGreen)
                     .padding()

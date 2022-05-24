@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0709E9232836743400DD9E6E /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0709E9222836743400DD9E6E /* Haptics.swift */; };
 		070FFFB72816AA0C003357BB /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070FFFB62816AA0C003357BB /* ButtonStyles.swift */; };
 		0748D6A4282AE2AC00CAFFBA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0748D6A3282AE2AC00CAFFBA /* ImagePicker.swift */; };
 		0795758A2833A62300D682D2 /* ExpertRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079575892833A62300D682D2 /* ExpertRequestView.swift */; };
@@ -65,6 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0709E9222836743400DD9E6E /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		070FFFB62816AA0C003357BB /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		0748D6A3282AE2AC00CAFFBA /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		079575892833A62300D682D2 /* ExpertRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpertRequestView.swift; sourceTree = "<group>"; };
@@ -149,6 +151,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0709E9212836741800DD9E6E /* Haptics */ = {
+			isa = PBXGroup;
+			children = (
+				0709E9222836743400DD9E6E /* Haptics.swift */,
+			);
+			path = Haptics;
+			sourceTree = "<group>";
+		};
 		070FFFB52816A9F5003357BB /* Styles */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +195,7 @@
 		07AC8624280EBF8600C8C48F /* Amicus */ = {
 			isa = PBXGroup;
 			children = (
+				0709E9212836741800DD9E6E /* Haptics */,
 				070FFFB52816A9F5003357BB /* Styles */,
 				2928EC90282A883400BDBADB /* ViewModels */,
 				2928EC8F282A882900BDBADB /* Views */,
@@ -590,6 +601,7 @@
 				6AD1555A2833A7F20061D540 /* HistoryView.swift in Sources */,
 				298D2AFE2822AB8A002C9466 /* LoginView.swift in Sources */,
 				0748D6A4282AE2AC00CAFFBA /* ImagePicker.swift in Sources */,
+				0709E9232836743400DD9E6E /* Haptics.swift in Sources */,
 				298D2B022822ADAA002C9466 /* ColorExtension.swift in Sources */,
 				81C8E8A32811773700E8C00E /* LandingPageView.swift in Sources */,
 				298D2B0C28240A31002C9466 /* RequestError.swift in Sources */,
