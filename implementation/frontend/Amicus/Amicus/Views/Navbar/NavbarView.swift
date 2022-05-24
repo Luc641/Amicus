@@ -33,12 +33,12 @@ struct NavbarView: View {
                 
                 
                 
-                Text("Create Request")
-                    .font(.system(size: 30, weight: .bold, design: .rounded))
+                RequestView()
                     .tabItem {
                         Image(systemName: "plus.bubble")
                         Text("New Request")
                     }
+                    .navigationBarHidden(true)
                     .tag(2)
                 
                 
