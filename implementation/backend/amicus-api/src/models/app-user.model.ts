@@ -2,6 +2,8 @@ import {Entity, model, property, hasMany, hasOne} from '@loopback/repository';
 import {ExpertCategory} from './expert-category.model';
 import {AppUserExpertCategory} from './app-user-expert-category.model';
 import {Media} from './media.model';
+import {Message, MessageWithRelations} from './message.model';
+import {Request, RequestWithRelations} from './request.model';
 
 @model()
 export class AppUser extends Entity {
@@ -61,6 +63,11 @@ export class AppUser extends Entity {
 
   @hasOne(() => Media)
   profilePicture: Media;
+  @hasMany(() => Request)
+  requests: Request[];
+
+  @hasMany(() => Message)
+  messages: Message[];
 
   constructor(data?: Partial<AppUser>) {
     super(data);
@@ -69,6 +76,8 @@ export class AppUser extends Entity {
 
 export interface AppUserRelations {
   // describe navigational properties here
+  requests?: RequestWithRelations[]
+  messages?: MessageWithRelations[]
 }
 
 export type AppUserWithRelations = AppUser & AppUserRelations;

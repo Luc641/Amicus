@@ -1,4 +1,6 @@
 import {Entity, model, property} from '@loopback/repository';
+import {Message, MessageWithRelations} from './message.model';
+import {Request, RequestWithRelations} from './request.model';
 
 @model()
 export class Media extends Entity {
@@ -31,6 +33,12 @@ export class Media extends Entity {
     type: 'number',
   })
   appUserId?: number;
+  @property(() => Request)
+  requestId?: number;
+
+  @property(() => Message)
+  messageId?: number;
+
 
   constructor(data?: Partial<Media>) {
     super(data);
@@ -39,6 +47,8 @@ export class Media extends Entity {
 
 export interface MediaRelations {
   // describe navigational properties here
+  request?: RequestWithRelations
+  message?: MessageWithRelations
 }
 
 export type MediaWithRelations = Media & MediaRelations;

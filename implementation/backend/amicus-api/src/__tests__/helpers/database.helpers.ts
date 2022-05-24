@@ -1,18 +1,27 @@
-import {AppUserRepository, MediaRepository, ExpertCategoryRepository, AppUserExpertCategoryRepository} from '../../repositories';
+import {
+    AppUserRepository,
+    MediaRepository,
+    ExpertCategoryRepository,
+    AppUserExpertCategoryRepository,
+    RequestRepository,
+    MessageRepository,
+} from '../../repositories';
 import {testdb} from '../fixtures/datasources/testdb.datasource';
-import {AppUser} from "../../models";
-import * as fs from "fs";
+import {AppUser} from '../../models';
+import * as fs from 'fs';
 import {Getter} from '@loopback/context';
+
 
 const appUserExpertCategoryRepository = new AppUserExpertCategoryRepository(testdb);
 const expertCategoryRepository = new ExpertCategoryRepository(testdb);
 const mediaRepository = new MediaRepository(testdb);
-const appUserRepository = new AppUserRepository(
-    testdb, 
-    Getter.fromValue(appUserExpertCategoryRepository), 
+const messageRepository = new MessageRepository(testdb);
+const requestRepository = new RequestRepository(testdb, Getter.fromValue(mediaRepository), Getter.fromValue(messageRepository));
+const appUserRepository = new AppUserRepository(testdb,
+    Getter.fromValue(appUserExpertCategoryRepository),
     Getter.fromValue(expertCategoryRepository),
-    Getter.fromValue(mediaRepository)
-);
+    Getter.fromValue(mediaRepository),
+    Getter.fromValue(requestRepository));
 
 
 export async function givenEmptyDatabase() {
@@ -20,6 +29,7 @@ export async function givenEmptyDatabase() {
     await mediaRepository.deleteAll();
     await appUserExpertCategoryRepository.deleteAll();
     await expertCategoryRepository.deleteAll();
+    await requestRepository.deleteAll();
 }
 
 export function givenAppUserData(data?: Partial<AppUser>) {
@@ -27,11 +37,11 @@ export function givenAppUserData(data?: Partial<AppUser>) {
         {
             firstName: 'Friendly',
             lastName: 'Person',
-            email: "friendly@person.com",
+            email: 'friendly@person.com',
             birthDate: new Date(628021800000),
-            address: "Venlo",
-            passwordHash: "supersecurepassword",
-            username: "amicus_user"
+            address: 'Venlo',
+            passwordHash: 'supersecurepassword',
+            username: 'amicus_user',
         },
         data,
     );
@@ -47,19 +57,31 @@ export function givenMediaData() {
         {
             name: 'test',
             data: file,
-            dataType: 'jpeg'
+            dataType: 'jpeg',
+        },
+    );
+}
+
+export function givenRequestData() {
+    return Object.assign(
+        {
+            title: 'Title Test',
+            content: 'Content Test',
+            date: new Date(2022, 5, 20),
+            location: 'Venlo',
+            isOpen: true,
         },
     );
 }
 
 export async function givenMedia() {
-    return new MediaRepository(testdb).create(givenMediaData());
+    return mediaRepository.create(givenMediaData());
 }
 
 export function givenExpertCategoryData(name: String) {
     return Object.assign(
         {
-            categoryName: name
+            categoryName: name,
         },
     );
 }
@@ -69,7 +91,11 @@ export async function givenExpertCategory(name: String) {
 }
 
 export async function givenUserCategory(userId: number) {
-    const category = await givenExpertCategory("Dentist");
+    const category = await givenExpertCategory('Dentist');
     const expertCategory = Object.assign(category, {id: 1});
-    return appUserRepository.expertCategories(userId).link(expertCategory.getId()); 
+    return appUserRepository.expertCategories(userId).link(expertCategory.getId());
+}
+
+export async function givenRequest(id: number) {
+    return appUserRepository.requests(id).create(givenRequestData());
 }
