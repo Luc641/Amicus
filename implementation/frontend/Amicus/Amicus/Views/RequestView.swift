@@ -22,11 +22,14 @@ struct RequestView: View {
     @StateObject var locationManager = LocationManager()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var selection = ""
-    @State private var image = UIImage()
-    @State private var showSheet = false
+    
     @State private var description = ""
     @State private var topic = ""
     @State private var address: CLPlacemark?
+    
+    @State private var image = UIImage()
+    @State private var showSheet = false
+    @State private var showCamera = false
     
     
     var categories = ["Health", "Mechanical", "Household Repairs"]
@@ -43,9 +46,7 @@ struct RequestView: View {
                     TextField("Topic", text: $topic)
                 }
                 
-                Section(header:  Text("Describe your Problem here:")){
-                    
-                    
+                Section(header: Text("Describe your Problem here:")){
                     ZStack(){
                         TextEditor(text: $description)
                         Text(description).opacity(0).padding(.all,8)
@@ -60,15 +61,27 @@ struct RequestView: View {
                             .frame(width: 100, height: 100)
                             .background(Color.black.opacity(0.2))
                             .cornerRadius(20)
-                        Button(action: {
-                            showSheet = true
-                        }) {
-                            Text("Add your image")
+                        Menu("Add Picture") {
+                            Button(action: {showCamera = true}) {
+                                HStack{
+                                    Image(systemName: "camera")
+                                    Text("Take picture")
+                                }
+                            }
+                            Button(action: {showSheet = true}) {
+                                HStack{
+                                    Image(systemName: "photo")
+                                    Text("Add from library")
+                                }
+                            }
+                        }
+                        .sheet(isPresented: $showCamera) {
+                            ImagePicker(sourceType: .camera, selectedImage: self.$image)
                         }
                         .sheet(isPresented: $showSheet) {
-                            ImagePicker(sourceType: .camera, selectedImage: self.$image)
-                            
+                            ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
                         }
+                        .onTapGesture(perform: simpleSuccess)
                     }
                 }
                 

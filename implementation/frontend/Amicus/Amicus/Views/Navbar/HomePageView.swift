@@ -19,10 +19,10 @@ struct HomePageView: View {
             Form {
                     VStack {
                         HStack {
-                            Text("Welcome back")
+                            Text("Welcome back,")
                                 .font(.system(size: 20, weight: .bold, design: .rounded))
-                            //Text(userState.info?.firstName ?? "")
-                              //  .font(.system(size: 20, weight: .bold, design: .rounded))
+                            Text(userState.info?.firstName ?? "")
+                                .font(.system(size: 20, weight: .bold, design: .rounded))
                         }
                         
                         

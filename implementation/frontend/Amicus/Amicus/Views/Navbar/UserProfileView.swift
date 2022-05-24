@@ -16,8 +16,9 @@ struct UserProfileView: View {
                 Image("ExamplePicture")
                     .resizable()
                     .cornerRadius(50)
-                    .padding(.all, 4)
+                    //.padding(.all, 4)
                     .frame(width: 200, height: 200)
+                    .aspectRatio(contentMode: .fit)
                     .background(Color.black.opacity(0.2))
                     .clipShape(Circle())
                 

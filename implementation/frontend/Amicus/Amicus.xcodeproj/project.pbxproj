@@ -238,12 +238,11 @@
 			children = (
 				8187010428180237001F86C6 /* Navbar */,
 				292FA386281AE46200073055 /* RegistrationView.swift */,
-				8186BE8F281AAB0F00419F3A /* UserProfileView.swift */,
 				81C8E8A22811773700E8C00E /* LandingPageView.swift */,
 				07AC8625280EBF8600C8C48F /* AmicusApp.swift */,
 				298D2AFD2822AB8A002C9466 /* LoginView.swift */,
-				295139E52832B67C0009938C /* MediaView.swift */,
 				81848DA3283664610044AA4B /* RequestView.swift */,
+				295139E52832B67C0009938C /* MediaView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -309,6 +308,7 @@
 				6AD155592833A7F20061D540 /* HistoryView.swift */,
 				079575892833A62300D682D2 /* ExpertRequestView.swift */,
 				6AD4FF2A28366FB300398E62 /* HistoryRequestView.swift */,
+				8186BE8F281AAB0F00419F3A /* UserProfileView.swift */,
 			);
 			path = Navbar;
 			sourceTree = "<group>";

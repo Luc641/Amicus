@@ -13,38 +13,53 @@ struct HistoryView: View {
     var body: some View {
         NavigationView {
             Form{
-                Section(header: Text("In progres")){
+                Section(header: Text("Accepted Requests").font(.system(size: 20, weight: .bold, design: .rounded))){
                     List(1...4, id: \.self) { index in
                         NavigationLink(
                             destination: HistoryRequestView(),
                             label: {
-                                Text("Request #\(index)")
-                                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                                HStack {
+                                    Image(systemName: "tray.fill")
+                                        .padding()
+                                    VStack(alignment: .leading) {
+                                        Text("Request \(index)")
+                                            .font(.system(size: 20, weight: .bold, design: .rounded))
+                                        VStack(alignment: .leading) {
+                                            Text("Category \(index)")
+                                            Text("Monday")
+                                        }
+                                        .font(.system(size: 15, design: .rounded))
+                                        .foregroundColor(Color.gray)
+                                    }
+                                }
                             })
                     }
                 }
-                Section(header: Text("Accepted Requests")){
+
+                Section(header: Text("Declined Requests").font(.system(size: 20, weight: .bold, design: .rounded))){
                     List(1...4, id: \.self) { index in
                         NavigationLink(
                             destination: Text("Request #\(index) Details"),
                             label: {
-                                Text("Request #\(index)")
-                                    .font(.system(size: 20, weight: .bold, design: .rounded))
-                            })
-                    }
-                }
-                Section(header: Text("Declined Requests")){
-                    List(1...4, id: \.self) { index in
-                        NavigationLink(
-                            destination: Text("Request #\(index) Details"),
-                            label: {
-                                Text("Request #\(index)")
-                                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                                HStack {
+                                    Image(systemName: "tray.fill")
+                                        .padding()
+                                    VStack(alignment: .leading) {
+                                        Text("Request \(index)")
+                                            .font(.system(size: 20, weight: .bold, design: .rounded))
+                                        VStack(alignment: .leading) {
+                                            Text("Category \(index)")
+                                            Text("Monday")
+                                        }
+                                        .font(.system(size: 15, design: .rounded))
+                                        .foregroundColor(Color.gray)
+                                    }
+                                }
                             })
                     }
                 }
             }
-            .foregroundColor(Color("Amicus4"))
+            .foregroundColor(Color("Amicus3"))
             .navigationBarTitle(Text("History requests"))
         }
     }
