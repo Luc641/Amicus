@@ -23,6 +23,11 @@ struct PingResponse: Codable {
 }
 
 struct UserResponse: Codable {
+    let info: UserInfo
+    let avatar: MediaResponse
+}
+
+struct UserInfo: Codable {
     let firstName, lastName, email: String
     let id: Int
     let birthDate, address, username: String
