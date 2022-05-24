@@ -7,7 +7,7 @@
 
 import XCTest
 
-class Amicus_FrontendUITestsLaunchTests: XCTestCase {
+class Amicus_UITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

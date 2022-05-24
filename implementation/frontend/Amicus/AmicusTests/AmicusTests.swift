@@ -6,9 +6,10 @@
 //
 
 import XCTest
-@testable import Amicus_Frontend
+@testable import Amicus
 
-class Amicus_FrontendTests: XCTestCase {
+class Amicus_Tests: XCTestCase {
+    
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
