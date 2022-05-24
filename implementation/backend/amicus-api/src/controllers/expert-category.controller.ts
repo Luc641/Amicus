@@ -19,6 +19,7 @@ import {
 } from '@loopback/rest';
 import {ExpertCategory} from '../models';
 import {ExpertCategoryRepository} from '../repositories';
+import {authenticate} from '@loopback/authentication';
 
 export class ExpertCategoryController {
   constructor(
@@ -26,6 +27,8 @@ export class ExpertCategoryController {
     public expertCategoryRepository : ExpertCategoryRepository,
   ) {}
 
+  // Endpoint to add a new expert category
+  @authenticate('jwt')
   @post('/expert-categories')
   @response(200, {
     description: 'ExpertCategory model instance',
@@ -35,7 +38,7 @@ export class ExpertCategoryController {
     @requestBody({
       content: {
         'application/json': {
-          schema: getModelSchemaRef(ExpertCategory, {
+          schema: getModelSchemaRef(ExpertCategory, { //Create expert category object out of request body
             title: 'NewExpertCategory',
             exclude: ['id'],
           }),
@@ -47,17 +50,8 @@ export class ExpertCategoryController {
     return this.expertCategoryRepository.create(expertCategory);
   }
 
-  @get('/expert-categories/count')
-  @response(200, {
-    description: 'ExpertCategory model count',
-    content: {'application/json': {schema: CountSchema}},
-  })
-  async count(
-    @param.where(ExpertCategory) where?: Where<ExpertCategory>,
-  ): Promise<Count> {
-    return this.expertCategoryRepository.count(where);
-  }
-
+  // Endpoint to get all the expert categories matching filter
+  @authenticate('jwt')
   @get('/expert-categories')
   @response(200, {
     description: 'Array of ExpertCategory model instances',
@@ -76,25 +70,8 @@ export class ExpertCategoryController {
     return this.expertCategoryRepository.find(filter);
   }
 
-  @patch('/expert-categories')
-  @response(200, {
-    description: 'ExpertCategory PATCH success count',
-    content: {'application/json': {schema: CountSchema}},
-  })
-  async updateAll(
-    @requestBody({
-      content: {
-        'application/json': {
-          schema: getModelSchemaRef(ExpertCategory, {partial: true}),
-        },
-      },
-    })
-    expertCategory: ExpertCategory,
-    @param.where(ExpertCategory) where?: Where<ExpertCategory>,
-  ): Promise<Count> {
-    return this.expertCategoryRepository.updateAll(expertCategory, where);
-  }
-
+  // Endpoint to retrieve a certain expert category
+  @authenticate('jwt')
   @get('/expert-categories/{id}')
   @response(200, {
     description: 'ExpertCategory model instance',
@@ -105,12 +82,14 @@ export class ExpertCategoryController {
     },
   })
   async findById(
-    @param.path.number('id') id: number,
+    @param.path.number('id') id: number, //Retrieve expert category id from url
     @param.filter(ExpertCategory, {exclude: 'where'}) filter?: FilterExcludingWhere<ExpertCategory>
   ): Promise<ExpertCategory> {
     return this.expertCategoryRepository.findById(id, filter);
   }
 
+  // Endpoint to update a certain expert category
+  @authenticate('jwt')
   @patch('/expert-categories/{id}')
   @response(204, {
     description: 'ExpertCategory PATCH success',
@@ -120,7 +99,7 @@ export class ExpertCategoryController {
     @requestBody({
       content: {
         'application/json': {
-          schema: getModelSchemaRef(ExpertCategory, {partial: true}),
+          schema: getModelSchemaRef(ExpertCategory, {partial: true}), // Allow expert category with missing fields
         },
       },
     })
@@ -129,22 +108,63 @@ export class ExpertCategoryController {
     await this.expertCategoryRepository.updateById(id, expertCategory);
   }
 
+
+
+  // Endpoint to replace an expert category by another one
+  @authenticate('jwt')
   @put('/expert-categories/{id}')
   @response(204, {
     description: 'ExpertCategory PUT success',
   })
   async replaceById(
-    @param.path.number('id') id: number,
-    @requestBody() expertCategory: ExpertCategory,
+    @param.path.number('id') id: number, //Retrieve id from expert category to be replaced
+    @requestBody() expertCategory: ExpertCategory, //Create new expert category out of the request body
   ): Promise<void> {
     await this.expertCategoryRepository.replaceById(id, expertCategory);
   }
 
+  // Endpoint to delete a certain expert category from the db
+  @authenticate('jwt')
   @del('/expert-categories/{id}')
   @response(204, {
     description: 'ExpertCategory DELETE success',
   })
-  async deleteById(@param.path.number('id') id: number): Promise<void> {
+  async deleteById(@param.path.number('id') id: number): Promise<void> { //Retrieve id from url
     await this.expertCategoryRepository.deleteById(id);
+  }
+
+  // Endpoint to get total number of expert categories in db
+  @authenticate('jwt')
+  @get('/expert-categories/count')
+  @response(200, {
+    description: 'ExpertCategory model count',
+    content: {'application/json': {schema: CountSchema}},
+  })
+  async count(
+    @param.where(ExpertCategory) where?: Where<ExpertCategory>,
+  ): Promise<Count> {
+    return this.expertCategoryRepository.count(where);
+  }
+
+  // Endpoint to update all the expert categories matching a condition
+  @authenticate('jwt')
+  @patch('/expert-categories')
+  @response(200, {
+    description: 'ExpertCategory PATCH success count',
+    content: {'application/json': {schema: CountSchema}},
+  })
+  async updateAll(
+    @requestBody({
+      content: {
+        'application/json': {
+          schema: getModelSchemaRef(ExpertCategory, {partial: true}), // Allow expert category with missing fields
+        },
+      },
+    })
+    expertCategory: ExpertCategory,
+    @param.where(ExpertCategory) where?: Where<ExpertCategory>,
+  ): Promise<Count> {
+    //Update all the expert categories matching the condition with the given fields
+    return this.expertCategoryRepository.updateAll(expertCategory, where);
   }
 }

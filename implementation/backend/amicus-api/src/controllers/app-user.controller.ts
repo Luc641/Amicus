@@ -64,9 +64,10 @@ export class AppUserController {
     ) {
     }
 
+    // Endpoint used to log in the app
     @post('/users/login')
     @response(200, {
-        description: 'Token',
+        description: 'Logged in Token',
         content: {
             'application/json': {
                 schema: {
@@ -81,8 +82,9 @@ export class AppUserController {
         },
     })
     async login(
-        @requestBody(CredentialsRequestBody) credentials: Credentials,
+        @requestBody(CredentialsRequestBody) credentials: Credentials, //Create a credentials object out of the request body
     ): Promise<{token: string}> {
+        // Check if it is an user from the app
         const user = await this.userService.verifyCredentials(credentials);
         const userProfile = this.userService.convertToUserProfile(user);
         // create a JWT based on the user profile
@@ -90,6 +92,7 @@ export class AppUserController {
         return {token};
     }
 
+    // Endpoint to retrieve the logged in user details (no need to send user id)
     @authenticate('jwt')
     @get('/users/whoami')
     @response(200, {
@@ -103,12 +106,14 @@ export class AppUserController {
         },
     })
     async whoAmI(
-        @inject(SecurityBindings.USER) currentUserProfile: UserProfile,
+        @inject(SecurityBindings.USER) currentUserProfile: UserProfile, //Recover id from logged in user
     ): Promise<AppUser> {
         const userId = currentUserProfile[securityId];
         return this.appUserRepository.findById(parseInt(userId));
     }
 
+    // Endpoint to add a new user to the app
+    @authenticate('jwt')
     @post('/users')
     @response(200, {
         description: 'AppUser model instance!',
@@ -118,7 +123,7 @@ export class AppUserController {
                 },
             },
     })
-    @intercept(ValidateUserInterceptor.BINDING_KEY)
+    @intercept(ValidateUserInterceptor.BINDING_KEY) //Validate the data given
     async create(
         @requestBody({
             content: {
@@ -134,8 +139,8 @@ export class AppUserController {
             appUser: Omit<AppUser, 'id'>,
     ): Promise<AppUser> {
         const salt = await genSalt(12);
-        appUser.passwordHash = await hash(appUser.passwordHash, salt);
-
+          
+        appUser.passwordHash = await hash(appUser.passwordHash, salt); //Hash password (bcrypt 12 rounds)
         //Create user without navigational properties
         const newUser = Object.assign({
             firstName: appUser.firstName,
@@ -147,6 +152,7 @@ export class AppUserController {
             username: appUser.username,
         });
 
+        // Add new user to db
         const user = await this.appUserRepository.create(newUser);
 
         //User not created, throw error
@@ -162,6 +168,7 @@ export class AppUserController {
             appUserId: user.getId(),
         });
 
+        //Add given profile picture to db
         const media = await this.mediaRepository.create(newMedia);
 
         //User not created, throw error
@@ -172,17 +179,8 @@ export class AppUserController {
         return new Promise<AppUser>(() => user);
     }
 
-    @get('/users/count')
-    @response(200, {
-        description: 'AppUser model count',
-        content: {'application/json': {schema: CountSchema}},
-    })
-    async count(
-        @param.where(AppUser) where?: Where<AppUser>,
-    ): Promise<Count> {
-        return this.appUserRepository.count(where);
-    }
-
+    // Endpoint to retrieve all the users matching the filter
+    @authenticate('jwt')
     @get('/users')
     @response(200, {
         description: 'Array of AppUser model instances',
@@ -201,6 +199,59 @@ export class AppUserController {
         return this.appUserRepository.find(filter);
     }
 
+    // Endpoint to retrieve details from given user
+    @authenticate('jwt')
+    @get('/users/{id}')
+    @response(200, {
+        description: 'AppUser model instance',
+        content: {
+            'application/json': {
+                schema: getModelSchemaRef(AppUser, {includeRelations: true}), //Return user together with profile picture
+            },
+        },
+    })
+    async findById(
+        @param.path.number('id') id: number, //Retrieve user id from the user
+        @param.filter(AppUser, {exclude: 'where'}) filter?: FilterExcludingWhere<AppUser>,
+    ): Promise<AppUser> {
+        return this.appUserRepository.findById(id, filter);
+    }
+
+    // Endpoint to update the data from a certain user
+    @authenticate('jwt')
+    @patch('/users/{id}')
+    @response(204, {
+        description: 'AppUser PATCH success',
+    })
+    async updateById(
+        @param.path.number('id') id: number, //Retrieve user id from url
+        @requestBody({
+            content: {
+                'application/json': {
+                    schema: getModelSchemaRef(AppUser, {partial: true}), //Allow some data missing (only fields to update)
+                },
+            },
+        })
+            appUser: AppUser,
+    ): Promise<void> {
+        await this.appUserRepository.updateById(id, appUser);
+    }
+
+
+
+
+    // Endpoint to delete a user from db
+    @authenticate('jwt')
+    @del('/users/{id}')
+    @response(204, {
+        description: 'AppUser DELETE success',
+    })
+    async deleteById(@param.path.number('id') id: number): Promise<void> {
+        await this.appUserRepository.deleteById(id);
+    }
+
+    // Endpoint to update data from multiple users 
+    @authenticate('jwt')
     @patch('/users')
     @response(200, {
         description: 'AppUser PATCH success count',
@@ -210,66 +261,40 @@ export class AppUserController {
         @requestBody({
             content: {
                 'application/json': {
-                    schema: getModelSchemaRef(AppUser, {partial: true}),
+                    schema: getModelSchemaRef(AppUser, {partial: true}), //Allow some data missing (only fields to update)
                 },
             },
         })
-            appUser: AppUser,
+            appUser: AppUser, //Create an user object with the data attached in the request body
         @param.where(AppUser) where?: Where<AppUser>,
     ): Promise<Count> {
+        //Try to update all the users matching a certain condition
         return this.appUserRepository.updateAll(appUser, where);
     }
 
-    @get('/users/{id}')
+    // Endpoint to retrieve amount of user in the system matching the filter
+    @authenticate('jwt')
+    @get('/users/count')
     @response(200, {
-        description: 'AppUser model instance',
-        content: {
-            'application/json': {
-                schema: getModelSchemaRef(AppUser, {includeRelations: true}),
-            },
-        },
+        description: 'AppUser model count',
+        content: {'application/json': {schema: CountSchema}},
     })
-    async findById(
-        @param.path.number('id') id: number,
-        @param.filter(AppUser, {exclude: 'where'}) filter?: FilterExcludingWhere<AppUser>,
-    ): Promise<AppUser> {
-        return this.appUserRepository.findById(id, filter);
+    async count(
+        @param.where(AppUser) where?: Where<AppUser>,
+    ): Promise<Count> {
+        return this.appUserRepository.count(where);
     }
 
-    @patch('/users/{id}')
-    @response(204, {
-        description: 'AppUser PATCH success',
-    })
-    async updateById(
-        @param.path.number('id') id: number,
-        @requestBody({
-            content: {
-                'application/json': {
-                    schema: getModelSchemaRef(AppUser, {partial: true}),
-                },
-            },
-        })
-            appUser: AppUser,
-    ): Promise<void> {
-        await this.appUserRepository.updateById(id, appUser);
-    }
-
+    // Endpoint to replace a user by another one reusing the id
+    @authenticate('jwt')
     @put('/users/{id}')
     @response(204, {
         description: 'AppUser PUT success',
     })
     async replaceById(
-        @param.path.number('id') id: number,
-        @requestBody() appUser: AppUser,
+        @param.path.number('id') id: number, //Retrieve user id from url
+        @requestBody() appUser: AppUser, //Create user object out of the request body
     ): Promise<void> {
         await this.appUserRepository.replaceById(id, appUser);
-    }
-
-    @del('/users/{id}')
-    @response(204, {
-        description: 'AppUser DELETE success',
-    })
-    async deleteById(@param.path.number('id') id: number): Promise<void> {
-        await this.appUserRepository.deleteById(id);
     }
 }
