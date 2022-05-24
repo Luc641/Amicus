@@ -1,6 +1,6 @@
-import {Entity, model, property, hasMany, hasOne} from '@loopback/repository';
-import {ExpertCategory} from './expert-category.model';
+import {Entity, hasMany, hasOne, model, property} from '@loopback/repository';
 import {AppUserExpertCategory} from './app-user-expert-category.model';
+import {ExpertCategory} from './expert-category.model';
 import {Media} from './media.model';
 import {Message, MessageWithRelations} from './message.model';
 import {Request, RequestWithRelations} from './request.model';
@@ -21,7 +21,7 @@ export class AppUser extends Entity {
   @property({
     type: 'string',
     required: true,
-    "index": {"unique": true} 
+    "index": {"unique": true}
   })
   email: string;
 
@@ -54,7 +54,7 @@ export class AppUser extends Entity {
   @property({
     type: 'string',
     required: true,
-    "index": {"unique": true} 
+    "index": {"unique": true}
   })
   username: string;
 

@@ -1,7 +1,7 @@
-import {inject, Getter} from '@loopback/core';
-import {DefaultCrudRepository, repository, HasManyThroughRepositoryFactory, HasOneRepositoryFactory, HasManyRepositoryFactory} from '@loopback/repository';
+import {Getter, inject} from '@loopback/core';
+import {DefaultCrudRepository, HasManyRepositoryFactory, HasManyThroughRepositoryFactory, HasOneRepositoryFactory, repository} from '@loopback/repository';
 import {AmicusDatabaseDataSource} from '../datasources';
-import {AppUser, AppUserRelations, ExpertCategory, AppUserExpertCategory, Media, Request} from '../models';
+import {AppUser, AppUserExpertCategory, AppUserRelations, ExpertCategory, Media, Request} from '../models';
 import {Credentials} from "../services/app-user.service";
 import {AppUserExpertCategoryRepository} from './app-user-expert-category.repository';
 import {ExpertCategoryRepository} from './expert-category.repository';
@@ -15,11 +15,11 @@ export class AppUserRepository extends DefaultCrudRepository<AppUser,
     public readonly requests: HasManyRepositoryFactory<Request, typeof AppUser.prototype.id>;
 
     public readonly expertCategories: HasManyThroughRepositoryFactory<ExpertCategory, typeof ExpertCategory.prototype.id,
-          AppUserExpertCategory,
-          typeof AppUser.prototype.id
-        >;
+        AppUserExpertCategory,
+        typeof AppUser.prototype.id
+    >;
 
-  public readonly profilePicture: HasOneRepositoryFactory<Media, typeof AppUser.prototype.id>;
+    public readonly profilePicture: HasOneRepositoryFactory<Media, typeof AppUser.prototype.id>;
 
 
     constructor(
@@ -29,9 +29,10 @@ export class AppUserRepository extends DefaultCrudRepository<AppUser,
         super(AppUser, dataSource);
         this.profilePicture = this.createHasOneRepositoryFactoryFor('profilePicture', mediaRepositoryGetter);
         this.expertCategories = this.createHasManyThroughRepositoryFactoryFor('expertCategories', expertCategoryRepositoryGetter, appUserExpertCategoryRepositoryGetter,);
+        this.requests = this.createHasManyRepositoryFactoryFor('requests', requestRepositoryGetter,);
         this.registerInclusionResolver('expertCategories', this.expertCategories.inclusionResolver);
         this.registerInclusionResolver('requests', this.requests.inclusionResolver);
-        this.requests = this.createHasManyRepositoryFactoryFor('requests', requestRepositoryGetter,);
+
     }
 
 

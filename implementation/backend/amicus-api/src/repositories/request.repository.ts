@@ -23,6 +23,5 @@ export class RequestRepository extends DefaultCrudRepository<
     this.media = this.createHasManyRepositoryFactoryFor('media', mediaRepositoryGetter,);
     this.registerInclusionResolver('media', this.media.inclusionResolver);
     this.registerInclusionResolver('message', this.message.inclusionResolver);
-    //this.registerInclusionResolver('appUser', this.ap)
   }
 }
