@@ -35,7 +35,6 @@ struct UserInfo: Codable {
 
 struct MediaResponse: Codable {
     let name: String
-    let id: Int
     let data, dataType: String
     
     

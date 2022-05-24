@@ -120,13 +120,14 @@ struct RegistrationView: View {
                 )
                 .onTapGesture(perform: simpleSuccess)
                 .disabled(isButtonDisabled)
-                
-                
-                // Render the error
-                Text(userModel.apiErrorMessage ?? "")
-                    .opacity(userModel.apiErrorMessage != nil ? 1.0 : 0.0)
-                    .foregroundColor(.red)
-                    .font(.caption)
+                // Rework error handling at some point
+//
+//
+//                // Render the error
+//                Text(userModel.apiErrorMessage ?? "")
+//                    .opacity(userModel.apiErrorMessage != nil ? 1.0 : 0.0)
+//                    .foregroundColor(.red)
+//                    .font(.caption)
             }
             //                   observe the form validation and enable submit button only if it's valid
             .onReceive(formInfo.form.$allValid) { isValid in
