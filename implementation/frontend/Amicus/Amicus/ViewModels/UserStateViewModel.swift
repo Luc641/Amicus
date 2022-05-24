@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 class UserStateViewModel: ObservableObject {
@@ -21,7 +22,7 @@ class UserStateViewModel: ObservableObject {
             isAuthenticating = true
             do {
                 let token = try await WebClient.standard.login(email: email, password: password).token!
-                info = try await WebClient.standard.whoAmI(authToken: token)
+                info = try! await WebClient.standard.whoAmI(authToken: token)
                 storage.save(ApiToken(accessToken: token), service: "token", account: "amicus")
                 isAuthenticated = true
             } catch RequestError.unauthorized {
@@ -38,11 +39,11 @@ class UserStateViewModel: ObservableObject {
         isAuthenticated = false
     }
     
-    @MainActor func register(firstName: String, lastName: String, password: String, birthDate: Date, email: String, username: String) {
+    @MainActor func register(firstName: String, lastName: String, password: String, birthDate: Date, email: String, username: String, avatar: UIImage) {
         Task {
             isAuthenticating = true
             do {
-                info = try await WebClient.standard.register(firstName, lastName, password, birthDate, email, username)
+                info = try await WebClient.standard.register(firstName, lastName, password, birthDate, email, username, avatar)
                 let loggedIn = try await WebClient.standard.login(email: email, password: password).token!
                 KeychainHelper.standard.save(ApiToken(accessToken: loggedIn), service: "token", account: "amicus")
                 isAuthenticated = true

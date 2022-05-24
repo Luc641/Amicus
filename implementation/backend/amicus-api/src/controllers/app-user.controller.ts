@@ -23,7 +23,7 @@ import {SecurityBindings, securityId, UserProfile} from '@loopback/security';
 import {AppUserService, Credentials} from '../services/app-user.service';
 import {AppUserServiceBindings} from '../bindings/app-user-service.bindings';
 
-import { CustomResponse } from '../responses/custom-response';
+import {CustomResponse} from '../responses/custom-response';
 
 
 // Describe the schema of user credentials
@@ -49,6 +49,7 @@ export const CredentialsRequestBody = {
         'application/json': {schema: CredentialsSchema},
     },
 };
+
 export class AppUserController {
     constructor(
         @inject(TokenServiceBindings.TOKEN_SERVICE)
@@ -84,7 +85,7 @@ export class AppUserController {
     async login(
         @requestBody(CredentialsRequestBody) credentials: Credentials, //Create a credentials object out of the request body
     ): Promise<{token: string}> {
-        // Check if it is an user from the app
+        // Check if it is a user from the app
         const user = await this.userService.verifyCredentials(credentials);
         const userProfile = this.userService.convertToUserProfile(user);
         // create a JWT based on the user profile
@@ -109,7 +110,9 @@ export class AppUserController {
         @inject(SecurityBindings.USER) currentUserProfile: UserProfile, //Recover id from logged in user
     ): Promise<AppUser> {
         const userId = currentUserProfile[securityId];
-        return this.appUserRepository.findById(parseInt(userId));
+        const user = await this.appUserRepository.findById(parseInt(userId));
+        const profilePic = await this.mediaRepository.findOne({where: {name: `${user.username}_avatar`}});
+        return Object.assign({info: user, avatar: profilePic});
     }
 
     // Endpoint to add a new user to the app
@@ -117,10 +120,10 @@ export class AppUserController {
     @response(200, {
         description: 'AppUser model instance!',
         content: {
-                'application/json': {
-                    schema: getModelSchemaRef(AppUser),
-                },
+            'application/json': {
+                schema: getModelSchemaRef(AppUser),
             },
+        },
     })
     @intercept(ValidateUserInterceptor.BINDING_KEY) //Validate the data given
     async create(
@@ -131,14 +134,14 @@ export class AppUserController {
                         title: 'NewAppUser',
                         exclude: ['id'],
                         includeRelations: true, //Allow users containing categories and media
-                    }), 
+                    }),
                 },
             },
         })
             appUser: Omit<AppUser, 'id'>,
     ): Promise<AppUser> {
         const salt = await genSalt(12);
-          
+
         appUser.passwordHash = await hash(appUser.passwordHash, salt); //Hash password (bcrypt 12 rounds)
         //Create user without navigational properties
         const newUser = Object.assign({
@@ -155,14 +158,14 @@ export class AppUserController {
         const user = await this.appUserRepository.create(newUser);
 
         //User not created, throw error
-        if(!user){
-            throw new CustomResponse ("User couldn't been stored", 404);
+        if (!user) {
+            throw new CustomResponse('User couldn\'t been stored', 404);
         }
 
         //User created, create media and relate it to the user
         const newMedia = Object.assign({
-            name: appUser.profilePicture.name, 
-            data: appUser.profilePicture.data, 
+            name: appUser.profilePicture.name,
+            data: appUser.profilePicture.data,
             dataType: appUser.profilePicture.dataType,
             appUserId: user.getId(),
         });
@@ -171,11 +174,11 @@ export class AppUserController {
         const media = await this.mediaRepository.create(newMedia);
 
         //User not created, throw error
-        if(!media){
-            throw new CustomResponse ("Media couldn't been stored", 404);
+        if (!media) {
+            throw new CustomResponse('Media couldn\'t been stored', 404);
         }
 
-        return new Promise<AppUser>(() => user);
+        return Object.assign({info: user, avatar: newMedia});
     }
 
     // Endpoint to retrieve all the users matching the filter
@@ -235,8 +238,6 @@ export class AppUserController {
     ): Promise<void> {
         await this.appUserRepository.updateById(id, appUser);
     }
-
-
 
 
     // Endpoint to delete a user from db

@@ -109,7 +109,7 @@ struct RegistrationView: View {
                 }
                 Button(action: {
                     registerScreen = formInfo.form.triggerValidation()
-                    userModel.register(firstName: formInfo.firstName, lastName: formInfo.lastNames, password: formInfo.password, birthDate: formInfo.birthday, email: formInfo.email, username: formInfo.username)
+                    userModel.register(firstName: formInfo.firstName, lastName: formInfo.lastNames, password: formInfo.password, birthDate: formInfo.birthday, email: formInfo.email, username: formInfo.username, avatar: self.image)
                 }, label: {
                     HStack {
                         Text("Submit")
@@ -120,6 +120,13 @@ struct RegistrationView: View {
                 )
                 .onTapGesture(perform: simpleSuccess)
                 .disabled(isButtonDisabled)
+                
+                
+                // Render the error
+                Text(userModel.apiErrorMessage ?? "")
+                    .opacity(userModel.apiErrorMessage != nil ? 1.0 : 0.0)
+                    .foregroundColor(.red)
+                    .font(.caption)
             }
             //                   observe the form validation and enable submit button only if it's valid
             .onReceive(formInfo.form.$allValid) { isValid in

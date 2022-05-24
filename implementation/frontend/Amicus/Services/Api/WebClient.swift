@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 /// Webclient singleton class for APi calls to the amicus backend server.
@@ -124,10 +125,11 @@ final class WebClient {
         return try await makeRequest(with: request)
     }
     
-    func register(_ firstName: String, _ lastName: String, _ password: String, _ birthDate: Date, _ email: String, _ username: String)
+    func register(_ firstName: String, _ lastName: String, _ password: String, _ birthDate: Date, _ email: String, _ username: String, _ avatar: UIImage)
     async throws -> UserResponse {
+        let profilePictureBody = MediaCreateRequestBody(data: avatar.pngData()!.base64EncodedString(), name: "\(username)_avatar", dataType: "png")
         let body = UserCreateRequestBody(firstName: firstName, lastName: lastName, email: email, address: "", passwordHash: password,
-                                         username: username, birthDate: birthDate)
+                                         username: username, birthDate: birthDate, profilePicture: profilePictureBody)
         let request = createPostRequest(for: UserEndpoint.register, with: body)
         return try await makeRequest(with: request)
     }

@@ -5,7 +5,7 @@ import {
     RestExplorerComponent,
 } from '@loopback/rest-explorer';
 import {RepositoryMixin} from '@loopback/repository';
-import {RestApplication} from '@loopback/rest';
+import {RestApplication, RestBindings} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
 import path from 'path';
 import {MySequence} from './sequence';
@@ -16,8 +16,8 @@ import {
     UserServiceBindings,
 } from '@loopback/authentication-jwt';
 import {AmicusDatabaseDataSource} from './datasources';
-import {AppUserService} from "./services/app-user.service";
-import {AppUserServiceBindings} from "./bindings/app-user-service.bindings";
+import {AppUserService} from './services/app-user.service';
+import {AppUserServiceBindings} from './bindings/app-user-service.bindings';
 import {format, LoggingBindings, LoggingComponent} from '@loopback/logging';
 
 export {ApplicationConfig};
@@ -28,6 +28,12 @@ export class AmicusApiApplication extends BootMixin(
 ) {
     constructor(options: ApplicationConfig = {}) {
         super(options);
+
+        // Overwritten to support avatar and image uploads
+        this.bind(RestBindings.REQUEST_BODY_PARSER_OPTIONS).to({
+            json: {limit: '100MB'},
+            text: {limit: '100MB'},
+        });
         // Mount authentication system
         this.component(AuthenticationComponent);
         // Mount jwt component
@@ -44,9 +50,7 @@ export class AmicusApiApplication extends BootMixin(
             defaultMeta: {framework: 'LoopBack'},
         });
 
-        this.configure(LoggingBindings.WINSTON_HTTP_ACCESS_LOGGER).to({
-
-        })
+        this.configure(LoggingBindings.WINSTON_HTTP_ACCESS_LOGGER).to({});
         this.component(LoggingComponent);
         // Bind datasource
         this.dataSource(AmicusDatabaseDataSource, UserServiceBindings.DATASOURCE_NAME);

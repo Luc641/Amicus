@@ -22,6 +22,7 @@ struct UserCreateRequestBody: ApiRequestBody {
     let firstName, lastName, email: String
     let address, passwordHash, username: String
     let birthDate: Date
+    let profilePicture: MediaCreateRequestBody
 }
 
 struct MediaCreateRequestBody: ApiRequestBody {
