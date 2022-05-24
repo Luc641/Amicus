@@ -113,7 +113,6 @@ export class AppUserController {
     }
 
     // Endpoint to add a new user to the app
-    @authenticate('jwt')
     @post('/users')
     @response(200, {
         description: 'AppUser model instance!',
