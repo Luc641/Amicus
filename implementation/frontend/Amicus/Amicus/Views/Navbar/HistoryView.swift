@@ -16,7 +16,7 @@ struct HistoryView: View {
                 Section(header: Text("In progres")){
                     List(1...4, id: \.self) { index in
                         NavigationLink(
-                            destination: Text("Request #\(index) Details"),
+                            destination: HistoryRequestView(),
                             label: {
                                 Text("Request #\(index)")
                                     .font(.system(size: 20, weight: .bold, design: .rounded))
