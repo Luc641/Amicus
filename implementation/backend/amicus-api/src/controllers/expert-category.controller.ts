@@ -51,7 +51,6 @@ export class ExpertCategoryController {
   }
 
   // Endpoint to get all the expert categories matching filter
-  @authenticate('jwt')
   @get('/expert-categories')
   @response(200, {
     description: 'Array of ExpertCategory model instances',

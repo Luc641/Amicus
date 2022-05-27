@@ -11,8 +11,12 @@ import {
     response,
     SchemaObject,
 } from '@loopback/rest';
-import {AppUser} from '../models';
-import {AppUserRepository, MediaRepository} from '../repositories';
+import {AppUser, ExpertCategory} from '../models';
+import {
+    AppUserRepository,
+    ExpertCategoryRepository,
+    MediaRepository,
+} from '../repositories';
 import {genSalt, hash} from 'bcryptjs';
 
 import {inject, intercept} from '@loopback/core';
@@ -62,6 +66,8 @@ export class AppUserController {
         public appUserRepository: AppUserRepository,
         @repository(MediaRepository)
         public mediaRepository: MediaRepository,
+        @repository(ExpertCategoryRepository)
+        protected expertCategoryRepository: ExpertCategoryRepository,
     ) {
     }
 
@@ -178,7 +184,38 @@ export class AppUserController {
             throw new CustomResponse('Media couldn\'t been stored', 404);
         }
 
-        return Object.assign({info: user, avatar: newMedia});
+        const linkedCategories = await this.linkExpertCategories(user.getId(), appUser.expertCategories);
+        return Object.assign({info: user, avatar: newMedia, expertCategories: linkedCategories});
+    }
+
+
+    private async linkExpertCategories(userId: number, categories: ExpertCategory[]) {
+        if (categories.length === 0) {
+            return;
+        }
+
+        const supportedCategories = await this.expertCategoryRepository.find(undefined);
+        const converted = AppUserController.convertCategoriesToDictionary(supportedCategories);
+        const linkedCategories = [];
+
+        // Link the expert categories.
+        for (const expertCategory of categories) {
+            const name = expertCategory.categoryName;
+            if (!(name in converted)) {
+                continue;
+            }
+
+            await this.appUserRepository.expertCategories(userId).link(converted[name]);
+            linkedCategories.push(expertCategory);
+        }
+
+        return linkedCategories;
+    }
+
+    private static convertCategoriesToDictionary(categories: ExpertCategory[]) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        return Object.assign({}, ...categories.map((x) => ({[x.categoryName]: x.id})));
     }
 
     // Endpoint to retrieve all the users matching the filter

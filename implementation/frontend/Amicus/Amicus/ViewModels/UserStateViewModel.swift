@@ -39,11 +39,11 @@ class UserStateViewModel: ObservableObject {
         isAuthenticated = false
     }
     
-    @MainActor func register(firstName: String, lastName: String, password: String, birthDate: Date, email: String, username: String, avatar: UIImage) {
+    @MainActor func register(firstName: String, lastName: String, password: String, birthDate: Date, email: String, username: String, avatar: UIImage, categories: [Category]) {
         Task {
             isAuthenticating = true
             do {
-                info = try await WebClient.standard.register(firstName, lastName, password, birthDate, email, username, avatar)
+                info = try await WebClient.standard.register(firstName, lastName, password, birthDate, email, username, avatar, categories)
                 let loggedIn = try await WebClient.standard.login(email: email, password: password).token!
                 KeychainHelper.standard.save(ApiToken(accessToken: loggedIn), service: "token", account: "amicus")
                 isAuthenticated = true

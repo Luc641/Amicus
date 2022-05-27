@@ -118,18 +118,22 @@ final class WebClient {
     
     
     /// Returns the user with the requested ID.
-    /// - Parameter id: the id to search for
+    /// - Parameter id: the id to search fo
     /// - Returns: The user object with the associated ID
     func getUserById(id: Int) async throws -> UserResponse {
         let request = createGetRequest(for: UserEndpoint.byId(id: id))
         return try await makeRequest(with: request)
     }
     
-    func register(_ firstName: String, _ lastName: String, _ password: String, _ birthDate: Date, _ email: String, _ username: String, _ avatar: UIImage)
+    func register(_ firstName: String, _ lastName: String, _ password: String,
+                  _ birthDate: Date, _ email: String, _ username: String, _ avatar: UIImage, _ categories: [Category])
     async throws -> UserResponse {
         let profilePictureBody = MediaCreateRequestBody(data: avatar.pngData()!.base64EncodedString(), name: "\(username)_avatar", dataType: "png")
-        let body = UserCreateRequestBody(firstName: firstName, lastName: lastName, email: email, address: "", passwordHash: password,
-                                         username: username, birthDate: birthDate, profilePicture: profilePictureBody)
+        let expertCategories = categories.map { CategoryRequest(categoryName: $0.categoryName) }
+        let body = UserCreateRequestBody(
+            firstName: firstName, lastName: lastName, email: email, address: "", passwordHash: password,
+            username: username, birthDate: birthDate,
+            profilePicture: profilePictureBody, expertCategories: expertCategories)
         let request = createPostRequest(for: UserEndpoint.register, with: body)
         return try await makeRequest(with: request)
     }
@@ -142,6 +146,11 @@ final class WebClient {
     func uploadMedia(name: String, data: Data, fileType: String) async throws -> MediaResponse {
         let body = MediaCreateRequestBody(data: data.base64EncodedString(), name: name, dataType: fileType)
         let request = createPostRequest(for: MediaEndpoint.upload, with: body)
+        return try await makeRequest(with: request)
+    }
+    
+    func retrieveCategories() async throws -> Categories {
+        let request = createGetRequest(for: CategoryEndpoint.retrieveAll)
         return try await makeRequest(with: request)
     }
 }

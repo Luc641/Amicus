@@ -43,3 +43,10 @@ struct MediaResponse: Codable {
     }
 }
 
+struct Category: Codable, Hashable {
+    let id: Int
+    let categoryName: String
+}
+
+typealias Categories = [Category]
+

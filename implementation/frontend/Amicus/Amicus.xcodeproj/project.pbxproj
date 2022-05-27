@@ -18,6 +18,7 @@
 		07AC8637280EBF8900C8C48F /* AmicusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC8636280EBF8900C8C48F /* AmicusTests.swift */; };
 		07AC8641280EBF8900C8C48F /* AmicusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC8640280EBF8900C8C48F /* AmicusUITests.swift */; };
 		07AC8643280EBF8900C8C48F /* AmicusUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC8642280EBF8900C8C48F /* AmicusUITestsLaunchTests.swift */; };
+		2924D7AB2840DB0700D66043 /* CategoryEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924D7AA2840DB0700D66043 /* CategoryEndpoint.swift */; };
 		292FA387281AE46200073055 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FA386281AE46200073055 /* RegistrationView.swift */; };
 		292FA389281AE55200073055 /* FormInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FA388281AE55200073055 /* FormInfo.swift */; };
 		2945942728214764003D1736 /* WebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2945942628214764003D1736 /* WebClient.swift */; };
@@ -83,6 +84,7 @@
 		07AC8640280EBF8900C8C48F /* AmicusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmicusUITests.swift; sourceTree = "<group>"; };
 		07AC8642280EBF8900C8C48F /* AmicusUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmicusUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0C5D006FA173E7AFF6593BEA /* Pods-Amicus_FrontendTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus_FrontendTests.release.xcconfig"; path = "Target Support Files/Pods-Amicus_FrontendTests/Pods-Amicus_FrontendTests.release.xcconfig"; sourceTree = "<group>"; };
+		2924D7AA2840DB0700D66043 /* CategoryEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEndpoint.swift; sourceTree = "<group>"; };
 		292FA386281AE46200073055 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		292FA388281AE55200073055 /* FormInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInfo.swift; sourceTree = "<group>"; };
 		2945942628214764003D1736 /* WebClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebClient.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				295AAC1D282530A200F18E71 /* UserEndpoint.swift */,
 				295AAC1F282531BD00F18E71 /* RootEndpoint.swift */,
 				294AB12A282D2B5F00C97FA4 /* MediaEndpoint.swift */,
+				2924D7AA2840DB0700D66043 /* CategoryEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -625,6 +628,7 @@
 				070FFFB72816AA0C003357BB /* ButtonStyles.swift in Sources */,
 				812F3F14283677BC009FA944 /* LocationManager.swift in Sources */,
 				298D2ADB28219E63002C9466 /* Responses.swift in Sources */,
+				2924D7AB2840DB0700D66043 /* CategoryEndpoint.swift in Sources */,
 				295AAC1E282530A200F18E71 /* UserEndpoint.swift in Sources */,
 				07AC8626280EBF8600C8C48F /* AmicusApp.swift in Sources */,
 			);

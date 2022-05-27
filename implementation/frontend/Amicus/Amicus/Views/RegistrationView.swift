@@ -18,8 +18,8 @@ struct RegistrationView: View {
     @State private var registerScreen = false
     @StateObject private var userModel = UserStateViewModel()
     
-    @State var selection = ""
-    var categories = ["Doctor", "Mechanic", "Plumber"]
+    @State var selection = Category(id: 0, categoryName: "placeholder")
+    @State private var categories = [Category]()
     
     @State private var image = UIImage()
     @State private var showSheet = false
@@ -100,16 +100,21 @@ struct RegistrationView: View {
                         .validation(formInfo.passwordValidation)
                 }
                 //                .listRowBackground(Color("Amicus1"))
-                Section( header: Text("")){
-                    Picker(selection: $selection, label: Text("Expert Category")){
-                        ForEach(categories, id: \.self){
-                            Text($0)
+                Section( header: Text("")) {
+                    Picker("Expert Category", selection: $selection) {
+                        ForEach(categories, id: \.self) { category in
+                            Text(category.categoryName.capitalized)
+                        }
+                    }.onAppear {
+                        Task {
+                            categories = try! await WebClient.standard.retrieveCategories()
+                            print(categories)
                         }
                     }
                 }
                 Button(action: {
                     registerScreen = formInfo.form.triggerValidation()
-                    userModel.register(firstName: formInfo.firstName, lastName: formInfo.lastNames, password: formInfo.password, birthDate: formInfo.birthday, email: formInfo.email, username: formInfo.username, avatar: self.image)
+                    userModel.register(firstName: formInfo.firstName, lastName: formInfo.lastNames, password: formInfo.password, birthDate: formInfo.birthday, email: formInfo.email, username: formInfo.username, avatar: self.image, categories: [selection])
                 }, label: {
                     HStack {
                         Text("Submit")
@@ -120,16 +125,7 @@ struct RegistrationView: View {
                 )
                 .onTapGesture(perform: simpleSuccess)
                 .disabled(isButtonDisabled)
-                // Rework error handling at some point
-//
-//
-//                // Render the error
-//                Text(userModel.apiErrorMessage ?? "")
-//                    .opacity(userModel.apiErrorMessage != nil ? 1.0 : 0.0)
-//                    .foregroundColor(.red)
-//                    .font(.caption)
             }
-            //                   observe the form validation and enable submit button only if it's valid
             .onReceive(formInfo.form.$allValid) { isValid in
                 self.isSaveEnabled = isValid
             }
