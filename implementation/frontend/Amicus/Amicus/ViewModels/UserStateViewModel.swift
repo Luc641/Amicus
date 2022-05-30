@@ -13,7 +13,8 @@ class UserStateViewModel: ObservableObject {
     @Published var isAuthenticated: Bool = false
     @Published var isAuthenticating: Bool = false
     @Published var apiErrorMessage: String?
-    @Published var info: UserResponse?
+    @Published var info: UserResponse = Placeholders.user
+    @Published var expertCategories: Categories = []
     
     @MainActor func login(email: String, password: String) {
         let storage = KeychainHelper.standard
@@ -54,4 +55,14 @@ class UserStateViewModel: ObservableObject {
         }
     }
     
+    @MainActor func retrieveExpertCategories() {
+        Task {
+            do {
+                let token = KeychainHelper.standard.readAmicusToken() ?? ""
+                expertCategories = try await WebClient.standard.retrieveCategoriesForUser(userId: info.info.id, authToken: token)
+            } catch {
+                print("could not fetch categories")
+            }
+        }
+    }
 }

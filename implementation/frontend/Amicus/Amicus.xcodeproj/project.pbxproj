@@ -19,6 +19,13 @@
 		07AC8641280EBF8900C8C48F /* AmicusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC8640280EBF8900C8C48F /* AmicusUITests.swift */; };
 		07AC8643280EBF8900C8C48F /* AmicusUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC8642280EBF8900C8C48F /* AmicusUITestsLaunchTests.swift */; };
 		2924D7AB2840DB0700D66043 /* CategoryEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924D7AA2840DB0700D66043 /* CategoryEndpoint.swift */; };
+		2924D7AD2841523300D66043 /* RequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924D7AC2841523300D66043 /* RequestViewModel.swift */; };
+		2924D7AF2841553D00D66043 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924D7AE2841553D00D66043 /* CategoryViewModel.swift */; };
+		2924D7B3284163EC00D66043 /* RequestEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924D7B2284163EC00D66043 /* RequestEndpoint.swift */; };
+		2924D7B52842599200D66043 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924D7B42842599200D66043 /* TestView.swift */; };
+		2924D7B728438DD300D66043 /* Placeholders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924D7B628438DD300D66043 /* Placeholders.swift */; };
+		2924D7B92843C45F00D66043 /* RequestRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924D7B82843C45F00D66043 /* RequestRow.swift */; };
+		2924D7BC2843D52100D66043 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924D7BB2843D52100D66043 /* Utilities.swift */; };
 		292FA387281AE46200073055 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FA386281AE46200073055 /* RegistrationView.swift */; };
 		292FA389281AE55200073055 /* FormInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FA388281AE55200073055 /* FormInfo.swift */; };
 		2945942728214764003D1736 /* WebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2945942628214764003D1736 /* WebClient.swift */; };
@@ -39,7 +46,7 @@
 		298D2B1428241C38002C9466 /* Get in Frameworks */ = {isa = PBXBuildFile; productRef = 298D2B1328241C38002C9466 /* Get */; };
 		5729D16D7AAFA8B8178D9C08 /* Pods_Amicus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD89ADD8B478874244E0C8D9 /* Pods_Amicus.framework */; };
 		6AD1555A2833A7F20061D540 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD155592833A7F20061D540 /* HistoryView.swift */; };
-		6AD4FF2B28366FB300398E62 /* HistoryRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD4FF2A28366FB300398E62 /* HistoryRequestView.swift */; };
+		6AD4FF2B28366FB300398E62 /* DetailedRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD4FF2A28366FB300398E62 /* DetailedRequestView.swift */; };
 		812F3F14283677BC009FA944 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812F3F13283677BC009FA944 /* LocationManager.swift */; };
 		81848DA4283664610044AA4B /* RequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81848DA3283664610044AA4B /* RequestView.swift */; };
 		8186BE90281AAB0F00419F3A /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8186BE8F281AAB0F00419F3A /* UserProfileView.swift */; };
@@ -85,6 +92,13 @@
 		07AC8642280EBF8900C8C48F /* AmicusUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmicusUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0C5D006FA173E7AFF6593BEA /* Pods-Amicus_FrontendTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus_FrontendTests.release.xcconfig"; path = "Target Support Files/Pods-Amicus_FrontendTests/Pods-Amicus_FrontendTests.release.xcconfig"; sourceTree = "<group>"; };
 		2924D7AA2840DB0700D66043 /* CategoryEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEndpoint.swift; sourceTree = "<group>"; };
+		2924D7AC2841523300D66043 /* RequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestViewModel.swift; sourceTree = "<group>"; };
+		2924D7AE2841553D00D66043 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		2924D7B2284163EC00D66043 /* RequestEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestEndpoint.swift; sourceTree = "<group>"; };
+		2924D7B42842599200D66043 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		2924D7B628438DD300D66043 /* Placeholders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholders.swift; sourceTree = "<group>"; };
+		2924D7B82843C45F00D66043 /* RequestRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestRow.swift; sourceTree = "<group>"; };
+		2924D7BB2843D52100D66043 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = ../../../../../../../../Desktop/Utilities.swift; sourceTree = "<group>"; };
 		292FA386281AE46200073055 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		292FA388281AE55200073055 /* FormInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInfo.swift; sourceTree = "<group>"; };
 		2945942628214764003D1736 /* WebClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebClient.swift; sourceTree = "<group>"; };
@@ -106,7 +120,7 @@
 		5F6A2344F3F0F094D2913708 /* Pods-Amicus-AmicusUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus-AmicusUITests.debug.xcconfig"; path = "Target Support Files/Pods-Amicus-AmicusUITests/Pods-Amicus-AmicusUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5FAC3A1941575D9D61F8B6BC /* Pods-Amicus_Frontend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus_Frontend.debug.xcconfig"; path = "Target Support Files/Pods-Amicus_Frontend/Pods-Amicus_Frontend.debug.xcconfig"; sourceTree = "<group>"; };
 		6AD155592833A7F20061D540 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
-		6AD4FF2A28366FB300398E62 /* HistoryRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRequestView.swift; sourceTree = "<group>"; };
+		6AD4FF2A28366FB300398E62 /* DetailedRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedRequestView.swift; sourceTree = "<group>"; };
 		74CA3D31FCA99586E4DDA2F5 /* Pods-Amicus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus.debug.xcconfig"; path = "Target Support Files/Pods-Amicus/Pods-Amicus.debug.xcconfig"; sourceTree = "<group>"; };
 		7923CF59C8B1B108EA8E0018 /* Pods-Amicus_Frontend-Amicus_FrontendUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus_Frontend-Amicus_FrontendUITests.debug.xcconfig"; path = "Target Support Files/Pods-Amicus_Frontend-Amicus_FrontendUITests/Pods-Amicus_Frontend-Amicus_FrontendUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		812F3F13283677BC009FA944 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -205,6 +219,7 @@
 				2928EC90282A883400BDBADB /* ViewModels */,
 				2928EC8F282A882900BDBADB /* Views */,
 				07AC862B280EBF8900C8C48F /* Preview Content */,
+				2924D7BB2843D52100D66043 /* Utilities.swift */,
 			);
 			path = Amicus;
 			sourceTree = "<group>";
@@ -245,6 +260,7 @@
 				298D2AFD2822AB8A002C9466 /* LoginView.swift */,
 				81848DA3283664610044AA4B /* RequestView.swift */,
 				295139E52832B67C0009938C /* MediaView.swift */,
+				2924D7B42842599200D66043 /* TestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -256,6 +272,9 @@
 				2945942828215422003D1736 /* UserStateViewModel.swift */,
 				0748D6A3282AE2AC00CAFFBA /* ImagePicker.swift */,
 				812F3F13283677BC009FA944 /* LocationManager.swift */,
+				2924D7AC2841523300D66043 /* RequestViewModel.swift */,
+				2924D7AE2841553D00D66043 /* CategoryViewModel.swift */,
+				2924D7B628438DD300D66043 /* Placeholders.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -277,6 +296,7 @@
 				295AAC1F282531BD00F18E71 /* RootEndpoint.swift */,
 				294AB12A282D2B5F00C97FA4 /* MediaEndpoint.swift */,
 				2924D7AA2840DB0700D66043 /* CategoryEndpoint.swift */,
+				2924D7B2284163EC00D66043 /* RequestEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -310,8 +330,9 @@
 				07A18F6A282D32170098947D /* ExpertView.swift */,
 				6AD155592833A7F20061D540 /* HistoryView.swift */,
 				079575892833A62300D682D2 /* ExpertRequestView.swift */,
-				6AD4FF2A28366FB300398E62 /* HistoryRequestView.swift */,
+				6AD4FF2A28366FB300398E62 /* DetailedRequestView.swift */,
 				8186BE8F281AAB0F00419F3A /* UserProfileView.swift */,
+				2924D7B82843C45F00D66043 /* RequestRow.swift */,
 			);
 			path = Navbar;
 			sourceTree = "<group>";
@@ -599,13 +620,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				8186BE90281AAB0F00419F3A /* UserProfileView.swift in Sources */,
+				2924D7B52842599200D66043 /* TestView.swift in Sources */,
 				818701062818025F001F86C6 /* NavbarView.swift in Sources */,
 				298D2AFC28227270002C9466 /* ApiToken.swift in Sources */,
 				298D2AFA28226E3A002C9466 /* KeychainHelper.swift in Sources */,
 				818701032817F949001F86C6 /* HomePageView.swift in Sources */,
 				295139E62832B67C0009938C /* MediaView.swift in Sources */,
 				298D2AD928219E46002C9466 /* Requests.swift in Sources */,
+				2924D7AF2841553D00D66043 /* CategoryViewModel.swift in Sources */,
 				6AD1555A2833A7F20061D540 /* HistoryView.swift in Sources */,
+				2924D7AD2841523300D66043 /* RequestViewModel.swift in Sources */,
 				298D2AFE2822AB8A002C9466 /* LoginView.swift in Sources */,
 				0748D6A4282AE2AC00CAFFBA /* ImagePicker.swift in Sources */,
 				0709E9232836743400DD9E6E /* Haptics.swift in Sources */,
@@ -615,6 +639,7 @@
 				0795758A2833A62300D682D2 /* ExpertRequestView.swift in Sources */,
 				07A18F6B282D32170098947D /* ExpertView.swift in Sources */,
 				2945942928215422003D1736 /* UserStateViewModel.swift in Sources */,
+				2924D7B3284163EC00D66043 /* RequestEndpoint.swift in Sources */,
 				81848DA4283664610044AA4B /* RequestView.swift in Sources */,
 				2945942928215422003D1736 /* UserStateViewModel.swift in Sources */,
 				81AB73002816A16900E947F0 /* ViewExtension.swift in Sources */,
@@ -622,14 +647,17 @@
 				292FA387281AE46200073055 /* RegistrationView.swift in Sources */,
 				295AAC1C2825305900F18E71 /* Endpoint.swift in Sources */,
 				295AAC20282531BD00F18E71 /* RootEndpoint.swift in Sources */,
-				6AD4FF2B28366FB300398E62 /* HistoryRequestView.swift in Sources */,
+				6AD4FF2B28366FB300398E62 /* DetailedRequestView.swift in Sources */,
 				292FA389281AE55200073055 /* FormInfo.swift in Sources */,
 				294AB12B282D2B5F00C97FA4 /* MediaEndpoint.swift in Sources */,
 				070FFFB72816AA0C003357BB /* ButtonStyles.swift in Sources */,
 				812F3F14283677BC009FA944 /* LocationManager.swift in Sources */,
 				298D2ADB28219E63002C9466 /* Responses.swift in Sources */,
 				2924D7AB2840DB0700D66043 /* CategoryEndpoint.swift in Sources */,
+				2924D7B728438DD300D66043 /* Placeholders.swift in Sources */,
 				295AAC1E282530A200F18E71 /* UserEndpoint.swift in Sources */,
+				2924D7B92843C45F00D66043 /* RequestRow.swift in Sources */,
+				2924D7BC2843D52100D66043 /* Utilities.swift in Sources */,
 				07AC8626280EBF8600C8C48F /* AmicusApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

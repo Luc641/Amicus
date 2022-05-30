@@ -18,10 +18,11 @@ struct LandingPageView: View {
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
             
-            VStack{
+            VStack {
                 Button("Register here") {
                     registerScreen.toggle()
                 }
+                .fullScreenCover(isPresented: $registerScreen, content: RegistrationView.init)
                 .buttonStyle(RegisterButton(background: Color("Amicus3")))
                 .padding(.top)
                 
@@ -33,6 +34,7 @@ struct LandingPageView: View {
                 Button("Log in") {
                     loginScreen.toggle()
                 }
+                .fullScreenCover(isPresented: $loginScreen, content: LoginView.init)
                 .buttonStyle(RegisterButton(background: Color("Amicus3")))
                 .padding(.bottom, 50.0)
             
@@ -47,8 +49,6 @@ struct LandingPageView: View {
                 .padding(.top, -750.0)
         }
         .padding(.all, -50.0)
-        .navigate(to: RegistrationView(), when: $registerScreen)
-        .navigate(to: LoginView(), when: $loginScreen)
     }
     
     struct HomepageView_Previews: PreviewProvider {

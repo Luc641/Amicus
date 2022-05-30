@@ -3,7 +3,7 @@ import {
   CountSchema,
   Filter,
   repository,
-  Where
+  Where,
 } from '@loopback/repository';
 import {
   del,
@@ -13,17 +13,17 @@ import {
   param,
   patch,
   post,
-  requestBody
+  requestBody,
 } from '@loopback/rest';
 import {
-  AppUser, Request
+  AppUser,
+  Request,
 } from '../models';
-import {AppUserRepository, MediaRepository} from '../repositories';
+import {AppUserRepository} from '../repositories';
 
 export class AppUserRequestController {
   constructor(
     @repository(AppUserRepository) protected appUserRepository: AppUserRepository,
-    @repository(MediaRepository) protected mediaRepository: MediaRepository,
   ) { }
 
   @get('/app-users/{id}/requests', {
@@ -42,7 +42,7 @@ export class AppUserRequestController {
     @param.path.number('id') id: number,
     @param.query.object('filter') filter?: Filter<Request>,
   ): Promise<Request[]> {
-    return this.appUserRepository.requests(id).find(filter);
+    return this.appUserRepository.expertRequests(id).find(filter);
   }
 
   @post('/app-users/{id}/requests', {
@@ -61,33 +61,13 @@ export class AppUserRequestController {
           schema: getModelSchemaRef(Request, {
             title: 'NewRequestInAppUser',
             exclude: ['id'],
-            optional: ['appUserId'],
-            includeRelations: true
+            optional: ['expertId']
           }),
         },
       },
     }) request: Omit<Request, 'id'>,
   ): Promise<Request> {
-    const newRequest = Object.assign({
-      title: request.title,
-      content: request.content,
-      date: request.date,
-      location: request.location,
-      isOpen: true
-    })
-    const requestReturn = this.appUserRepository.requests(id).create(newRequest);
-    const requestId = (await requestReturn).getId();
-    request.media?.forEach((value) => {
-      const newMedia = Object.assign({
-        name: value.name,
-        data: value.data,
-        dataType: value.dataType,
-        requestId: requestId
-      })
-      this.mediaRepository.create(newMedia)
-    }
-    )
-    return requestReturn;
+    return this.appUserRepository.expertRequests(id).create(request);
   }
 
   @patch('/app-users/{id}/requests', {
@@ -110,7 +90,7 @@ export class AppUserRequestController {
     request: Partial<Request>,
     @param.query.object('where', getWhereSchemaFor(Request)) where?: Where<Request>,
   ): Promise<Count> {
-    return this.appUserRepository.requests(id).patch(request, where);
+    return this.appUserRepository.expertRequests(id).patch(request, where);
   }
 
   @del('/app-users/{id}/requests', {
@@ -125,6 +105,6 @@ export class AppUserRequestController {
     @param.path.number('id') id: number,
     @param.query.object('where', getWhereSchemaFor(Request)) where?: Where<Request>,
   ): Promise<Count> {
-    return this.appUserRepository.requests(id).delete(where);
+    return this.appUserRepository.expertRequests(id).delete(where);
   }
 }

@@ -3,4 +3,4 @@ export * from './media.repository';
 export * from './expert-category.repository';
 export * from './app-user-expert-category.repository';
 export * from './request.repository';
-export * from './message.repository';
+export * from './expert-response.repository';

@@ -3,8 +3,7 @@ import {
     MediaRepository,
     ExpertCategoryRepository,
     AppUserExpertCategoryRepository,
-    RequestRepository,
-    MessageRepository,
+    RequestRepository, ExpertResponseRepository,
 } from '../../repositories';
 import {testdb} from '../fixtures/datasources/testdb.datasource';
 import {AppUser} from '../../models';
@@ -15,13 +14,16 @@ import {Getter} from '@loopback/context';
 const appUserExpertCategoryRepository = new AppUserExpertCategoryRepository(testdb);
 const expertCategoryRepository = new ExpertCategoryRepository(testdb);
 const mediaRepository = new MediaRepository(testdb);
-const messageRepository = new MessageRepository(testdb);
-const requestRepository = new RequestRepository(testdb, Getter.fromValue(mediaRepository), Getter.fromValue(messageRepository));
+const expertResponseRepository = new ExpertResponseRepository(testdb);
+const requestRepository = new RequestRepository(
+    testdb,
+    Getter.fromValue(expertCategoryRepository),
+    Getter.fromValue(expertResponseRepository),
+    Getter.fromValue(mediaRepository));
 const appUserRepository = new AppUserRepository(testdb,
     Getter.fromValue(appUserExpertCategoryRepository),
     Getter.fromValue(expertCategoryRepository),
-    Getter.fromValue(mediaRepository),
-    Getter.fromValue(requestRepository));
+    Getter.fromValue(mediaRepository), Getter.fromValue(requestRepository));
 
 
 export async function givenEmptyDatabase() {
@@ -29,7 +31,6 @@ export async function givenEmptyDatabase() {
     await mediaRepository.deleteAll();
     await appUserExpertCategoryRepository.deleteAll();
     await expertCategoryRepository.deleteAll();
-    await requestRepository.deleteAll();
 }
 
 export function givenAppUserData(data?: Partial<AppUser>) {
@@ -97,5 +98,5 @@ export async function givenUserCategory(userId: number) {
 }
 
 export async function givenRequest(id: number) {
-    return appUserRepository.requests(id).create(givenRequestData());
+    // return appUserRepository.requests(id).create(givenRequestData());
 }

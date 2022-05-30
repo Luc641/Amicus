@@ -12,6 +12,7 @@ struct AmicusApp: App {
     var body: some Scene {
         WindowGroup {
             LandingPageView()
+//            TestView()
         }
     }
 }

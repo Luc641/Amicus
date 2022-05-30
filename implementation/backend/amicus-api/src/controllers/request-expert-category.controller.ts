@@ -8,31 +8,31 @@ import {
 } from '@loopback/rest';
 import {
   Request,
-  Media,
+  ExpertCategory,
 } from '../models';
 import {RequestRepository} from '../repositories';
 
-export class RequestMediaController {
+export class RequestExpertCategoryController {
   constructor(
     @repository(RequestRepository)
     public requestRepository: RequestRepository,
   ) { }
 
-  @get('/requests/{id}/media', {
+  @get('/requests/{id}/expert-category', {
     responses: {
       '200': {
-        description: 'Media belonging to Request',
+        description: 'ExpertCategory belonging to Request',
         content: {
           'application/json': {
-            schema: {type: 'array', items: getModelSchemaRef(Media)},
+            schema: {type: 'array', items: getModelSchemaRef(ExpertCategory)},
           },
         },
       },
     },
   })
-  async getMedia(
+  async getExpertCategory(
     @param.path.number('id') id: typeof Request.prototype.id,
-  ): Promise<Media> {
-    return this.requestRepository.media(id);
+  ): Promise<ExpertCategory> {
+    return this.requestRepository.expertCategory(id);
   }
 }

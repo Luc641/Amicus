@@ -8,65 +8,57 @@
 import SwiftUI
 
 struct HistoryView: View {
-    @State private var selection = 0
+    @StateObject var requestModel = RequestViewModel()
+    @EnvironmentObject var userState: UserStateViewModel
     
     var body: some View {
-        NavigationView {
-            Form{
-                Section(header: Text("Accepted Requests").font(.system(size: 20, weight: .bold, design: .rounded))){
-                    List(1...4, id: \.self) { index in
-                        NavigationLink(
-                            destination: HistoryRequestView(),
-                            label: {
-                                HStack {
-                                    Image(systemName: "tray.fill")
-                                        .padding()
-                                    VStack(alignment: .leading) {
-                                        Text("Request \(index)")
-                                            .font(.system(size: 20, weight: .bold, design: .rounded))
-                                        VStack(alignment: .leading) {
-                                            Text("Category \(index)")
-                                            Text("Monday")
-                                        }
-                                        .font(.system(size: 15, design: .rounded))
-                                        .foregroundColor(Color.gray)
-                                    }
-                                }
-                            })
-                    }
+        listView.onAppear {
+            requestModel.retrieveMyRequests(userId: userState.info.info.id, isClosed: true)
+        }
+    }
+    
+    @ViewBuilder
+    var listView: some View {
+        if requestModel.myPosts.isEmpty {
+            offlineView
+        } else {
+            apiView
+        }
+    }
+    
+    
+    var apiView: some View {
+        Form {
+            Section(header: Text("My Requests").font(.system(size: 20, weight: .bold, design: .rounded))){
+                List(requestModel.myPosts, id: \.id) { post in
+                    NavigationLink {
+                        DetailedRequestView(request: post) }
+                label: {
+                    RequestRow(request: post)
                 }
-
-                Section(header: Text("Declined Requests").font(.system(size: 20, weight: .bold, design: .rounded))){
-                    List(1...4, id: \.self) { index in
-                        NavigationLink(
-                            destination: Text("Request #\(index) Details"),
-                            label: {
-                                HStack {
-                                    Image(systemName: "tray.fill")
-                                        .padding()
-                                    VStack(alignment: .leading) {
-                                        Text("Request \(index)")
-                                            .font(.system(size: 20, weight: .bold, design: .rounded))
-                                        VStack(alignment: .leading) {
-                                            Text("Category \(index)")
-                                            Text("Monday")
-                                        }
-                                        .font(.system(size: 15, design: .rounded))
-                                        .foregroundColor(Color.gray)
-                                    }
-                                }
-                            })
-                    }
                 }
             }
-            .foregroundColor(Color("Amicus3"))
-            .navigationBarTitle(Text("History requests"))
+        }
+    }
+    
+    
+    var offlineView: some View {
+        Form {
+            Section(header: Text("My Closed Requests").font(.system(size: 20, weight: .bold, design: .rounded))){
+                List(1...4, id: \.self) { post in
+                    NavigationLink {
+                        DetailedRequestView(request: Placeholders.expertPosts[0]) }
+                label: {
+                    RequestRow(request: Placeholders.expertPosts[0])
+                }
+                }
+            }
         }
     }
 }
 
 struct HistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryView()
+        HistoryView().environmentObject(UserStateViewModel())
     }
 }

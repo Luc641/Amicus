@@ -1,6 +1,7 @@
-import {Entity, hasMany, model, property} from '@loopback/repository';
-import {Media, MediaWithRelations} from './media.model';
-import {Message, MessageWithRelations} from './message.model';
+import {Entity, model, property, belongsTo, hasOne} from '@loopback/repository';
+import {ExpertCategory} from './expert-category.model';
+import {ExpertResponse} from './expert-response.model';
+import {Media} from './media.model';
 
 @model()
 export class Request extends Entity {
@@ -25,7 +26,9 @@ export class Request extends Entity {
 
   @property({
     type: 'date',
-    required: true,
+    jsonSchema: {
+      format: 'date',
+    },
   })
   date: string;
 
@@ -43,13 +46,21 @@ export class Request extends Entity {
   @property({
     type: 'number',
   })
-  appUserId?: number;
+  requesterId?: number;
 
-  @hasMany(() => Media)
-  media?: Media[];
+  @property({
+    type: 'number',
+  })
+  expertId?: number;
 
-  @hasMany(() => Message)
-  message?: Message[];
+  @belongsTo(() => ExpertCategory)
+  expertCategoryId: number;
+
+  @hasOne(() => ExpertResponse)
+  expertResponse: ExpertResponse;
+
+  @belongsTo(() => Media)
+  mediaId: number;
 
   constructor(data?: Partial<Request>) {
     super(data);
@@ -57,9 +68,7 @@ export class Request extends Entity {
 }
 
 export interface RequestRelations {
-  // describe navigational properties here
-  media?: MediaWithRelations[]
-  message?: MessageWithRelations[]
+    // describe navigational properties here
 }
 
 export type RequestWithRelations = Request & RequestRelations;

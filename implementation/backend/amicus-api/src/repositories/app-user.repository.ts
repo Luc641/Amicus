@@ -18,14 +18,15 @@ export class AppUserRepository extends DefaultCrudRepository<AppUser,
     typeof AppUser.prototype.id,
     AppUserRelations> {
 
-    public readonly requests: HasManyRepositoryFactory<Request, typeof AppUser.prototype.id>;
-
     public readonly expertCategories: HasManyThroughRepositoryFactory<ExpertCategory, typeof ExpertCategory.prototype.id,
         AppUserExpertCategory,
         typeof AppUser.prototype.id>;
 
     public readonly profilePicture: HasOneRepositoryFactory<Media, typeof AppUser.prototype.id>;
 
+    public readonly ownRequests: HasManyRepositoryFactory<Request, typeof AppUser.prototype.id>;
+
+    public readonly expertRequests: HasManyRepositoryFactory<Request, typeof AppUser.prototype.id>;
 
     constructor(
         @inject('datasources.AmicusDatabase') dataSource: AmicusDatabaseDataSource,
@@ -39,13 +40,14 @@ export class AppUserRepository extends DefaultCrudRepository<AppUser,
         protected requestRepositoryGetter: Getter<RequestRepository>,
     ) {
         super(AppUser, dataSource);
+        this.expertRequests = this.createHasManyRepositoryFactoryFor('expertRequests', requestRepositoryGetter);
+        this.registerInclusionResolver('expertRequests', this.expertRequests.inclusionResolver);
+        this.ownRequests = this.createHasManyRepositoryFactoryFor('ownRequests', requestRepositoryGetter);
+        this.registerInclusionResolver('ownRequests', this.ownRequests.inclusionResolver);
         this.profilePicture = this.createHasOneRepositoryFactoryFor('profilePicture', mediaRepositoryGetter);
         this.expertCategories = this.createHasManyThroughRepositoryFactoryFor('expertCategories',
             expertCategoryRepositoryGetter, appUserExpertCategoryRepositoryGetter);
-        this.requests = this.createHasManyRepositoryFactoryFor('requests', requestRepositoryGetter);
         this.registerInclusionResolver('expertCategories', this.expertCategories.inclusionResolver);
-        this.registerInclusionResolver('requests', this.requests.inclusionResolver);
-
     }
 
 

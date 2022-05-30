@@ -14,12 +14,12 @@ struct MediaView: View {
         Image(uiImage: self.image  ?? UIImage(systemName: "captions.bubble")!)
             .onAppear {
                 Task {
-                    let media = try! await WebClient.standard.retrieveMedia(id: 2)
-                    let decoded = media.decodeData()
+                    //let media = try! await WebClient.standard.retrieveMedia(id: 2)
+                    //let decoded = media.decodeData()
                     // This is how uploading would work - Nils
 //
 //                    let _ = try! await WebClient.standard.uploadMedia(name: "uploadTest", data: decoded, fileType: "image")
-                    self.image = UIImage(data: decoded)
+                    //self.image = UIImage(data: decoded)
                 }
             }
     }

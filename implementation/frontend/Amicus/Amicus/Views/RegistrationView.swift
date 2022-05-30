@@ -17,9 +17,7 @@ struct RegistrationView: View {
     @State var isSaveEnabled = false
     @State private var registerScreen = false
     @StateObject private var userModel = UserStateViewModel()
-    
-    @State var selection = Category(id: 0, categoryName: "placeholder")
-    @State private var categories = [Category]()
+    @StateObject private var categoryModel = CategoryViewModel()
     
     @State private var image = UIImage()
     @State private var showSheet = false
@@ -37,8 +35,6 @@ struct RegistrationView: View {
                             .background(Color.black.opacity(0.2))
                             .aspectRatio(contentMode: .fit)
                             .clipShape(Circle())
-                        
-                        
                         
                         Menu("Add Picture") {
                             Button(action: {showCamera = true}) {
@@ -91,7 +87,6 @@ struct RegistrationView: View {
                         label: { Text("Birthday") }
                     ).validation(formInfo.birthdayValidation)
                 }
-                //                .listRowBackground(Color("
                 
                 Section(header: Text("Password")) {
                     SecureField("Password", text: $formInfo.password)
@@ -99,22 +94,18 @@ struct RegistrationView: View {
                     SecureField("Confirm Password", text: $formInfo.confirmPassword)
                         .validation(formInfo.passwordValidation)
                 }
-                //                .listRowBackground(Color("Amicus1"))
                 Section( header: Text("")) {
-                    Picker("Expert Category", selection: $selection) {
-                        ForEach(categories, id: \.self) { category in
+                    Picker("Expert Category", selection: $categoryModel.selection) {
+                        ForEach(categoryModel.categories, id: \.self) { category in
                             Text(category.categoryName.capitalized)
                         }
                     }.onAppear {
-                        Task {
-                            categories = try! await WebClient.standard.retrieveCategories()
-                            print(categories)
-                        }
+                        categoryModel.populateCategories()
                     }
                 }
                 Button(action: {
                     registerScreen = formInfo.form.triggerValidation()
-                    userModel.register(firstName: formInfo.firstName, lastName: formInfo.lastNames, password: formInfo.password, birthDate: formInfo.birthday, email: formInfo.email, username: formInfo.username, avatar: self.image, categories: [selection])
+                    userModel.register(firstName: formInfo.firstName, lastName: formInfo.lastNames, password: formInfo.password, birthDate: formInfo.birthday, email: formInfo.email, username: formInfo.username, avatar: self.image, categories: [categoryModel.selection])
                 }, label: {
                     HStack {
                         Text("Submit")
@@ -142,10 +133,9 @@ struct RegistrationView: View {
                     }
                 }
             }
+            .foregroundColor(Color.amicusGreen)
+            .fullScreenCover(isPresented: $userModel.isAuthenticated, content: { NavbarView().environmentObject(userModel) } )
         }
-        .foregroundColor(Color.amicusGreen)
-        .navigate(to: NavbarView().environmentObject(userModel), when: $userModel.isAuthenticated)
-        .environmentObject(userModel)
     }
     
     private var isButtonDisabled: Bool {

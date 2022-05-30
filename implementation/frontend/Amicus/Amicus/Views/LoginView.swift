@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftUIFormValidator
 
 struct LoginView: View {
-    @StateObject private var loginModal: UserStateViewModel = UserStateViewModel()  
+    @StateObject private var loginModal: UserStateViewModel = UserStateViewModel()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject private var formInfo = FormInfo()
     @State private var validationSuccessful = false
@@ -54,21 +54,21 @@ struct LoginView: View {
                 .frame(maxWidth: 320)
                 .padding(.horizontal)
                 .onReceive(formInfo.form.$allValid) { isValid in self.validationSuccessful = !isValid }
-                .navigationBarTitle("Login")
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button(action: {
-                            self.presentationMode.wrappedValue.dismiss()
-                        }) {
-                            HStack{
-                                Image(systemName: "chevron.left")
-                                Text("Back")
-                            }
+            }
+            .navigationTitle("Login")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }) {
+                        HStack{
+                            Image(systemName: "chevron.left")
+                            Text("Back")
                         }
                     }
                 }
             }
-            .navigate(to: NavbarView().environmentObject(loginModal), when: $loginModal.isAuthenticated)
+            .fullScreenCover(isPresented: $loginModal.isAuthenticated, content: { NavbarView().environmentObject(loginModal) } )
             .foregroundColor(Color.amicusGreen)
         }
     }

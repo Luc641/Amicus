@@ -12,6 +12,7 @@ enum UserEndpoint {
     case whoami
     case byId(id: Int)
     case register
+    case categories(userId: Int)
 }
 
 extension UserEndpoint: Endpoint {
@@ -25,6 +26,8 @@ extension UserEndpoint: Endpoint {
             return "users/whoami"
         case .register:
             return "users"
+        case .categories(let userId):
+            return "app-users/\(userId)/expert-categories"
         }
     }
 }

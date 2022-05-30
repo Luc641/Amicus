@@ -31,4 +31,25 @@ struct UserCreateRequestBody: ApiRequestBody {
 
 struct MediaCreateRequestBody: ApiRequestBody {
     let data, name, dataType: String
+    let appUserId: Int
+}
+
+struct RequestCreateBody: ApiRequestBody {
+    let title, content: String
+    let date: Date
+    let location: String?
+    let isOpen: Bool
+    let requesterId, expertCategoryId, mediaId: Int
+}
+
+struct ExpertResponseBody: ApiRequestBody {
+    let content: String
+    let date: Date
+    let requestId: Int
+}
+
+
+struct ExpertRequestPatchBody: ApiRequestBody {
+    let expertId: Int
+    let isOpen: Bool
 }

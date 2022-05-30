@@ -11,115 +11,110 @@ import SwiftUI
 
 struct HomePageView: View {
     
-    @Binding var tabSelection: Int
+    @Binding var tabSelection: Tabs
     @EnvironmentObject var userState: UserStateViewModel
+    @StateObject var requestModel = RequestViewModel()
     
-    var body: some View {
-        NavigationView {
-            Form {
-                    VStack {
-                        HStack {
-                            
-                            Text("Welcome back,")
-                                .font(.system(size: 20, weight: .bold, design: .rounded))
-                            Text(userState.info?.info.firstName ?? "")
-                                .font(.system(size: 20, weight: .bold, design: .rounded))
-                        }
-                        
-                        
-                        Button(action: {
-                            tabSelection = 2
-                        },
-                               label: {
-                            HStack {
-                                Text("Submit New Request")
-                                    .font(.system(size: 16, weight: .bold, design: .rounded))
-                                    .foregroundColor(Color.gray)
-                                    .padding()
-                                Spacer()
-                                Image(systemName: "chevron.right")
-                                    .padding()
-                            }
-                        })
-                        .background(Color.black.opacity(0.1))
-                        .cornerRadius(10)
-                        
-                        Button(action: {
-                            tabSelection = 1
-                        },
-                               label: {
-                            HStack {
-                                Text("Give expert advice")
-                                    .font(.system(size: 16, weight: .bold, design: .rounded))
-                                    .foregroundColor(Color.gray)
-                                    .padding()
-                                Spacer()
-                                Image(systemName: "chevron.right")
-                                    .padding()
-                            }
-                        })
-                        .background(Color.black.opacity(0.1))
-                        .cornerRadius(10)
-                    }
-                    .padding()
+    var topNavigationButtons: some View {
+        VStack {
+            HStack {
                 
-                
-                Section(header: Text("Recent requests").font(.system(size: 20, weight: .bold, design: .rounded))) {
-                    List(1...4, id: \.self) { index in
-                        NavigationLink(
-                            destination: Text("Request #\(index) Details"),
-                            label: {
-                                HStack {
-                                    Image(systemName: "tray.fill")
-                                        .padding()
-                                    VStack(alignment: .leading) {
-                                        Text("Request \(index)")
-                                            .font(.system(size: 20, weight: .bold, design: .rounded))
-                                        VStack(alignment: .leading) {
-                                            Text("Category \(index)")
-                                            Text("Monday")
-                                        }
-                                        .font(.system(size: 15, design: .rounded))
-                                        .foregroundColor(Color.gray)
-                                    }
-                                    //.frame(maxWidth: .infinity, alignment: .leading)
-                                }
-                            })
-                    }
-                }
-                
-                Section(header: Text("Recent expert advice").font(.system(size: 20, weight: .bold, design: .rounded))) {
-                    List(1...4, id: \.self) { index in
-                        NavigationLink(
-                            destination: Text("Request #\(index) Details"),
-                            label: {
-                                HStack {
-                                    Image(systemName: "tray.full.fill")
-                                        .padding()
-                                    VStack {
-                                        Text("Advice \(index)")
-                                            .font(.system(size: 20, weight: .bold, design: .rounded))
-                                        VStack(alignment: .leading) {
-                                            Text("Category \(index)")
-                                            Text("Monday")
-                                        }
-                                        .font(.system(size: 15, design: .rounded))
-                                    .foregroundColor(Color.gray)
-                                    }
-                                }
-                            })
-                    }
-                }
+                Text("Welcome back,")
+                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                Text(userState.info.info.firstName)
+                    .font(.system(size: 20, weight: .bold, design: .rounded))
             }
-            .buttonStyle(BorderlessButtonStyle())
-            .navigationTitle("Home")
-            .foregroundColor(Color("Amicus3"))
+            
+            Button(action: {
+                tabSelection = Tabs.request
+            },
+                   label: {
+                HStack {
+                    Text("Submit New Request")
+                        .font(.system(size: 16, weight: .bold, design: .rounded))
+                        .foregroundColor(Color.gray)
+                        .padding()
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                        .padding()
+                }
+            })
+            .background(Color.black.opacity(0.1))
+            .cornerRadius(10)
+            
+            Button(action: {
+                tabSelection = Tabs.expert
+            },
+                   label: {
+                HStack {
+                    Text("Give expert advice")
+                        .font(.system(size: 16, weight: .bold, design: .rounded))
+                        .foregroundColor(Color.gray)
+                        .padding()
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                        .padding()
+                }
+            })
+            .background(Color.black.opacity(0.1))
+            .cornerRadius(10)
+        }
+        .padding()
+    }
+    
+    @ViewBuilder
+    var sections: some View {
+        if requestModel.myPosts.isEmpty {
+            let placeholders = Placeholders.generateFullRequests(amount: 5)
+            constructView(myRequests:  placeholders, myAdvice:  placeholders)
+        } else {
+            constructView(myRequests: requestModel.myPosts, myAdvice: requestModel.myExpertAdvice)
+            
         }
     }
+    
+    @ViewBuilder
+    func constructView(myRequests: [FullRequest], myAdvice: [FullRequest]) -> some View {
+        Form {
+            topNavigationButtons
+            Section(header: Text("Active requests").font(.system(size: 20, weight: .bold, design: .rounded))) {
+                List(myRequests, id: \.id) { post in
+                    NavigationLink {
+                        DetailedRequestView(request: post)
+                    }
+                label: {
+                    RequestRow(request: post)
+                }
+                }
+            }
+            
+            Section(header: Text("Recent expert advice").font(.system(size: 20, weight: .bold, design: .rounded))) {
+                List(myAdvice, id: \.id) { post in
+                    NavigationLink {
+                        DetailedRequestView(request: post)
+                    }
+                label: {
+                    RequestRow(request: post)
+                }
+                }
+            }
+        }
+    }
+    
+    var body: some View {
+        sections.onAppear {
+            Task {
+                let id = userState.info.info.id
+                requestModel.retrieveMyAdvice(userId: id, isClosed: true)
+                requestModel.retrieveMyRequests(userId: id, isClosed: false)
+            }
+        }
+    }
+    
 }
 
 struct RegisteredHomepage_Previews: PreviewProvider {
     static var previews: some View {
-        HomePageView(tabSelection: .constant(1)).environmentObject(UserStateViewModel())
+        HomePageView(tabSelection: .constant(Tabs.request)).environmentObject(UserStateViewModel())
     }
 }

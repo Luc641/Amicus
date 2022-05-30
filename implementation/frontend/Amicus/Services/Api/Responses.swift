@@ -8,6 +8,10 @@
 import Foundation
 
 
+struct GenericResponse: Codable {
+    let data: String?
+}
+
 struct ApiError: Codable {
     let statusCode: Int
     let name, message: String
@@ -35,8 +39,12 @@ struct UserInfo: Codable {
 
 struct MediaResponse: Codable {
     let name: String
+    let id: Int?
     let data, dataType: String
     
+    func getIdUnsafe() -> Int {
+        return id!
+    }
     
     func decodeData() -> Data {
         return Data(base64Encoded: data)!
@@ -50,3 +58,26 @@ struct Category: Codable, Hashable {
 
 typealias Categories = [Category]
 
+
+struct Request: Codable {
+    let title, content, date: String
+    let location: String?
+    let id: Int
+    let isOpen: Bool
+    let requesterId: Int
+    let expertId: Int?
+}
+
+
+struct FullRequest: Codable, Hashable {
+    let id, mediaId: Int
+    let title, content, date: String
+    let location: String
+    let expertCategory: Category
+}
+
+struct ExpertResponse: Codable {
+    let id: Int
+    let content, date: String
+    let requestId: Int
+}
