@@ -12,6 +12,7 @@ struct ExpertRequestView: View {
     @State var advice: String = ""
     @EnvironmentObject var userState: UserStateViewModel
     var request: FullRequest
+    @State var locationName: String = "unknown location"
     
     var body: some View {
         HStack{
@@ -36,6 +37,15 @@ struct ExpertRequestView: View {
                 }
                 .font(.system(size: 15, weight: .bold, design: .rounded))
                 
+                
+                Section(header: Text("Location")) {
+                    Text(locationName).onAppear {
+                        Task {
+                            let decoded = await decodeLocation(locationString: request.location)
+                            self.locationName = "\(decoded.country!), \(decoded.locality!)"
+                        }
+                    }
+                }
                 
                 Section("Your Advice") {
                     TextEditor(text: $advice)

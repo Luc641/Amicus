@@ -51,23 +51,6 @@ struct DetailedRequestView: View {
             
         }.navigationTitle("Request: \(request.title)")
     }
-    
-    private func loadImage(mediaId: Int) async -> UIImage {
-        let token = KeychainHelper.standard.readAmicusToken() ?? ""
-        if let imageData = try? await WebClient.standard.retrieveMedia(id: request.mediaId, authToken: token) { return UIImage(data: imageData.decodeData())! }
-        
-        return UIImage(named: "HelpingHands")!
-    }
-    
-    private func decodeLocation(locationString: String) async -> CLPlacemark {
-        // 51.3704,6.1724
-        let split = locationString.components(separatedBy: ",").map { coord in
-            Double(coord) ?? 0
-        }
-        
-        let coordinates = CLLocationCoordinate2D(latitude: split[0], longitude: split[1])
-        return await retrieveLocation(location: coordinates)
-    }
 }
 
 struct HistoryRequestView_Previews: PreviewProvider {

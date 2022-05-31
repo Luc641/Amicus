@@ -24,3 +24,11 @@ func loadImage(mediaId: Int) async -> UIImage {
     
     return UIImage(named: "HelpingHands")!
 }
+
+
+func decodeLocation(locationString: String) async -> CLPlacemark {
+    // 51.3704,6.1724
+    let split = locationString.components(separatedBy: ",").map { coord in Double(coord) ?? 0 }
+    let coordinates = CLLocationCoordinate2D(latitude: split[0], longitude: split[1])
+    return await retrieveLocation(location: coordinates)
+}
