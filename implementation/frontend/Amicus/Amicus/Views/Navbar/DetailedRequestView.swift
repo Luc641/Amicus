@@ -43,6 +43,10 @@ struct DetailedRequestView: View {
                         }
                     }
                 }
+                
+                Section("Expert response") {
+                    Text(request.expertResponse?.content ?? "not answered yet")
+                }
             }
             
         }.navigationTitle("Request: \(request.title)")

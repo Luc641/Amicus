@@ -27,6 +27,7 @@ export class RequestRepository extends DefaultCrudRepository<Request,
         this.registerInclusionResolver('media', this.media.inclusionResolver);
         this.expertResponse = this.createHasOneRepositoryFactoryFor('expertResponse', expertResponseRepositoryGetter);
         this.expertCategory = this.createBelongsToAccessorFor('expertCategory', expertCategoryRepositoryGetter);
-        this.registerInclusionResolver('expertCategory', this.expertCategory.inclusionResolver)
+        this.registerInclusionResolver('expertCategory', this.expertCategory.inclusionResolver);
+        this.registerInclusionResolver('expertResponse', this.expertResponse.inclusionResolver);
     }
 }

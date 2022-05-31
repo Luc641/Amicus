@@ -64,7 +64,7 @@ struct HomePageView: View {
     
     @ViewBuilder
     var sections: some View {
-        if requestModel.myPosts.isEmpty {
+        if !userState.isAuthenticated {
             let placeholders = Placeholders.generateFullRequests(amount: 5)
             constructView(myRequests:  placeholders, myAdvice:  placeholders)
         } else {

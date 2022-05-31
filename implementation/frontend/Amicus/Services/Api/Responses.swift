@@ -68,16 +68,17 @@ struct Request: Codable {
     let expertId: Int?
 }
 
+struct ExpertResponse: Codable, Hashable {
+    let id: Int
+    let content, date: String
+    let requestId: Int
+}
+
 
 struct FullRequest: Codable, Hashable {
     let id, mediaId: Int
     let title, content, date: String
     let location: String
     let expertCategory: Category
-}
-
-struct ExpertResponse: Codable {
-    let id: Int
-    let content, date: String
-    let requestId: Int
+    let expertResponse: ExpertResponse?
 }

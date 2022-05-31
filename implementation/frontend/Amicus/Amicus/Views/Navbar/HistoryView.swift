@@ -19,37 +19,23 @@ struct HistoryView: View {
     
     @ViewBuilder
     var listView: some View {
-        if requestModel.myPosts.isEmpty {
-            offlineView
+        if !userState.isAuthenticated {
+            constructView(requests: Placeholders.generateFullRequests(amount: 5))
         } else {
-            apiView
+            constructView(requests: requestModel.myPosts)
         }
     }
     
-    
-    var apiView: some View {
+    @ViewBuilder
+    func constructView(requests: [FullRequest]) -> some View {
         Form {
-            Section(header: Text("My Requests").font(.system(size: 20, weight: .bold, design: .rounded))){
-                List(requestModel.myPosts, id: \.id) { post in
+            Section(header: Text("My Closed Requests").font(.system(size: 20, weight: .bold, design: .rounded))) {
+                List(requests, id: \.id) { post in
                     NavigationLink {
-                        DetailedRequestView(request: post) }
+                        DetailedRequestView(request: post)
+                    }
                 label: {
                     RequestRow(request: post)
-                }
-                }
-            }
-        }
-    }
-    
-    
-    var offlineView: some View {
-        Form {
-            Section(header: Text("My Closed Requests").font(.system(size: 20, weight: .bold, design: .rounded))){
-                List(1...4, id: \.self) { post in
-                    NavigationLink {
-                        DetailedRequestView(request: Placeholders.expertPosts[0]) }
-                label: {
-                    RequestRow(request: Placeholders.expertPosts[0])
                 }
                 }
             }

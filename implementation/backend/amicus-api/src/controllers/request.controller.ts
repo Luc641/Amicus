@@ -84,7 +84,7 @@ export class RequestController {
     ): Promise<Request[]> {
         return this.requestRepository.find({
             where: {requesterId: userId, isOpen: !isClosed},
-            include: ['expertCategory'],
+            include: ['expertCategory', 'expertResponse'],
         });
     }
 
@@ -103,7 +103,7 @@ export class RequestController {
     ): Promise<Request[]> {
         return this.requestRepository.find({
             where: {expertId: userId, isOpen: !isClosed},
-            include: ['expertCategory'],
+            include: ['expertCategory', 'expertResponse'],
         });
     }
 

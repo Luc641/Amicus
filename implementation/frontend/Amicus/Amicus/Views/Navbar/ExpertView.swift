@@ -20,36 +20,16 @@ struct ExpertView: View {
     
     @ViewBuilder
     var listView: some View {
-        if requestModel.expertPosts.isEmpty {
-            offlineView
+        if !userState.isAuthenticated {
+            constructView(requests: Placeholders.generateFullRequests(amount: 5)).navigationTitle("Expert")
         } else {
-            apiView
+            constructView(requests: requestModel.expertPosts)
         }
     }
     
-    var offlineView: some View {
-        List(1...10, id: \.self) { index in
-            NavigationLink(
-                destination: ExpertRequestView(request: Placeholders.expertPosts[0]),
-                label: {
-                    HStack {
-                        Image(systemName: "tray.full.fill")
-                            .padding()
-                        VStack {
-                            Text("Advice \(index)")
-                                .font(.system(size: 20, weight: .bold, design: .rounded))
-                            Text("Category \(index)")
-                                .font(.system(size: 15, design: .rounded))
-                                .foregroundColor(Color.gray)
-                        }
-                    }
-                })
-        }.navigationTitle("Expert")
-    }
-    
-    
-    var apiView: some View {
-        List(requestModel.expertPosts, id: \.id) { post in
+    @ViewBuilder
+    func constructView(requests: [FullRequest]) -> some View {
+        List(requests, id: \.id) { post in
             NavigationLink(
                 destination: ExpertRequestView(request: post),
                 label: {
