@@ -3,7 +3,7 @@ import {
     MediaRepository,
     ExpertCategoryRepository,
     AppUserExpertCategoryRepository,
-    RequestRepository, ExpertResponseRepository,
+    RequestRepository, ExpertResponseRepository, DeviceTokenRepository,
 } from '../../repositories';
 import {testdb} from '../fixtures/datasources/testdb.datasource';
 import {AppUser} from '../../models';
@@ -15,6 +15,7 @@ const appUserExpertCategoryRepository = new AppUserExpertCategoryRepository(test
 const expertCategoryRepository = new ExpertCategoryRepository(testdb);
 const mediaRepository = new MediaRepository(testdb);
 const expertResponseRepository = new ExpertResponseRepository(testdb);
+const deviceRepository = new DeviceTokenRepository(testdb);
 const requestRepository = new RequestRepository(
     testdb,
     Getter.fromValue(expertCategoryRepository),
@@ -23,7 +24,8 @@ const requestRepository = new RequestRepository(
 const appUserRepository = new AppUserRepository(testdb,
     Getter.fromValue(appUserExpertCategoryRepository),
     Getter.fromValue(expertCategoryRepository),
-    Getter.fromValue(mediaRepository), Getter.fromValue(requestRepository));
+    Getter.fromValue(mediaRepository), Getter.fromValue(requestRepository),
+    Getter.fromValue(deviceRepository));
 
 
 export async function givenEmptyDatabase() {

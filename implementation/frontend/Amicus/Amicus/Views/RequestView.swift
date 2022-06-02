@@ -22,6 +22,7 @@ struct RequestView: View {
     @StateObject var locationManager = LocationManager()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    @Binding var tabSelection: Tabs
     @State private var description = ""
     @State private var topic = ""
     @State private var address: CLPlacemark?
@@ -120,6 +121,7 @@ struct RequestView: View {
             
             Button(action: {
                 requestModel.create(topic: topic, description: description, category: categoryModel.selection, image: self.image, coords: locationManager.location, userId: userState.info.info.id)
+                tabSelection = Tabs.home
             }, label: {
                 HStack {
                     Text("Post Request")
@@ -139,6 +141,6 @@ struct RequestView: View {
 
 struct RequestView_Previews: PreviewProvider {
     static var previews: some View {
-        RequestView()
+        RequestView(tabSelection: .constant(Tabs.home))
     }
 }

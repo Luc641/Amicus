@@ -7,12 +7,13 @@ import {
     repository,
 } from '@loopback/repository';
 import {AmicusDatabaseDataSource} from '../datasources';
-import {AppUser, AppUserExpertCategory, AppUserRelations, ExpertCategory, Media, Request} from '../models';
+import {AppUser, AppUserExpertCategory, AppUserRelations, ExpertCategory, Media, Request, DeviceToken} from '../models';
 import {Credentials} from '../services/app-user.service';
 import {AppUserExpertCategoryRepository} from './app-user-expert-category.repository';
 import {ExpertCategoryRepository} from './expert-category.repository';
 import {MediaRepository} from './media.repository';
 import {RequestRepository} from './request.repository';
+import {DeviceTokenRepository} from './device-token.repository';
 
 export class AppUserRepository extends DefaultCrudRepository<AppUser,
     typeof AppUser.prototype.id,
@@ -28,6 +29,8 @@ export class AppUserRepository extends DefaultCrudRepository<AppUser,
 
     public readonly expertRequests: HasManyRepositoryFactory<Request, typeof AppUser.prototype.id>;
 
+  public readonly deviceToken: HasOneRepositoryFactory<DeviceToken, typeof AppUser.prototype.id>;
+
     constructor(
         @inject('datasources.AmicusDatabase') dataSource: AmicusDatabaseDataSource,
         @repository.getter('AppUserExpertCategoryRepository')
@@ -37,9 +40,11 @@ export class AppUserRepository extends DefaultCrudRepository<AppUser,
         @repository.getter('MediaRepository')
         protected mediaRepositoryGetter: Getter<MediaRepository>,
         @repository.getter('RequestRepository')
-        protected requestRepositoryGetter: Getter<RequestRepository>,
+        protected requestRepositoryGetter: Getter<RequestRepository>, @repository.getter('DeviceTokenRepository') protected deviceTokenRepositoryGetter: Getter<DeviceTokenRepository>,
     ) {
         super(AppUser, dataSource);
+      this.deviceToken = this.createHasOneRepositoryFactoryFor('deviceToken', deviceTokenRepositoryGetter);
+      this.registerInclusionResolver('deviceToken', this.deviceToken.inclusionResolver);
         this.expertRequests = this.createHasManyRepositoryFactoryFor('expertRequests', requestRepositoryGetter);
         this.registerInclusionResolver('expertRequests', this.expertRequests.inclusionResolver);
         this.ownRequests = this.createHasManyRepositoryFactoryFor('ownRequests', requestRepositoryGetter);

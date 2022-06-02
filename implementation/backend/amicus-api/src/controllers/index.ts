@@ -8,3 +8,4 @@ export * from './request.controller';
 export * from './request-expert-category.controller';
 export * from './request-expert-response.controller';
 export * from './request-media.controller';
+export * from './app-user-device-token.controller';

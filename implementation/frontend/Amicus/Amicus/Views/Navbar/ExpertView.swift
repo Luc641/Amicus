@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct ExpertView: View {
+    @Binding var tabSelection: Tabs
     @EnvironmentObject private var userState: UserStateViewModel
     @StateObject var requestModel = RequestViewModel()
     
@@ -31,7 +32,7 @@ struct ExpertView: View {
     func constructView(requests: [FullRequest]) -> some View {
         List(requests, id: \.id) { post in
             NavigationLink(
-                destination: ExpertRequestView(request: post),
+                destination: ExpertRequestView(tabSelection: .constant(Tabs.home) ,request: post),
                 label: {
                     HStack {
                         Image(systemName: "tray.full.fill")
@@ -52,7 +53,7 @@ struct ExpertView: View {
 struct ExpertView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ExpertView().environmentObject(UserStateViewModel())
+            ExpertView(tabSelection: .constant(Tabs.home)).environmentObject(UserStateViewModel())
         }
     }
 }

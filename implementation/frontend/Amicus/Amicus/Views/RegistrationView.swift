@@ -16,7 +16,7 @@ struct RegistrationView: View {
     @ObservedObject var formInfo = FormInfo()
     @State var isSaveEnabled = false
     @State private var registerScreen = false
-    @StateObject private var userModel = UserStateViewModel()
+    @EnvironmentObject private var userModel: UserStateViewModel
     @StateObject private var categoryModel = CategoryViewModel()
     
     @State private var image = UIImage()
@@ -91,16 +91,17 @@ struct RegistrationView: View {
                 Section(header: Text("Password")) {
                     SecureField("Password", text: $formInfo.password)
                         .validation(formInfo.singlePasswordValidation)
+                        .textContentType(.oneTimeCode)
                     SecureField("Confirm Password", text: $formInfo.confirmPassword)
                         .validation(formInfo.passwordValidation)
+                        .textContentType(.oneTimeCode)
+                    
                 }
                 Section( header: Text("")) {
                     Picker("Expert Category", selection: $categoryModel.selection) {
                         ForEach(categoryModel.categories, id: \.self) { category in
                             Text(category.categoryName.capitalized)
                         }
-                    }.onAppear {
-                        categoryModel.populateCategories()
                     }
                 }
                 Button(action: {
@@ -116,10 +117,16 @@ struct RegistrationView: View {
                 )
                 .onTapGesture(perform: simpleSuccess)
                 .disabled(isButtonDisabled)
+            }.onAppear {
+                categoryModel.populateCategories()
             }
             .onReceive(formInfo.form.$allValid) { isValid in
                 self.isSaveEnabled = isValid
-            }
+            }.gesture(DragGesture().onChanged { _ in
+                guard let window = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+                
+                window.windows.forEach { $0.endEditing(true)}
+            })
             .navigationBarTitle("Registration")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

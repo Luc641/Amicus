@@ -3,6 +3,7 @@ import {AppUserExpertCategory} from './app-user-expert-category.model';
 import {ExpertCategory} from './expert-category.model';
 import {Media} from './media.model';
 import {Request} from './request.model';
+import {DeviceToken} from './device-token.model';
 
 @model()
 export class AppUser extends Entity {
@@ -68,6 +69,9 @@ export class AppUser extends Entity {
 
   @hasMany(() => Request, {keyTo: 'expertId'})
   expertRequests: Request[];
+
+  @hasOne(() => DeviceToken)
+  deviceToken: DeviceToken;
 
   constructor(data?: Partial<AppUser>) {
     super(data);

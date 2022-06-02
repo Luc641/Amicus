@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ExpertRequestView: View {
+    @Binding var tabSelection: Tabs
     @State private var image: UIImage?
     @State var advice: String = ""
     @EnvironmentObject var userState: UserStateViewModel
@@ -54,8 +55,8 @@ struct ExpertRequestView: View {
                 
                 Button(action: {
                     Task {
-                        // todo transition somewhere
                         await respondToRequest(requestId: request.id, content: advice)
+                        tabSelection = Tabs.home
                     }
                 },
                        label: {
@@ -81,6 +82,6 @@ struct ExpertRequestView: View {
 
 struct ExpertRequestView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpertRequestView(request: Placeholders.expertPosts[0]).environmentObject(UserStateViewModel())
+        ExpertRequestView(tabSelection: .constant(Tabs.home), request: Placeholders.expertPosts[0] ).environmentObject(UserStateViewModel())
     }
 }

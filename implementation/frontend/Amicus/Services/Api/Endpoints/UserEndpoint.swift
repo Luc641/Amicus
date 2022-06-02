@@ -13,6 +13,7 @@ enum UserEndpoint {
     case byId(id: Int)
     case register
     case categories(userId: Int)
+    case deviceToken(userId: Int)
 }
 
 extension UserEndpoint: Endpoint {
@@ -28,6 +29,9 @@ extension UserEndpoint: Endpoint {
             return "users"
         case .categories(let userId):
             return "app-users/\(userId)/expert-categories"
+            
+        case .deviceToken(let userId):
+            return "app-users/\(userId)/device-token"
         }
     }
 }

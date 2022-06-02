@@ -46,7 +46,7 @@ export class Request extends Entity {
   @property({
     type: 'number',
   })
-  requesterId?: number;
+  requesterId: number;
 
   @property({
     type: 'number',

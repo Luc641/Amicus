@@ -82,3 +82,9 @@ struct FullRequest: Codable, Hashable {
     let expertCategory: Category
     let expertResponse: ExpertResponse?
 }
+
+
+struct DeviceToken: Codable {
+    let data: String
+    let appUserId: Int
+}

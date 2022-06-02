@@ -54,6 +54,7 @@ struct LandingPageView: View {
     struct HomepageView_Previews: PreviewProvider {
         static var previews: some View {
             LandingPageView()
+                .environmentObject(NotificationCenter())
         }
     }
 }

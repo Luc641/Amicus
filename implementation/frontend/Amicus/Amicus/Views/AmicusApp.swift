@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct AmicusApp: App {
+    @StateObject var notificationCenter = NotificationCenter()
+    @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
+    
     var body: some Scene {
         WindowGroup {
             LandingPageView()
+                .environmentObject(notificationCenter)
+                .environmentObject(appDelegate.userState)
 //            TestView()
         }
     }

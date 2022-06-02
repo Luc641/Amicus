@@ -26,6 +26,8 @@
 		2924D7B728438DD300D66043 /* Placeholders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924D7B628438DD300D66043 /* Placeholders.swift */; };
 		2924D7B92843C45F00D66043 /* RequestRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924D7B82843C45F00D66043 /* RequestRow.swift */; };
 		2924D7BE2844AB7600D66043 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924D7BD2844AB7600D66043 /* Utilities.swift */; };
+		2924D7C128465EE800D66043 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924D7C028465EE800D66043 /* AppDelegate.swift */; };
+		2924D7C328465EFB00D66043 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924D7C228465EFB00D66043 /* NotificationCenter.swift */; };
 		292FA387281AE46200073055 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FA386281AE46200073055 /* RegistrationView.swift */; };
 		292FA389281AE55200073055 /* FormInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FA388281AE55200073055 /* FormInfo.swift */; };
 		2945942728214764003D1736 /* WebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2945942628214764003D1736 /* WebClient.swift */; };
@@ -99,6 +101,8 @@
 		2924D7B628438DD300D66043 /* Placeholders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholders.swift; sourceTree = "<group>"; };
 		2924D7B82843C45F00D66043 /* RequestRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestRow.swift; sourceTree = "<group>"; };
 		2924D7BD2844AB7600D66043 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		2924D7C028465EE800D66043 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2924D7C228465EFB00D66043 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		292FA386281AE46200073055 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		292FA388281AE55200073055 /* FormInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInfo.swift; sourceTree = "<group>"; };
 		2945942628214764003D1736 /* WebClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebClient.swift; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 		74CA3D31FCA99586E4DDA2F5 /* Pods-Amicus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus.debug.xcconfig"; path = "Target Support Files/Pods-Amicus/Pods-Amicus.debug.xcconfig"; sourceTree = "<group>"; };
 		7923CF59C8B1B108EA8E0018 /* Pods-Amicus_Frontend-Amicus_FrontendUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus_Frontend-Amicus_FrontendUITests.debug.xcconfig"; path = "Target Support Files/Pods-Amicus_Frontend-Amicus_FrontendUITests/Pods-Amicus_Frontend-Amicus_FrontendUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		812F3F13283677BC009FA944 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		8147FEC128466BC6002D9CB8 /* Amicus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Amicus.entitlements; sourceTree = "<group>"; };
 		81848DA3283664610044AA4B /* RequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestView.swift; sourceTree = "<group>"; };
 		8186BE8F281AAB0F00419F3A /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		818701022817F949001F86C6 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
@@ -214,6 +219,7 @@
 		07AC8624280EBF8600C8C48F /* Amicus */ = {
 			isa = PBXGroup;
 			children = (
+				8147FEC128466BC6002D9CB8 /* Amicus.entitlements */,
 				0709E9212836741800DD9E6E /* Haptics */,
 				070FFFB52816A9F5003357BB /* Styles */,
 				2928EC90282A883400BDBADB /* ViewModels */,
@@ -249,6 +255,15 @@
 			path = AmicusUITests;
 			sourceTree = "<group>";
 		};
+		2924D7BF28465ED600D66043 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				2924D7C028465EE800D66043 /* AppDelegate.swift */,
+				2924D7C228465EFB00D66043 /* NotificationCenter.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		2928EC8F282A882900BDBADB /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +297,7 @@
 		294594252821473A003D1736 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				2924D7BF28465ED600D66043 /* Notifications */,
 				298D2AF828226E26002C9466 /* Keychain */,
 				298D2AD728219E29002C9466 /* Api */,
 			);
@@ -447,7 +463,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					07AC8621280EBF8600C8C48F = {
 						CreatedOnToolsVersion = 13.3.1;
@@ -623,6 +639,7 @@
 				2924D7B52842599200D66043 /* TestView.swift in Sources */,
 				818701062818025F001F86C6 /* NavbarView.swift in Sources */,
 				298D2AFC28227270002C9466 /* ApiToken.swift in Sources */,
+				2924D7C128465EE800D66043 /* AppDelegate.swift in Sources */,
 				298D2AFA28226E3A002C9466 /* KeychainHelper.swift in Sources */,
 				818701032817F949001F86C6 /* HomePageView.swift in Sources */,
 				295139E62832B67C0009938C /* MediaView.swift in Sources */,
@@ -642,7 +659,6 @@
 				2945942928215422003D1736 /* UserStateViewModel.swift in Sources */,
 				2924D7B3284163EC00D66043 /* RequestEndpoint.swift in Sources */,
 				81848DA4283664610044AA4B /* RequestView.swift in Sources */,
-				2945942928215422003D1736 /* UserStateViewModel.swift in Sources */,
 				81AB73002816A16900E947F0 /* ViewExtension.swift in Sources */,
 				2945942728214764003D1736 /* WebClient.swift in Sources */,
 				292FA387281AE46200073055 /* RegistrationView.swift in Sources */,
@@ -655,6 +671,7 @@
 				812F3F14283677BC009FA944 /* LocationManager.swift in Sources */,
 				298D2ADB28219E63002C9466 /* Responses.swift in Sources */,
 				2924D7AB2840DB0700D66043 /* CategoryEndpoint.swift in Sources */,
+				2924D7C328465EFB00D66043 /* NotificationCenter.swift in Sources */,
 				2924D7B728438DD300D66043 /* Placeholders.swift in Sources */,
 				295AAC1E282530A200F18E71 /* UserEndpoint.swift in Sources */,
 				2924D7B92843C45F00D66043 /* RequestRow.swift in Sources */,
@@ -817,6 +834,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = Amicus/Amicus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Amicus/Preview Content\"";
@@ -833,7 +851,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "PRJ4-Group5.Amicus-Frontend";
+				PRODUCT_BUNDLE_IDENTIFIER = nl.fontys.prj422group5.amicus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -848,6 +866,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = Amicus/Amicus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Amicus/Preview Content\"";
@@ -864,7 +883,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "PRJ4-Group5.Amicus-Frontend";
+				PRODUCT_BUNDLE_IDENTIFIER = nl.fontys.prj422group5.amicus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

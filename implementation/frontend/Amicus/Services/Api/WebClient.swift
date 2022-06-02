@@ -12,7 +12,7 @@ import CoreLocation
 
 /// Webclient singleton class for APi calls to the amicus backend server.
 final class WebClient {
-    private final var apiBase = URL(string: "http://localhost:3000/")
+    private final var apiBase = URL(string: "https://amicus.sou.tf")
     
     /// Returns the standard instance of this class
     static let standard = WebClient()
@@ -225,6 +225,12 @@ final class WebClient {
         let body = ExpertRequestPatchBody(expertId: expertId, isOpen: false)
         let request = createPatchRequest(for: RequestEndpoint.byId(id: requestId), body: body, authToken: authToken)
         return try await makeRequest(with: request) as GenericResponse
+    }
+    
+    func uploadUserDeviceToken(userId: Int, deviceToken: String, authToken: String) async throws -> DeviceToken {
+        let body = DeviceTokenBody(data: deviceToken, appUserId: userId)
+        let request = createPostRequest(for: UserEndpoint.deviceToken(userId: userId), with: body, authToken: authToken)
+        return try await makeRequest(with: request)
     }
 }
 

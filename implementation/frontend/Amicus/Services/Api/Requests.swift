@@ -53,3 +53,8 @@ struct ExpertRequestPatchBody: ApiRequestBody {
     let expertId: Int
     let isOpen: Bool
 }
+
+struct DeviceTokenBody: ApiRequestBody {
+    let data: String
+    let appUserId: Int
+}

@@ -19,12 +19,14 @@ enum Tabs: String {
 }
 struct NavbarView: View {
     @EnvironmentObject private var userState: UserStateViewModel
+    @EnvironmentObject var notificationCenter: NotificationCenter
     @State private var selection: Tabs = .home
     
     var body: some View {
         TabView(selection: $selection) {
             NavigationView {
-                HomePageView(tabSelection: $selection).navigationTitle("Home")
+                HomePageView(tabSelection: $selection)
+                    .navigationTitle("Home")
             }.navigationViewStyle(.stack)
                 .tabItem {
                     Image(systemName: "house.fill")
@@ -33,7 +35,7 @@ struct NavbarView: View {
                 .tag(Tabs.home)
             
             NavigationView {
-                ExpertView()
+                ExpertView(tabSelection: $selection)
                     .navigationTitle("Expert")
             }.navigationViewStyle(.stack)
                 .tabItem {
@@ -43,7 +45,8 @@ struct NavbarView: View {
                 .tag(Tabs.expert)
             
             NavigationView {
-                RequestView().navigationTitle("Create new request")
+                RequestView(tabSelection: $selection)
+                    .navigationTitle("Create new request")
             }.navigationViewStyle(.stack)
                 .tabItem {
                     Image(systemName: "plus.bubble")
@@ -72,6 +75,8 @@ struct NavbarView: View {
         .foregroundColor(Color.amicusGreen)
         .accentColor(.amicusGreen)
         .onAppear {
+            print("prompting for notifications")
+            notificationCenter.requestNotificationAccess()
             userState.retrieveExpertCategories()
         }
     }
