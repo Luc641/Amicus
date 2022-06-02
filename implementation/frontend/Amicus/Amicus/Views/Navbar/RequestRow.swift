@@ -15,10 +15,10 @@ struct RequestRow: View {
             Image(systemName: "tray.fill")
                 .padding()
             VStack(alignment: .leading) {
-                Text("Request: \(request.title)")
+                Text(request.title)
                     .font(.system(size: 20, weight: .bold, design: .rounded))
                 VStack(alignment: .leading) {
-                    Text("Category \(request.expertCategory.categoryName)")
+                    Text("Category \(request.expertCategory.categoryName.capitalized)")
                 }
                 .font(.system(size: 15, design: .rounded))
                 .foregroundColor(Color.gray)
