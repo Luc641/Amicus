@@ -32,7 +32,7 @@ struct ExpertView: View {
     func constructView(requests: [FullRequest]) -> some View {
         List(requests, id: \.id) { post in
             NavigationLink(
-                destination: ExpertRequestView(tabSelection: .constant(Tabs.home) ,request: post),
+                destination: ExpertRequestView(request: post),
                 label: {
                     HStack {
                         Image(systemName: "tray.full.fill")
