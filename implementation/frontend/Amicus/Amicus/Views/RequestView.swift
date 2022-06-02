@@ -131,8 +131,11 @@ struct RequestView: View {
             }
             )
             
-        }
-        //        .foregroundColor(Color.amicusGreen)
+        }.gesture(DragGesture().onChanged { _ in
+            guard let window = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+            
+            window.windows.forEach { $0.endEditing(true)}
+        })
     }
 }
 
