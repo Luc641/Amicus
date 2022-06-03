@@ -15,7 +15,6 @@ struct RegistrationView: View {
     
     @ObservedObject var formInfo = FormInfo()
     @State var isSaveEnabled = false
-    @State private var registerScreen = false
     @EnvironmentObject private var userModel: UserStateViewModel
     @StateObject private var categoryModel = CategoryViewModel()
     
@@ -26,7 +25,7 @@ struct RegistrationView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Profile Picture")) {
+                Section("Profile Picture") {
                     HStack {
                         Image(uiImage: self.image)
                             .resizable()
@@ -60,13 +59,15 @@ struct RegistrationView: View {
                     }
                 }
                 
-                Section(header: Text("Personal Information")) {
+                Section("Personal Information") {
                     TextField("First Name", text: $formInfo.firstName)
+                        .disableAutocorrection(true)
                         .validation(formInfo.firstNameValidation)
                     
                     TextField(
                         "Last Name",
                         text: $formInfo.lastNames)
+                    .disableAutocorrection(true)
                     .validation(formInfo.lastNamesValidation)
                     
                     TextField(
@@ -97,7 +98,7 @@ struct RegistrationView: View {
                         .textContentType(.oneTimeCode)
                     
                 }
-                Section( header: Text("")) {
+                Section {
                     Picker("Expert Category", selection: $categoryModel.selection) {
                         ForEach(categoryModel.categories, id: \.self) { category in
                             Text(category.categoryName.capitalized)
@@ -105,13 +106,13 @@ struct RegistrationView: View {
                     }
                 }
                 Button(action: {
-                    registerScreen = formInfo.form.triggerValidation()
                     userModel.register(firstName: formInfo.firstName, lastName: formInfo.lastNames, password: formInfo.password, birthDate: formInfo.birthday, email: formInfo.email, username: formInfo.username, avatar: self.image, categories: [categoryModel.selection])
                 }, label: {
                     HStack {
                         Text("Submit")
                         Spacer()
-                        Image(systemName: "checkmark.circle.fill")
+                        let glyph = isButtonDisabled ? "exclamationmark.circle.fill" : "checkmark.circle.fill"
+                        Image(systemName: glyph)
                     }
                 }
                 )
@@ -127,7 +128,7 @@ struct RegistrationView: View {
                 
                 window.windows.forEach { $0.endEditing(true)}
             })
-            .navigationBarTitle("Registration")
+            .navigationTitle("Registration")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
@@ -146,7 +147,7 @@ struct RegistrationView: View {
     }
     
     private var isButtonDisabled: Bool {
-        userModel.isAuthenticating || !formInfo.form.triggerValidation()
+        userModel.isAuthenticating || !isSaveEnabled
     }
 }
 
