@@ -18,21 +18,21 @@ export class RequestMediaController {
     public requestRepository: RequestRepository,
   ) { }
 
-  @get('/requests/{id}/media', {
-    responses: {
-      '200': {
-        description: 'Media belonging to Request',
-        content: {
-          'application/json': {
-            schema: {type: 'array', items: getModelSchemaRef(Media)},
-          },
-        },
-      },
-    },
-  })
-  async getMedia(
-    @param.path.number('id') id: typeof Request.prototype.id,
-  ): Promise<Media> {
-    return this.requestRepository.media(id);
-  }
+  // @get('/requests/{id}/media', {
+  //   responses: {
+  //     '200': {
+  //       description: 'Media belonging to Request',
+  //       content: {
+  //         'application/json': {
+  //           schema: {type: 'array', items: getModelSchemaRef(Media)},
+  //         },
+  //       },
+  //     },
+  //   },
+  // })
+  // async getMedia(
+  //   @param.path.number('id') id: typeof Request.prototype.id,
+  // ): Promise<Media> {
+  //   return this.requestRepository.media(id);
+  // }
 }

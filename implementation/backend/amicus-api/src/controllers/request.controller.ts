@@ -125,70 +125,6 @@ export class RequestController {
         });
     }
 
-    @get('/requests/count')
-    @response(200, {
-        description: 'Request model count',
-        content: {'application/json': {schema: CountSchema}},
-    })
-    async count(
-        @param.where(Request) where?: Where<Request>,
-    ): Promise<Count> {
-        return this.requestRepository.count(where);
-    }
-
-    @get('/requests')
-    @response(200, {
-        description: 'Array of Request model instances',
-        content: {
-            'application/json': {
-                schema: {
-                    type: 'array',
-                    items: getModelSchemaRef(Request, {includeRelations: true}),
-                },
-            },
-        },
-    })
-    async find(
-        @param.filter(Request) filter?: Filter<Request>,
-    ): Promise<Request[]> {
-        return this.requestRepository.find(filter);
-    }
-
-    @patch('/requests')
-    @response(200, {
-        description: 'Request PATCH success count',
-        content: {'application/json': {schema: CountSchema}},
-    })
-    async updateAll(
-        @requestBody({
-            content: {
-                'application/json': {
-                    schema: getModelSchemaRef(Request, {partial: true}),
-                },
-            },
-        })
-            request: Request,
-        @param.where(Request) where?: Where<Request>,
-    ): Promise<Count> {
-        return this.requestRepository.updateAll(request, where);
-    }
-
-    @get('/requests/{id}')
-    @response(200, {
-        description: 'Request model instance',
-        content: {
-            'application/json': {
-                schema: getModelSchemaRef(Request, {includeRelations: true}),
-            },
-        },
-    })
-    async findById(
-        @param.path.number('id') id: number,
-        @param.filter(Request, {exclude: 'where'}) filter?: FilterExcludingWhere<Request>,
-    ): Promise<Request> {
-        return this.requestRepository.findById(id, filter);
-    }
-
     @patch('/requests/{id}')
     @response(204, {
         description: 'Request PATCH success',
@@ -244,40 +180,103 @@ export class RequestController {
         return note;
     }
 
+    // @get('/requests/count')
+    // @response(200, {
+    //     description: 'Request model count',
+    //     content: {'application/json': {schema: CountSchema}},
+    // })
+    // async count(
+    //     @param.where(Request) where?: Where<Request>,
+    // ): Promise<Count> {
+    //     return this.requestRepository.count(where);
+    // }
 
-    @get('/requests/{id}/testapn')
-    @response(200, {
-        description: 'Test the APN network with a user id',
-        content: {
-            'application/json': {
-                schema: getModelSchemaRef(Request, {includeRelations: true}),
-            },
-        },
-    })
-    async testApn(
-        @param.path.number('id') id: number,
-    ): Promise<void> {
-        const token = await this.appUserRepository.deviceToken(id).get();
-        const note = this.format_ios_notification();
-        await this.send_ios_notification(note, [token.data]);
-    }
+    // @get('/requests')
+    // @response(200, {
+    //     description: 'Array of Request model instances',
+    //     content: {
+    //         'application/json': {
+    //             schema: {
+    //                 type: 'array',
+    //                 items: getModelSchemaRef(Request, {includeRelations: true}),
+    //             },
+    //         },
+    //     },
+    // })
+    // async find(
+    //     @param.filter(Request) filter?: Filter<Request>,
+    // ): Promise<Request[]> {
+    //     return this.requestRepository.find(filter);
+    // }
 
-    @put('/requests/{id}')
-    @response(204, {
-        description: 'Request PUT success',
-    })
-    async replaceById(
-        @param.path.number('id') id: number,
-        @requestBody() request: Request,
-    ): Promise<void> {
-        await this.requestRepository.replaceById(id, request);
-    }
+    // @patch('/requests')
+    // @response(200, {
+    //     description: 'Request PATCH success count',
+    //     content: {'application/json': {schema: CountSchema}},
+    // })
+    // async updateAll(
+    //     @requestBody({
+    //         content: {
+    //             'application/json': {
+    //                 schema: getModelSchemaRef(Request, {partial: true}),
+    //             },
+    //         },
+    //     })
+    //         request: Request,
+    //     @param.where(Request) where?: Where<Request>,
+    // ): Promise<Count> {
+    //     return this.requestRepository.updateAll(request, where);
+    // }
+    // 
+    // @get('/requests/{id}')
+    // @response(200, {
+    //     description: 'Request model instance',
+    //     content: {
+    //         'application/json': {
+    //             schema: getModelSchemaRef(Request, {includeRelations: true}),
+    //         },
+    //     },
+    // })
+    // async findById(
+    //     @param.path.number('id') id: number,
+    //     @param.filter(Request, {exclude: 'where'}) filter?: FilterExcludingWhere<Request>,
+    // ): Promise<Request> {
+    //     return this.requestRepository.findById(id, filter);
+    // }
 
-    @del('/requests/{id}')
-    @response(204, {
-        description: 'Request DELETE success',
-    })
-    async deleteById(@param.path.number('id') id: number): Promise<void> {
-        await this.requestRepository.deleteById(id);
-    }
+    // @get('/requests/{id}/testapn')
+    // @response(200, {
+    //     description: 'Test the APN network with a user id',
+    //     content: {
+    //         'application/json': {
+    //             schema: getModelSchemaRef(Request, {includeRelations: true}),
+    //         },
+    //     },
+    // })
+    // async testApn(
+    //     @param.path.number('id') id: number,
+    // ): Promise<void> {
+    //     const token = await this.appUserRepository.deviceToken(id).get();
+    //     const note = this.format_ios_notification();
+    //     await this.send_ios_notification(note, [token.data]);
+    // }
+
+    // @put('/requests/{id}')
+    // @response(204, {
+    //     description: 'Request PUT success',
+    // })
+    // async replaceById(
+    //     @param.path.number('id') id: number,
+    //     @requestBody() request: Request,
+    // ): Promise<void> {
+    //     await this.requestRepository.replaceById(id, request);
+    // }
+
+    // @del('/requests/{id}')
+    // @response(204, {
+    //     description: 'Request DELETE success',
+    // })
+    // async deleteById(@param.path.number('id') id: number): Promise<void> {
+    //     await this.requestRepository.deleteById(id);
+    // }
 }

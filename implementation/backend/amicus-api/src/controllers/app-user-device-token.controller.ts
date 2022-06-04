@@ -28,25 +28,6 @@ export class AppUserDeviceTokenController {
     ) {
     }
 
-    @get('/app-users/{id}/device-token', {
-        responses: {
-            '200': {
-                description: 'AppUser has one DeviceToken',
-                content: {
-                    'application/json': {
-                        schema: getModelSchemaRef(DeviceToken),
-                    },
-                },
-            },
-        },
-    })
-    async get(
-        @param.path.number('id') id: number,
-        @param.query.object('filter') filter?: Filter<DeviceToken>,
-    ): Promise<DeviceToken> {
-        return this.appUserRepository.deviceToken(id).get(filter);
-    }
-
     @post('/app-users/{id}/device-token', {
         responses: {
             '200': {
@@ -81,41 +62,60 @@ export class AppUserDeviceTokenController {
         return this.appUserRepository.deviceToken(id).create(deviceToken);
     }
 
-    @patch('/app-users/{id}/device-token', {
-        responses: {
-            '200': {
-                description: 'AppUser.DeviceToken PATCH success count',
-                content: {'application/json': {schema: CountSchema}},
-            },
-        },
-    })
-    async patch(
-        @param.path.number('id') id: number,
-        @requestBody({
-            content: {
-                'application/json': {
-                    schema: getModelSchemaRef(DeviceToken, {partial: true}),
-                },
-            },
-        })
-            deviceToken: Partial<DeviceToken>,
-        @param.query.object('where', getWhereSchemaFor(DeviceToken)) where?: Where<DeviceToken>,
-    ): Promise<Count> {
-        return this.appUserRepository.deviceToken(id).patch(deviceToken, where);
-    }
+    // @get('/app-users/{id}/device-token', {
+    //     responses: {
+    //         '200': {
+    //             description: 'AppUser has one DeviceToken',
+    //             content: {
+    //                 'application/json': {
+    //                     schema: getModelSchemaRef(DeviceToken),
+    //                 },
+    //             },
+    //         },
+    //     },
+    // })
+    // async get(
+    //     @param.path.number('id') id: number,
+    //     @param.query.object('filter') filter?: Filter<DeviceToken>,
+    // ): Promise<DeviceToken> {
+    //     return this.appUserRepository.deviceToken(id).get(filter);
+    // }
 
-    @del('/app-users/{id}/device-token', {
-        responses: {
-            '200': {
-                description: 'AppUser.DeviceToken DELETE success count',
-                content: {'application/json': {schema: CountSchema}},
-            },
-        },
-    })
-    async delete(
-        @param.path.number('id') id: number,
-        @param.query.object('where', getWhereSchemaFor(DeviceToken)) where?: Where<DeviceToken>,
-    ): Promise<Count> {
-        return this.appUserRepository.deviceToken(id).delete(where);
-    }
+    // @patch('/app-users/{id}/device-token', {
+    //     responses: {
+    //         '200': {
+    //             description: 'AppUser.DeviceToken PATCH success count',
+    //             content: {'application/json': {schema: CountSchema}},
+    //         },
+    //     },
+    // })
+    // async patch(
+    //     @param.path.number('id') id: number,
+    //     @requestBody({
+    //         content: {
+    //             'application/json': {
+    //                 schema: getModelSchemaRef(DeviceToken, {partial: true}),
+    //             },
+    //         },
+    //     })
+    //         deviceToken: Partial<DeviceToken>,
+    //     @param.query.object('where', getWhereSchemaFor(DeviceToken)) where?: Where<DeviceToken>,
+    // ): Promise<Count> {
+    //     return this.appUserRepository.deviceToken(id).patch(deviceToken, where);
+    // }
+
+    // @del('/app-users/{id}/device-token', {
+    //     responses: {
+    //         '200': {
+    //             description: 'AppUser.DeviceToken DELETE success count',
+    //             content: {'application/json': {schema: CountSchema}},
+    //         },
+    //     },
+    // })
+    // async delete(
+    //     @param.path.number('id') id: number,
+    //     @param.query.object('where', getWhereSchemaFor(DeviceToken)) where?: Where<DeviceToken>,
+    // ): Promise<Count> {
+    //     return this.appUserRepository.deviceToken(id).delete(where);
+    // }
 }

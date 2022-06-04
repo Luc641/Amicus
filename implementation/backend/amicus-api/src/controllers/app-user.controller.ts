@@ -218,26 +218,6 @@ export class AppUserController {
         return Object.assign({}, ...categories.map((x) => ({[x.categoryName]: x.id})));
     }
 
-    // Endpoint to retrieve all the users matching the filter
-    @authenticate('jwt')
-    @get('/users')
-    @response(200, {
-        description: 'Array of AppUser model instances',
-        content: {
-            'application/json': {
-                schema: {
-                    type: 'array',
-                    items: getModelSchemaRef(AppUser, {includeRelations: true}),
-                },
-            },
-        },
-    })
-    async find(
-        @param.filter(AppUser) filter?: Filter<AppUser>,
-    ): Promise<AppUser[]> {
-        return this.appUserRepository.find(filter);
-    }
-
     // Endpoint to retrieve details from given user
     @authenticate('jwt')
     @get('/users/{id}')
@@ -256,82 +236,102 @@ export class AppUserController {
         return this.appUserRepository.findById(id, filter);
     }
 
-    // Endpoint to update the data from a certain user
-    @authenticate('jwt')
-    @patch('/users/{id}')
-    @response(204, {
-        description: 'AppUser PATCH success',
-    })
-    async updateById(
-        @param.path.number('id') id: number, //Retrieve user id from url
-        @requestBody({
-            content: {
-                'application/json': {
-                    schema: getModelSchemaRef(AppUser, {partial: true}), //Allow some data missing (only fields to update)
-                },
-            },
-        })
-            appUser: AppUser,
-    ): Promise<void> {
-        await this.appUserRepository.updateById(id, appUser);
-    }
+    // // Endpoint to retrieve all the users matching the filter
+    // @authenticate('jwt')
+    // @get('/users')
+    // @response(200, {
+    //     description: 'Array of AppUser model instances',
+    //     content: {
+    //         'application/json': {
+    //             schema: {
+    //                 type: 'array',
+    //                 items: getModelSchemaRef(AppUser, {includeRelations: true}),
+    //             },
+    //         },
+    //     },
+    // })
+    // async find(
+    //     @param.filter(AppUser) filter?: Filter<AppUser>,
+    // ): Promise<AppUser[]> {
+    //     return this.appUserRepository.find(filter);
+    // }
+
+    // // Endpoint to update the data from a certain user
+    // @authenticate('jwt')
+    // @patch('/users/{id}')
+    // @response(204, {
+    //     description: 'AppUser PATCH success',
+    // })
+    // async updateById(
+    //     @param.path.number('id') id: number, //Retrieve user id from url
+    //     @requestBody({
+    //         content: {
+    //             'application/json': {
+    //                 schema: getModelSchemaRef(AppUser, {partial: true}), //Allow some data missing (only fields to update)
+    //             },
+    //         },
+    //     })
+    //         appUser: AppUser,
+    // ): Promise<void> {
+    //     await this.appUserRepository.updateById(id, appUser);
+    // }
 
 
-    // Endpoint to delete a user from db
-    @authenticate('jwt')
-    @del('/users/{id}')
-    @response(204, {
-        description: 'AppUser DELETE success',
-    })
-    async deleteById(@param.path.number('id') id: number): Promise<void> {
-        await this.appUserRepository.deleteById(id);
-    }
+    // // Endpoint to delete a user from db
+    // @authenticate('jwt')
+    // @del('/users/{id}')
+    // @response(204, {
+    //     description: 'AppUser DELETE success',
+    // })
+    // async deleteById(@param.path.number('id') id: number): Promise<void> {
+    //     await this.appUserRepository.deleteById(id);
+    // }
 
-    // Endpoint to update data from multiple users 
-    @authenticate('jwt')
-    @patch('/users')
-    @response(200, {
-        description: 'AppUser PATCH success count',
-        content: {'application/json': {schema: CountSchema}},
-    })
-    async updateAll(
-        @requestBody({
-            content: {
-                'application/json': {
-                    schema: getModelSchemaRef(AppUser, {partial: true}), //Allow some data missing (only fields to update)
-                },
-            },
-        })
-            appUser: AppUser, //Create an user object with the data attached in the request body
-        @param.where(AppUser) where?: Where<AppUser>,
-    ): Promise<Count> {
-        //Try to update all the users matching a certain condition
-        return this.appUserRepository.updateAll(appUser, where);
-    }
+    // // Endpoint to update data from multiple users 
+    // @authenticate('jwt')
+    // @patch('/users')
+    // @response(200, {
+    //     description: 'AppUser PATCH success count',
+    //     content: {'application/json': {schema: CountSchema}},
+    // })
+    // async updateAll(
+    //     @requestBody({
+    //         content: {
+    //             'application/json': {
+    //                 schema: getModelSchemaRef(AppUser, {partial: true}), //Allow some data missing (only fields to update)
+    //             },
+    //         },
+    //     })
+    //         appUser: AppUser, //Create an user object with the data attached in the request body
+    //     @param.where(AppUser) where?: Where<AppUser>,
+    // ): Promise<Count> {
+    //     //Try to update all the users matching a certain condition
+    //     return this.appUserRepository.updateAll(appUser, where);
+    // }
 
-    // Endpoint to retrieve amount of user in the system matching the filter
-    @authenticate('jwt')
-    @get('/users/count')
-    @response(200, {
-        description: 'AppUser model count',
-        content: {'application/json': {schema: CountSchema}},
-    })
-    async count(
-        @param.where(AppUser) where?: Where<AppUser>,
-    ): Promise<Count> {
-        return this.appUserRepository.count(where);
-    }
+    // // Endpoint to retrieve amount of user in the system matching the filter
+    // @authenticate('jwt')
+    // @get('/users/count')
+    // @response(200, {
+    //     description: 'AppUser model count',
+    //     content: {'application/json': {schema: CountSchema}},
+    // })
+    // async count(
+    //     @param.where(AppUser) where?: Where<AppUser>,
+    // ): Promise<Count> {
+    //     return this.appUserRepository.count(where);
+    // }
 
-    // Endpoint to replace a user by another one reusing the id
-    @authenticate('jwt')
-    @put('/users/{id}')
-    @response(204, {
-        description: 'AppUser PUT success',
-    })
-    async replaceById(
-        @param.path.number('id') id: number, //Retrieve user id from url
-        @requestBody() appUser: AppUser, //Create user object out of the request body
-    ): Promise<void> {
-        await this.appUserRepository.replaceById(id, appUser);
-    }
+    // // Endpoint to replace a user by another one reusing the id
+    // @authenticate('jwt')
+    // @put('/users/{id}')
+    // @response(204, {
+    //     description: 'AppUser PUT success',
+    // })
+    // async replaceById(
+    //     @param.path.number('id') id: number, //Retrieve user id from url
+    //     @requestBody() appUser: AppUser, //Create user object out of the request body
+    // ): Promise<void> {
+    //     await this.appUserRepository.replaceById(id, appUser);
+    // }
 }
