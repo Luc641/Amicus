@@ -54,6 +54,7 @@
 		8186BE90281AAB0F00419F3A /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8186BE8F281AAB0F00419F3A /* UserProfileView.swift */; };
 		818701032817F949001F86C6 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818701022817F949001F86C6 /* HomePageView.swift */; };
 		818701062818025F001F86C6 /* NavbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818701052818025F001F86C6 /* NavbarView.swift */; };
+		8199CFBB2848C00200258EED /* RequestValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8199CFBA2848C00200258EED /* RequestValidator.swift */; };
 		81AB73002816A16900E947F0 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AB72FF2816A16900E947F0 /* ViewExtension.swift */; };
 		81C8E8A32811773700E8C00E /* LandingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8E8A22811773700E8C00E /* LandingPageView.swift */; };
 		AC5B85D5E35A57906A1B31AC /* Pods_Amicus_AmicusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52ABDDAFD66B3930B7F50891 /* Pods_Amicus_AmicusUITests.framework */; };
@@ -133,6 +134,7 @@
 		8186BE8F281AAB0F00419F3A /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		818701022817F949001F86C6 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		818701052818025F001F86C6 /* NavbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarView.swift; sourceTree = "<group>"; };
+		8199CFBA2848C00200258EED /* RequestValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestValidator.swift; sourceTree = "<group>"; };
 		81AB72FF2816A16900E947F0 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		81C8E8A22811773700E8C00E /* LandingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageView.swift; sourceTree = "<group>"; };
 		8599BB1328D16129E34992AB /* Pods-Amicus_Frontend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus_Frontend.release.xcconfig"; path = "Target Support Files/Pods-Amicus_Frontend/Pods-Amicus_Frontend.release.xcconfig"; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				2924D7AE2841553D00D66043 /* CategoryViewModel.swift */,
 				2924D7B628438DD300D66043 /* Placeholders.swift */,
 				2924D7BD2844AB7600D66043 /* Utilities.swift */,
+				8199CFBA2848C00200258EED /* RequestValidator.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				0709E9232836743400DD9E6E /* Haptics.swift in Sources */,
 				298D2B022822ADAA002C9466 /* ColorExtension.swift in Sources */,
 				81C8E8A32811773700E8C00E /* LandingPageView.swift in Sources */,
+				8199CFBB2848C00200258EED /* RequestValidator.swift in Sources */,
 				298D2B0C28240A31002C9466 /* RequestError.swift in Sources */,
 				0795758A2833A62300D682D2 /* ExpertRequestView.swift in Sources */,
 				07A18F6B282D32170098947D /* ExpertView.swift in Sources */,

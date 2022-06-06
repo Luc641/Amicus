@@ -19,12 +19,12 @@ struct RequestView: View {
         let coordinate: CLLocationCoordinate2D
     }
     
+    @ObservedObject var requestValidator = RequestValidator()
     @StateObject var locationManager = LocationManager()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    @State private var requestScreen = false
     @Binding var tabSelection: Tabs
-    @State private var description = ""
-    @State private var topic = ""
     @State private var address: CLPlacemark?
     @StateObject private var requestModel = RequestViewModel()
     @StateObject private var categoryModel = CategoryViewModel()
@@ -44,12 +44,12 @@ struct RequestView: View {
                 }.onAppear {
                     categoryModel.populateCategories()
                 }
-                TextField("Topic", text: $topic)
+                TextField("Topic", text: $requestValidator.topic).validation(requestValidator.topicValidation)
             }
             
             Section(header: Text("Describe your Problem here:")) {
                 ZStack(){
-                    TextEditor(text: $description)
+                    TextEditor(text: $requestValidator.description).validation(requestValidator.descriptionValidation)
                 }
                 
             }
@@ -119,8 +119,8 @@ struct RequestView: View {
             }
             
             
-            Button(action: {
-                requestModel.create(topic: topic, description: description, category: categoryModel.selection, image: self.image, coords: locationManager.location, userId: userState.info.info.id)
+            Button(action: {requestScreen = requestValidator.form.triggerValidation()
+                requestModel.create(topic: requestValidator.topic, description: requestValidator.description, category: categoryModel.selection, image: self.image, coords: locationManager.location, userId: userState.info.info.id)
                 tabSelection = Tabs.home
             }, label: {
                 HStack {
@@ -138,8 +138,6 @@ struct RequestView: View {
         })
     }
 }
-
-
 
 
 struct RequestView_Previews: PreviewProvider {
