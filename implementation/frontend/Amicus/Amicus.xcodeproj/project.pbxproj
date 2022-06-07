@@ -18,6 +18,7 @@
 		07AC8637280EBF8900C8C48F /* AmicusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC8636280EBF8900C8C48F /* AmicusTests.swift */; };
 		07AC8641280EBF8900C8C48F /* AmicusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC8640280EBF8900C8C48F /* AmicusUITests.swift */; };
 		07AC8643280EBF8900C8C48F /* AmicusUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC8642280EBF8900C8C48F /* AmicusUITestsLaunchTests.swift */; };
+		2901F3C4284EA9C400893D11 /* ApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2901F3C3284EA9C400893D11 /* ApiTests.swift */; };
 		2924D7AB2840DB0700D66043 /* CategoryEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924D7AA2840DB0700D66043 /* CategoryEndpoint.swift */; };
 		2924D7AD2841523300D66043 /* RequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924D7AC2841523300D66043 /* RequestViewModel.swift */; };
 		2924D7AF2841553D00D66043 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924D7AE2841553D00D66043 /* CategoryViewModel.swift */; };
@@ -94,6 +95,7 @@
 		07AC8640280EBF8900C8C48F /* AmicusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmicusUITests.swift; sourceTree = "<group>"; };
 		07AC8642280EBF8900C8C48F /* AmicusUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmicusUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0C5D006FA173E7AFF6593BEA /* Pods-Amicus_FrontendTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amicus_FrontendTests.release.xcconfig"; path = "Target Support Files/Pods-Amicus_FrontendTests/Pods-Amicus_FrontendTests.release.xcconfig"; sourceTree = "<group>"; };
+		2901F3C3284EA9C400893D11 /* ApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTests.swift; sourceTree = "<group>"; };
 		2924D7AA2840DB0700D66043 /* CategoryEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEndpoint.swift; sourceTree = "<group>"; };
 		2924D7AC2841523300D66043 /* RequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestViewModel.swift; sourceTree = "<group>"; };
 		2924D7AE2841553D00D66043 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 			children = (
 				2974A927283409460053F8AE /* ColorExtensionTests.swift */,
 				07AC8636280EBF8900C8C48F /* AmicusTests.swift */,
+				2901F3C3284EA9C400893D11 /* ApiTests.swift */,
 			);
 			path = AmicusTests;
 			sourceTree = "<group>";
@@ -688,6 +691,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07AC8637280EBF8900C8C48F /* AmicusTests.swift in Sources */,
+				2901F3C4284EA9C400893D11 /* ApiTests.swift in Sources */,
 				2974A928283409460053F8AE /* ColorExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,12 +12,15 @@ import CoreLocation
 
 /// Webclient singleton class for APi calls to the amicus backend server.
 final class WebClient {
-    private final var apiBase = URL(string: "https://amicus.sou.tf")
+    private final var apiBase: URL
     
     /// Returns the standard instance of this class
-    static let standard = WebClient()
+    static let standard = WebClient(url: URL(string: "https://amicus.sou.tf")!)
+    static let localhost = WebClient(url: URL(string: "http://localhost:3000")!)
     
-    private init(){}
+    private init(url: URL) {
+        apiBase = url
+    }
     
     private func createApiUrl(path: String) -> URL {
         return URL(string: path, relativeTo: apiBase)!
